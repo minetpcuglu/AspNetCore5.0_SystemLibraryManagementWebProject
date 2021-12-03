@@ -10,10 +10,13 @@
         <th>Kategori</th>
 
     </tr>
+    @foreach (var category in Model)
+    {
     <tr>
-        <td>1</td>
-        <td>roman</td>
+        <td>@category.CategoryId</td>
+        <td>@category.Name</td>
     </tr>
+    }
 </table>
 
 
