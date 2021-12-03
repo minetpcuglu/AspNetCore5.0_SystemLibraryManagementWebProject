@@ -1,9 +1,11 @@
-﻿@model List<Category>
+﻿@model IPagedList<Category>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";}
 
 <h1>Kategoriler</h1>
+<br />
+<br />
 <table class="table table-bordered table-secondary table-hover">
     <tr>
         <th>#</th>
@@ -27,5 +29,7 @@
 <a href="/Category/AddCategory/" class="btn btn-primary">Yeni Kategori Ekle</a>  @*basına admin eklendi*@
 <br />
 
+<br />
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
 
 

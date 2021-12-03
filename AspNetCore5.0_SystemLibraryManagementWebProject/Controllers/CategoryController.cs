@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 {
@@ -15,10 +16,10 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
     {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
         CategoryValidator categoryRules = new CategoryValidator();
-        public IActionResult Index()
+        public IActionResult Index(int page=1)
         {
             var value = categoryManager.GetList();
-            return View(value);
+            return View(value.ToPagedList(page, 3));
         }
 
         [HttpGet]
