@@ -8,16 +8,24 @@
     <tr>
         <th>#</th>
         <th>Kategori</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
 
     </tr>
     @foreach (var category in Model)
     {
-    <tr>
-        <td>@category.CategoryId</td>
-        <td>@category.Name</td>
-    </tr>
+        <tr>
+            <td>@category.CategoryId</td>
+            <td><b>@category.Name</b></td>
+            <td><a href="#" class="btn btn-outline-warning"> <b>Güncelle</b></a></td>
+            <td><a href="#" id="DeleteBtn" onclick="return confirm('Silmek Istediginize Eminmisiniz');" class="btn btn-outline-danger"> <b>Sil</b></a></td>
+
+        </tr>
     }
 </table>
+<br />
+<a href="/Category/AddCategory/" class="btn btn-primary">Yeni Kategori Ekle</a>  @*basına admin eklendi*@
+<br />
 
 
 
