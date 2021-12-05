@@ -20,7 +20,7 @@
             <td>@category.CategoryId</td>
             <td><b>@category.Name</b></td>
             <td><a href="#" class="btn btn-outline-warning"> <b>Güncelle</b></a></td>
-            <td><a href="#" id="DeleteBtn" onclick="return confirm('Silmek Istediginize Eminmisiniz');" class="btn btn-outline-danger"> <b>Sil</b></a></td>
+            <td><a href="/Category/DeleteCategory/@category.CategoryId" id="DeleteBtn" onclick="return confirm('Silmek Istediginize Eminmisiniz');" class="btn btn-outline-danger"> <b>Sil</b></a></td>
 
         </tr>
     }

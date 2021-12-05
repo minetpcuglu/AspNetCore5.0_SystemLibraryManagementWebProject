@@ -55,6 +55,31 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 
         }
 
+        public IActionResult DeleteCategory(int id)
+        {
+    
+            var value = categoryManager.GetById(id);
+            categoryManager.Delete(value);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult UpdateCategory(int id)
+        {
+
+            var value = categoryManager.GetById(id);
+            return View(value);
+        }
+
+        [HttpPost]
+        public IActionResult UpdateCategory(Category category)
+        {
+
+
+            categoryManager.Update(category);
+            return RedirectToAction("Index");
+        }
+
 
     }
 }
