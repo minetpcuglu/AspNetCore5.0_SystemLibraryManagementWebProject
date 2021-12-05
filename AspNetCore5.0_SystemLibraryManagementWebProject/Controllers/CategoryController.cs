@@ -75,7 +75,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         public IActionResult UpdateCategory(Category category)
         {
 
-
+            category.CategoryStatus = true;
             categoryManager.Update(category);
             return RedirectToAction("Index");
         }
