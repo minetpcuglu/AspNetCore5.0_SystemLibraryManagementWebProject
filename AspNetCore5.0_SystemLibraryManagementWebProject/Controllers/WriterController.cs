@@ -14,7 +14,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         public IActionResult Index()
         {
             var value = writerManager.GetList();
-            return View();
+            return View(value);
         }
     }
 }
