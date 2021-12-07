@@ -47,11 +47,11 @@
                             <h3 class="m-b-xs"><strong>@writer.Name @writer.Surname</strong></h3>
 
                             <div class="font-bold">@writer.Mail</div>
-                            <address class="m-t-md">
+                           
                                 <strong>Kimdir ?</strong><br>
-                                @writer.Description.Substring(0, writer.Description.Substring(0, 5).LastIndexOf(" "))...
-                                <abbr title="WebSite">W:</abbr> Web site
-                            </address>
+                                @writer.Description.Substring(0, writer.Description.Substring(0, 50).LastIndexOf(" "))<b>...</b>
+                                @*<a href="/Blog/BlogReadAll/@writer.WriterId" class="btn btn-primary read-m">Devamını Oku..</a>*@
+
                            
 
                         </a>
@@ -59,7 +59,7 @@
                             <div class="m-t-xs btn-group">
                                 <a href="" class="btn btn-xs btn-white"><i class="fa fa-book"></i> Kitaplar </a>
                                 <a href="" class="btn btn-xs btn-white"><i class="fa fa-search"></i> Düzenle</a>
-                                <a href="" class="btn btn-xs btn-white"><i class="fa fa-user-plus"></i> Follow</a>
+                                <a href="" class="btn btn-xs btn-white"><i class="fa fa-user"></i> Detay</a>
                             </div>
                         </div>
 
