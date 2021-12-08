@@ -37,7 +37,8 @@
 
                         <a href="/writer/WriterReadAll/@writer.WriterId">
 
-                            <img alt="image" class="rounded-circle" src="@writer.Image">
+                            <img alt="image" class="rounded-circle" src="/img/@writer.Image" @*style="width:50px;" height:"25px;"*@>
+                           
 
 
                             <h3 class="m-b-xs"><strong>@writer.Name @writer.Surname</strong></h3>
@@ -54,7 +55,7 @@
                         <div class="contact-box-footer">
                             <div class="m-t-xs btn-group">
                                 <a href="" class="btn btn-xs btn-white"><i class="fa fa-book"></i> Kitaplar </a>
-                                <a href="" class="btn btn-xs btn-white"><i class="fa fa-search"></i> Düzenle</a>
+                                <a href="/writer/WriterEditProfile/@writer.WriterId" class="btn btn-xs btn-white"><i class="fa fa-search"></i> Düzenle</a>
                                 <a href="/writer/WriterReadAll/@writer.WriterId" class="btn btn-xs btn-white"><i class="fa fa-user"></i> Detay</a>
                             </div>
                         </div>

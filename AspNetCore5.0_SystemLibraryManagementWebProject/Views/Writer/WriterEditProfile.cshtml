@@ -1,0 +1,62 @@
+﻿@model Writer
+@{
+    ViewData["Title"] = "WriterEditProfile";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Yazar Güncelleme Sayfası</h1>
+<br />
+
+<form method="post" asp-controller="Writer" asp-action="WriterEditProfile" enctype="multipart/form-data">
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yazar Profil Bilgileri Düzenleme</h4>
+
+
+                @Html.HiddenFor(x => x.WriterId, new { @class = "form-control" })
+
+                <div class="form-group">
+                    <label asp-for="Name"> <b>Yazar Adı Soyadı:</b></label>
+                    <input asp-for="Name" type="text" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="Surname"> <b>Soyadınız:</b></label>
+                    <input asp-for="Surname" class="form-control" />
+                    <span asp-validation-for="Surname" class="text-danger"></span>
+                </div>
+                <div>
+                    <label asp-for="Mail"> <b>E-Mail:</b></label>
+                    <input asp-for="Mail" type="email" class="form-control" />
+                    <span asp-validation-for="Mail" class="text-danger"></span>
+                </div>
+
+
+                <div>
+                    <label asp-for="Password"><b>Şifre:</b></label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Image"> <b>Resim:</b></label>
+                    <input type="file" name="file" class="form-control" />
+                </div>
+                <div>
+                    <label asp-for="Description"> <b>Hakkımda:</b></label>
+                    <input asp-for="Description" class="form-control" />
+                    <span asp-validation-for="Description" class="text-danger"></span>
+                </div>
+                <br />
+                <button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
+                <button class="btn btn-light">İptal</button>
+
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
+
