@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Concrete;
+using BusinessLayer.ValidationRules.FluentValidation;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -12,6 +14,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
     public class WriterController : Controller
     {
         WriterManager writerManager = new WriterManager(new EfWriterRepository());
+        WriterValidator writerRules = new WriterValidator();
         public IActionResult Index()
         {
             var value = writerManager.GetList();
@@ -35,30 +38,29 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         [HttpPost]
         public IActionResult AddWriter(Writer writer)
         {
-            //ValidationResult result = categoryRules.Validate(category);
+            ValidationResult result = writerRules.Validate(writer);
 
-            //if (result.IsValid)
-            //{
-            //    category.CategoryStatus = true;
-
-
-            //    categoryManager.Add(category);
-            //    return RedirectToAction("Index", "Category");
-            //}
-            //else if (!result.IsValid)
-            //{
-            //    foreach (var rule in result.Errors)
-            //    {
-            //        ModelState.AddModelError(rule.PropertyName, rule.ErrorMessage);
-            //    }
+            if (result.IsValid)
+            {
+                writer.WriterStatus = true;
 
 
-            //}
+                writerManager.Add(writer);
+                return RedirectToAction("Index");
+            }
+            else if (!result.IsValid)
+            {
+                foreach (var rule in result.Errors)
+                {
+                    ModelState.AddModelError(rule.PropertyName, rule.ErrorMessage);
+                }
 
-            //return View();
 
-            writerManager.Add(writer);
-            return RedirectToAction("Index");
+            }
+
+            return View();
+
+      
         }
     }
 }

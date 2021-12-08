@@ -7,40 +7,86 @@
 <h1>Yazar Ekleme Sayfası</h1>
 <br />
 <br />
-@using (Html.BeginForm("AddWriter", "Writer", FormMethod.Post))
-{
-    @Html.Label("Yazar Adı:")
-    @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Name)
+
+<form method="post" asp-controller="Writer" asp-action="AddWriter">
+
+    <div>
+        <label asp-for="Name"> <b>Adınız :</b></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Surname"> <b>Soyadınız:</b></label>
+        <input asp-for="Surname" class="form-control" />
+        <span asp-validation-for="Surname" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Mail"> <b>E-Mail:</b></label>
+        <input asp-for="Mail" type="email" class="form-control" />
+        <span asp-validation-for="Mail" class="text-danger"></span>
+    </div>
+
+
+    <div>
+        <label asp-for="Password"><b>Şifre:</b></label>
+        <input asp-for="Password" type="password" class="form-control" />
+        <span asp-validation-for="Password" class="text-danger"></span>
+    </div>
+
+    <div>
+        <label asp-for="Image"> <b>Dosya Yolu:</b></label>
+        <input asp-for="Image" class="form-control" />
+        <span asp-validation-for="Image" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="Description"> <b>Hakkımda:</b></label>
+        <input asp-for="Description" class="form-control" />
+        <span asp-validation-for="Description" class="text-danger"></span>
+    </div>
+
+
     <br />
     <br />
-    @Html.Label("Yazar Soyadı:")
-    @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Surname)
+    <button type="submit" class="btn btn-outline-success"><b>Yeni Yazar Ekle</b></button>
     <br />
-    <br />
-    @Html.Label("Yazar E-Mail:")
-    @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Mail)
-    <br />
-    <br />
-    @Html.Label("Yazar Şifre:")
-    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Password)
-    <br />
-    <br />
-    @Html.Label("Dosya Yolu:")
-    @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Image)
-    <br />
-    <br />
-    @Html.Label("Hakkında:")
-    @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.Description)
-    <br />
-    <br />
-    <button class="btn btn-info"> Verileri Kaydet</button>
-}
+
+
+</form>
+
+@*@using (Html.BeginForm("AddWriter", "Writer", FormMethod.Post))
+    {
+        @Html.Label("Yazar Adı:")
+        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Name)
+        <br />
+        <br />
+        @Html.Label("Yazar Soyadı:")
+        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Surname)
+        <br />
+        <br />
+        @Html.Label("Yazar E-Mail:")
+        @Html.TextBoxFor(x => x.Mail, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Mail)
+        <br />
+        <br />
+        @Html.Label("Yazar Şifre:")
+        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Password)
+        <br />
+        <br />
+        @Html.Label("Dosya Yolu:")
+        @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Image)
+        <br />
+        <br />
+        @Html.Label("Hakkında:")
+        @Html.TextAreaFor(x => x.Description, new { @class = "form-control" })
+        @Html.ValidationMessageFor(x => x.Description)
+        <br />
+        <br />
+        <button class="btn btn-info"> Verileri Kaydet</button>
+    }*@
 
 
 
