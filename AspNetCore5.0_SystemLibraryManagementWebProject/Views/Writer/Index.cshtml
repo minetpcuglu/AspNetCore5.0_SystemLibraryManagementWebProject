@@ -37,18 +37,18 @@
 
                         <a href="/writer/WriterReadAll/@writer.WriterId">
 
-                            <img alt="image" class="rounded-circle" src="~/aspnetadmin/img/a2.jpg">
+                            <img alt="image" class="rounded-circle" src="@writer.Image">
 
 
                             <h3 class="m-b-xs"><strong>@writer.Name @writer.Surname</strong></h3>
 
                             <div class="font-bold">@writer.Mail</div>
-                           
-                                <strong>Kimdir ?</strong><br>
-                                @writer.Description.Substring(0, writer.Description.Substring(0, 50).LastIndexOf(" "))<b>...</b>
-                                @*<a href="/Blog/BlogReadAll/@writer.WriterId" class="btn btn-primary read-m">Devamını Oku..</a>*@
 
-                           
+                            <strong>Kimdir ?</strong><br>
+                            @writer.Description.Substring(0, writer.Description.Substring(0, 50).LastIndexOf(" "))<b>...</b>
+                            @*<a href="/Blog/BlogReadAll/@writer.WriterId" class="btn btn-primary read-m">Devamını Oku..</a>*@
+
+
 
                         </a>
                         <div class="contact-box-footer">
@@ -65,9 +65,11 @@
 
             }
 
-            </div>
+        </div>
     </div>
-
+ 
+    <a href="/Writer/AddWriter/" class="btn btn-primary">Yeni Yazar Ekle</a>  @*basına admin eklendi*@
+    <br />
 
     <!-- Mainly scripts -->
     <script src="~/aspnetadmin/js/jquery-3.1.1.min.js"></script>
