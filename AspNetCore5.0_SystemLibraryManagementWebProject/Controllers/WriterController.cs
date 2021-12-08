@@ -16,5 +16,11 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             var value = writerManager.GetList();
             return View(value);
         }
+
+        public IActionResult WriterReadAll(int id)
+        {
+            var value = writerManager.GetWriterById(id);
+            return View(value);
+        }
     }
 }

@@ -37,6 +37,11 @@ namespace BusinessLayer.Concrete
             return _writerDal.GetAll();
         }
 
+        public List<Writer> GetWriterById(int id)
+        {
+           return _writerDal.GetListAll(x => x.WriterId == id);
+        }
+
         public void Update(Writer t)
         {
             _writerDal.Update(t);
