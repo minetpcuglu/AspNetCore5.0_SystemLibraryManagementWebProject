@@ -48,7 +48,8 @@
                                   <a href="/writer/WriterEditProfile/@writer.WriterId" class="btn btn-primary btn-sm btn-block"><i class="fa fa-search"></i> Düzenle</a>
                                 </div>
                                 <div class="col-md-6">
-                                    <a href="/Writer/DeleteWriter/@writer.WriterId" class="btn btn-outline-primary btn-sm btn-block"><i class="fa fa-deaf"></i><b> Sil</b> </a>
+                                    @Html.ActionLink("Sil","DeleteWriter",new  {id=writer.WriterId }, new {@class =" btn btn - outline - danger btn - sm btn - block" , onclick="return confirm('Silmek istiyor musunuz ?')"} )
+                                    @*<a href="/Writer/DeleteWriter/@writer.WriterId" class="btn btn-outline-primary btn-sm btn-block"><i class="fa fa-deaf"></i> <b> Sil</b> </a>*@
                                 </div>
                             </div>
                         </div>
