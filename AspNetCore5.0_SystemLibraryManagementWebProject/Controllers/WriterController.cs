@@ -10,6 +10,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 {
@@ -17,13 +18,13 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
     {
         WriterManager writerManager = new WriterManager(new EfWriterRepository());
         WriterValidator writerRules = new WriterValidator();
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
          
             var value = writerManager.GetList();
         
 
-            return View(value);
+            return View(value.ToPagedList(page, 8));
         }
 
         public IActionResult WriterReadAll(int id)

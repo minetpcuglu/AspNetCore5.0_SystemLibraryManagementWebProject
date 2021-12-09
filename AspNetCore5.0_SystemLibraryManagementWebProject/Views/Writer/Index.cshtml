@@ -1,4 +1,4 @@
-﻿@model List<Writer>
+﻿@model IPagedList<Writer>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -77,9 +77,12 @@
 
         </div>
     </div>
- 
+
     <a href="/Writer/AddWriter/" class="btn btn-primary">Yeni Yazar Ekle</a>  @*basına admin eklendi*@
     <br />
+
+    <br />
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
 
     <!-- Mainly scripts -->
     <script src="~/aspnetadmin/js/jquery-3.1.1.min.js"></script>
