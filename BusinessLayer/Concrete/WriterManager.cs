@@ -19,12 +19,14 @@ namespace BusinessLayer.Concrete
 
         public void Add(Writer t)
         {
+            t.WriterStatus = true;
             _writerDal.insert(t);
         }
 
         public void Delete(Writer t)
         {
-            _writerDal.Delete(t);
+            t.WriterStatus = false;
+            _writerDal.Update(t);
         }
 
         public Writer GetById(int id)
@@ -32,18 +34,23 @@ namespace BusinessLayer.Concrete
             return _writerDal.GetById(id);
         }
 
+      
         public List<Writer> GetList()
         {
-            return _writerDal.GetAll();
+            return _writerDal.GetListAll(x => x.WriterStatus == true);
         }
+
+   
 
         public List<Writer> GetWriterById(int id)
         {
+          
            return _writerDal.GetListAll(x => x.WriterId == id);
         }
 
         public void Update(Writer t)
         {
+            t.WriterStatus = true;
             _writerDal.Update(t);
         }
     }

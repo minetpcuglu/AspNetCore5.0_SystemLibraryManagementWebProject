@@ -19,7 +19,10 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         WriterValidator writerRules = new WriterValidator();
         public IActionResult Index()
         {
+         
             var value = writerManager.GetList();
+        
+
             return View(value);
         }
 
@@ -44,7 +47,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 
             if (result.IsValid)
             {
-                writer.WriterStatus = true;
+              
 
 
                 writerManager.Add(writer);
@@ -91,7 +94,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
                         await file.CopyToAsync(stream);
                     }
                 }
-
+                
                 writerManager.Update(writer);
 
                 return RedirectToAction("Index");
@@ -104,13 +107,14 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
                 }
             }
             return View();
+        }
 
-
-
-
-
-
-
+       
+        public IActionResult DeleteWriter(int id)
+        {
+            var value = writerManager.GetById(id);
+            writerManager.Delete(value);
+            return RedirectToAction("Index");
         }
     }
 }
