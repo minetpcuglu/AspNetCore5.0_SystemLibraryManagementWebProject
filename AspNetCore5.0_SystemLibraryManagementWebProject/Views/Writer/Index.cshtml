@@ -38,7 +38,7 @@
                         <a href="/writer/WriterReadAll/@writer.WriterId">
 
                             <img alt="image" class="rounded-circle" src="/img/@writer.Image" @*style="width:50px;" height:"25px;"*@>
-                           
+
 
 
                             <h3 class="m-b-xs"><strong>@writer.Name @writer.Surname</strong></h3>
@@ -46,7 +46,16 @@
                             <div class="font-bold">@writer.Mail</div>
 
                             <strong>Kimdir ?</strong><br>
-                            @writer.Description.Substring(0, writer.Description.Substring(0, 49).LastIndexOf(" "))<b>...</b>
+                            @if (writer.Description.Length <= 49)
+                            {
+                                @writer.Description
+                            }
+
+                            else
+                            {
+                                @writer.Description.Substring(0, writer.Description.Substring(0, 49).LastIndexOf(" "))<b>...</b>
+                            }
+
                             @*<a href="/Blog/BlogReadAll/@writer.WriterId" class="btn btn-primary read-m">Devamını Oku..</a>*@
 
 

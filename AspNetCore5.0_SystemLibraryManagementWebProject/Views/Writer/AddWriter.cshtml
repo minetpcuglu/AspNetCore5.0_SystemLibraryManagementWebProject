@@ -40,15 +40,26 @@
     <div>
         <label asp-for="Description"> <b>Hakkımda:</b></label>
         <input asp-for="Description" class="form-control" />
-        <span asp-validation-for="Description" class="text-danger"></span>
+        <span asp-validation-for="Description"  id="txtdescription"  class="text-danger"></span>
 
     </div>
 
 
     <br />
     <br />
-    <button type="submit" class="btn btn-outline-success"><b>Yeni Yazar Ekle</b></button>
+    <button type="submit" class="btn btn-outline-success"  ><b>Yeni Yazar Ekle</b></button>
     <br />
 
 
 </form>
+
+@*<script>
+    function fnccontrol()
+    {
+        var x = $('#txtdescription');
+        if (x.val().length < 20)
+        {
+            alert("Hataaaaaaaaaaaaaaaaaa");
+        }
+    }
+</script>*@
