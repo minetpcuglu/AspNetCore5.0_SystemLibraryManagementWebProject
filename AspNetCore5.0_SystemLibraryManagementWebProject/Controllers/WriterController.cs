@@ -41,13 +41,24 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddWriter(Writer writer)
+        public async Task<IActionResult> AddWriter(Writer writer, IFormFile file)
         {
             ValidationResult result = writerRules.Validate(writer);
 
             if (result.IsValid)
             {
-              
+                if (file != null)
+                {
+                    var extension = Path.GetExtension(file.FileName); //uzantiya ulasmak //.jpg .png
+                    var randomFileName = string.Format($"{Guid.NewGuid()}{extension}");  //random bir sayı ile resim dosyaları birbirine çakışmaması
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", randomFileName);
+                    writer.Image = randomFileName;
+
+                    using (var stream = new FileStream(path, FileMode.Create))  //using içinde olması isimiz bittiginde otamatşk silinecek olması.
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                }
 
 
                 writerManager.Add(writer);

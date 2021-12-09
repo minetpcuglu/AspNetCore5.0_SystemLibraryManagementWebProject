@@ -8,7 +8,7 @@
 <br />
 <br />
 
-<form method="post" asp-controller="Writer" asp-action="AddWriter">
+<form method="post" asp-controller="Writer" asp-action="AddWriter" enctype="multipart/form-data">
 
     <div>
         <label asp-for="Name"> <b>Adınız :</b></label>
@@ -33,15 +33,15 @@
         <span asp-validation-for="Password" class="text-danger"></span>
     </div>
 
-    <div>
-        <label asp-for="Image"> <b>Dosya Yolu:</b></label>
-        <input asp-for="Image" class="form-control" />
-        <span asp-validation-for="Image" class="text-danger"></span>
+    <div class="form-group">
+        <label asp-for="Image"> <b>Resim:</b></label>
+        <input type="file" name="file" class="form-control" />
     </div>
     <div>
         <label asp-for="Description"> <b>Hakkımda:</b></label>
         <input asp-for="Description" class="form-control" />
         <span asp-validation-for="Description" class="text-danger"></span>
+
     </div>
 
 
