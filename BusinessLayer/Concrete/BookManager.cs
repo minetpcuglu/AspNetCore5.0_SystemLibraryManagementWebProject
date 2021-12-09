@@ -38,9 +38,19 @@ namespace BusinessLayer.Concrete
             return _bookDal.GetAll();
         }
 
+        public List<Book> GetListWithWriter(int id)
+        {
+            return _bookDal.GetListWithWriter(id);
+        }
+
         public void Update(Book t)
         {
             _bookDal.Update(t);
+        }
+
+        public List<Book> GetBookByWriterId(int id)
+        {
+            return _bookDal.GetListAll(x => x.BookId == id);
         }
     }
 }

@@ -29,6 +29,7 @@ namespace BusinessLayer.Concrete
             _writerDal.Update(t);
         }
 
+
         public Writer GetById(int id)
         {
             return _writerDal.GetById(id);
