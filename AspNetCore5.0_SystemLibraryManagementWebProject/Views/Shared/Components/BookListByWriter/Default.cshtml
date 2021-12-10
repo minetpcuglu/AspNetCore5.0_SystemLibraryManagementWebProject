@@ -1,36 +1,46 @@
 ﻿@model IEnumerable<Book>
 
 
-<h1>kitaplar</h1>
+
 
         <div class="ibox-content">
 
             <div>
                 <div class="feed-activity-list">
+                    @if (Model.Count() > 0)
+                    {
+                        <h4>Kitaplar</h4>
+                    }
+                    else
+                    {
+                        <h3>Hiç Kitap Eklenmemis ilk Kitabı Ekle..</h3>
+                    }
+
 
                     @foreach (var book in Model)
                     {
-                    <div class="feed-element">
-                        <div class="ibox-content no-padding border-left-right">
-                            <img alt="image" class="img-fluid" src="@book.BookImage" width="85"  height="100">
-                        </div>
-                        <div class="media-body ">
-                            
-                            <small class="float-right text-navy">@book.Publisher Yayınevi / @book.PrintDate.ToShortDateString()</small>
-                            <br />
-                            <strong>@book.BookName</strong> / @book.NumberPage<strong></strong>. <br>
-                            <br />
-                            <small class="text-muted">@book.BookDescription</small>
-                            <div class="actions">
-                                <a href="" class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Read </a>
-                                <a href="" class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Like</a>
+                        <div class="feed-element">
+                            <div class="ibox-content no-padding border-left-right">
+                                <img alt="image" class="img-fluid" src="@book.BookImage" width="85" height="100">
+                            </div>
+                            <div class="media-body ">
+
+                                <small class="float-right text-navy">@book.Publisher Yayınevi / @book.PrintDate.ToShortDateString()</small>
+                                <br />
+                                <strong>@book.BookName</strong> /<strong> </strong> <br>
+                                <br />
+                                <small class="text-muted">@book.BookDescription / <strong>Sayfa Sayısı - @book.NumberPage </strong> </small>
+                                <div class="actions">
+                                    <a href="" class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Oku </a>
+                                    <a href="" class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Begen</a>
+                                    <a href="" class="btn btn-xs btn-success"><i class="fa fa-book"></i> Detay</a>
+                                </div>
                             </div>
                         </div>
-                    </div>
                     }
                 </div>
 
-                <button class="btn btn-primary btn-block m"><i class="fa fa-arrow-down"></i> Show More</button>
+                <button class="btn btn-primary btn-block m"><i class="fa fa-book"></i> Yeni Kitap Ekle</button>
 
             </div>
 

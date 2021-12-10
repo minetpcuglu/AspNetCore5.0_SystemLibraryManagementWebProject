@@ -48,7 +48,7 @@
                                         <a href="/writer/WriterEditProfile/@writer.WriterId" class="btn btn-primary btn-sm btn-block"><i class="fa fa-search"></i> Düzenle</a>
                                     </div>
                                     <div class="col-md-6">
-                                        @Html.ActionLink("Sil", "DeleteWriter", new { id = writer.WriterId }, new { @class = " btn btn - outline - danger btn - sm btn - block", onclick = "return confirm('Silmek istiyor musunuz ?')" })
+                                        @Html.ActionLink("Sil", "DeleteWriter", new { id = writer.WriterId }, new { @class = "btn btn-danger btn-sm btn-block ", onclick = "return confirm('Silmek istiyor musunuz ?')" })
                                         @*<a href="/Writer/DeleteWriter/@writer.WriterId" class="btn btn-outline-primary btn-sm btn-block"><i class="fa fa-deaf"></i> <b> Sil</b> </a>*@
                                     </div>
                                 </div>
@@ -91,21 +91,3 @@
     </div>
 </div>
 
-
-@*<h1>Yazar Detay Sayfası</h1>
-    <table class="table table-bordered table-hover">
-        <tr>#</tr>
-        <tr>Adı</tr>
-        <tr>Soyadı</tr>
-        <tr>Detay</tr>
-        @foreach (var writer in Model)
-        {
-            <tr>
-
-                <td>@writer.WriterId</td>
-                <td>@writer.Name</td>
-                <td>@writer.Surname</td>
-                <td>@writer.Description</td>
-            </tr>
-        }
-    </table>*@
