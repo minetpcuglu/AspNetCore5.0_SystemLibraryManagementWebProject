@@ -32,7 +32,6 @@
 
   <ItemGroup>
     <Folder Include="ViewComponents\Writer\" />
-    <Folder Include="Views\Shared\Components\WriterGetListWithBook\" />
   </ItemGroup>
 
 </Project>

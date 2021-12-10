@@ -12,15 +12,18 @@
                     {
                     <div class="feed-element">
                         <div class="ibox-content no-padding border-left-right">
-                            <img alt="image" class="img-fluid" src="@book.BookImage" width="35" height="60">
+                            <img alt="image" class="img-fluid" src="@book.BookImage" width="85"  height="100">
                         </div>
                         <div class="media-body ">
-                            <small class="float-right text-navy">1m ago</small>
-                            <strong>@book.BookName</strong>@book.NumberPage<strong></strong>. <br>
-                            <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                            
+                            <small class="float-right text-navy">@book.Publisher Yayınevi / @book.PrintDate.ToShortDateString()</small>
+                            <br />
+                            <strong>@book.BookName</strong> / @book.NumberPage<strong></strong>. <br>
+                            <br />
+                            <small class="text-muted">@book.BookDescription</small>
                             <div class="actions">
-                                <a href="" class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
-                                <a href="" class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Love</a>
+                                <a href="" class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Read </a>
+                                <a href="" class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Like</a>
                             </div>
                         </div>
                     </div>
