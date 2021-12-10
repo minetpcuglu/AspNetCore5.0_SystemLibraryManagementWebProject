@@ -29,6 +29,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 
         public IActionResult WriterReadAll(int id)
         {
+            ViewBag.x = id;
             var value = writerManager.GetWriterById(id);
             return View(value);
         }

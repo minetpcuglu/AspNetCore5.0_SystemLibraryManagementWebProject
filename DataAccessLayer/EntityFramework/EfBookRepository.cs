@@ -15,12 +15,6 @@ namespace DataAccessLayer.EntityFramework
     {
        
 
-        public List<Book> GetListWithWriter(int id) //kategoriye göre yazar getirme
-        {
-            using (var c = new Context())
-            {
-                return c.Books.Include(x => x.Writer).Where(x => x.WriterId == id).ToList();
-            }
-        }
+      
     }
 }

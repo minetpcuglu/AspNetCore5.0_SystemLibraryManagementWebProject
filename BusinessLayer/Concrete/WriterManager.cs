@@ -23,6 +23,8 @@ namespace BusinessLayer.Concrete
             _writerDal.insert(t);
         }
 
+        
+
         public void Delete(Writer t)
         {
             t.WriterStatus = false;
@@ -41,12 +43,14 @@ namespace BusinessLayer.Concrete
             return _writerDal.GetListAll(x => x.WriterStatus == true);
         }
 
-   
-
         public List<Writer> GetWriterById(int id)
         {
-          
-           return _writerDal.GetListAll(x => x.WriterId == id);
+            return _writerDal.GetListAll(x => x.WriterId == id);
+        }
+
+        public List<Writer> GetWriterListWithBook()
+        {
+            return _writerDal.GetListWithBook();
         }
 
         public void Update(Writer t)

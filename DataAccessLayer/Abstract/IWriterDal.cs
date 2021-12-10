@@ -9,6 +9,7 @@ namespace DataAccessLayer.Abstract
 {
    public interface IWriterDal:IGenericDal<Writer>
     {
-       
+        List<Writer> GetListWithBook(); //kitaplarla beraber yazarı getir
+
     }
 }

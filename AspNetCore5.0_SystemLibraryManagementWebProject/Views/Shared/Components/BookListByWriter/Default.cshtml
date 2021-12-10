@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Book>
+
+
+<h1>kitaplar</h1>
+
+        <div class="ibox-content">
+
+            <div>
+                <div class="feed-activity-list">
+
+                    @foreach (var book in Model)
+                    {
+                    <div class="feed-element">
+                        <div class="ibox-content no-padding border-left-right">
+                            <img alt="image" class="img-fluid" src="@book.BookImage" width="35" height="60">
+                        </div>
+                        <div class="media-body ">
+                            <small class="float-right text-navy">1m ago</small>
+                            <strong>@book.BookName</strong>@book.NumberPage<strong></strong>. <br>
+                            <small class="text-muted">Today 4:21 pm - 12.06.2014</small>
+                            <div class="actions">
+                                <a href="" class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Like </a>
+                                <a href="" class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Love</a>
+                            </div>
+                        </div>
+                    </div>
+                    }
+                </div>
+
+                <button class="btn btn-primary btn-block m"><i class="fa fa-arrow-down"></i> Show More</button>
+
+            </div>
+
+        </div>

@@ -11,8 +11,16 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-   public class EfWriterRepository : GenericRepository<Writer>, IWriterDal
+    public class EfWriterRepository : GenericRepository<Writer>, IWriterDal
     {
-     
+
+
+        public List<Writer> GetListWithBook()
+        {
+            using (var c = new Context())
+            {
+                return c.Writers.Include(x => x.Books).ToList(); //kitap tablosuna ait degerler 
+            }
+        }
     }
 }
