@@ -21,5 +21,13 @@ namespace DataAccessLayer.EntityFramework
         //        return c.Books.Include(x => x.Category).Where(x => x.WriterId == id).ToList(); 
         //    }
         //}
+
+        public List<Book> GetListWithCategory()
+        {
+            using (var c = new Context())
+            {
+                return c.Books.Include(x => x.Category).ToList();
+            }
+        }
     }
 }

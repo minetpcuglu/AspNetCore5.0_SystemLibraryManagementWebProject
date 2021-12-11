@@ -17,7 +17,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         CategoryValidator categoryRules = new CategoryValidator();
         public IActionResult Index()
         {
-            var value = bookManager.GetList();
+            var value = bookManager.GetListWithCategory();
             return View(value);
         }
 

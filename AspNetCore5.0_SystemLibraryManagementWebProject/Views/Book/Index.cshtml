@@ -42,11 +42,12 @@
 
 
 
-                            <h3 class="m-b-xs"><strong>@book.BookName @book.NumberPage</strong></h3>
+                            <h3 class="m-b-xs"><strong>@book.BookName </strong></h3>
 
-                            @*<div class="font-bold">@writer.Mail</div>*@
+                            <div class="font-bold"><strong>Tür :</strong>@book.Category.Name</div>
+                            <div class="font-bold"><strong>@book.Publisher </strong>Yayınevi</div>
 
-                            <strong>Içerik ?</strong><br>
+                            <strong>Içerik </strong><br>
                             @if (book.BookDescription.Length <= 49)
                             {
                                 @book.BookDescription
@@ -64,9 +65,9 @@
                         </a>
                         <div class="contact-box-footer">
                             <div class="m-t-xs btn-group">
-                                <a href="" class="btn btn-xs btn-white"><i class="fa fa-book"></i> Kitaplar </a>
-                                <a href="/writer/WriterEditProfile/@book.BookId" class="btn btn-xs btn-white"><i class="fa fa-search"></i> Düzenle</a>
-                                <a href="/writer/WriterReadAll/@book.BookId" class="btn btn-xs btn-white"><i class="fa fa-user"></i> Detay</a>
+                                <a href="/Writer/WriterReadAll/@book.BookId" class="btn btn-xs btn-white"><i class="fa fa-book"></i> Yazar </a>
+                                <a href="/Book/BookEditProfile/@book.BookId" class="btn btn-xs btn-white"><i class="fa fa-search"></i> Düzenle</a>
+                                <a href="/Book/BookReadAll/@book.BookId" class="btn btn-xs btn-white"><i class="fa fa-user"></i> Detay</a>
                             </div>
                         </div>
 

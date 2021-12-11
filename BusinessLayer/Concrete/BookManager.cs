@@ -53,6 +53,11 @@ namespace BusinessLayer.Concrete
             return _bookDal.GetListAll(x => x.WriterId == id);
         }
 
+        public List<Book> GetListWithCategory()
+        {
+            return _bookDal.GetListWithCategory();
+        }
+
         //public List<Book> BookListByWriter(int id)
         //{
         //    return _bookDal.GetListAll(x => x.WriterId == id);
