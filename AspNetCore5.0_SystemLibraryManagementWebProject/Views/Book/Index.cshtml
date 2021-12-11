@@ -1,0 +1,103 @@
+﻿@model List<Book>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Kitap Listesi</h1>
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-9">
+            <h2>Kitaplar</h2>
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="index.html">Anasayfa</a>
+                </li>
+                <li class="breadcrumb-item">
+                    Içerik 
+                </li>
+                <li class="breadcrumb-item active">
+                    <strong>Kitaplar</strong>
+                </li>
+            </ol>
+        </div>
+    </div>
+
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+
+
+            @foreach (var book in Model)
+            {
+                <div class="col-lg-3">
+                    <div class="contact-box center-version">
+
+                        <a href="/Book/BookReadAll/@book.BookId">
+
+                            <img alt="image" class="rounded-lg" src="@book.BookImage" @*style="width:50px;" height:"25px;"*@>
+
+
+
+                            <h3 class="m-b-xs"><strong>@book.BookName @book.NumberPage</strong></h3>
+
+                            @*<div class="font-bold">@writer.Mail</div>*@
+
+                            <strong>Içerik ?</strong><br>
+                            @if (book.BookDescription.Length <= 49)
+                            {
+                                @book.BookDescription
+                            }
+
+                            else
+                            {
+                                @book.BookDescription.Substring(0, book.BookDescription.Substring(0, 49).LastIndexOf(" "))<b>...</b>
+                            }
+
+                            @*<a href="/Blog/BlogReadAll/@writer.WriterId" class="btn btn-primary read-m">Devamını Oku..</a>*@
+
+
+
+                        </a>
+                        <div class="contact-box-footer">
+                            <div class="m-t-xs btn-group">
+                                <a href="" class="btn btn-xs btn-white"><i class="fa fa-book"></i> Kitaplar </a>
+                                <a href="/writer/WriterEditProfile/@book.BookId" class="btn btn-xs btn-white"><i class="fa fa-search"></i> Düzenle</a>
+                                <a href="/writer/WriterReadAll/@book.BookId" class="btn btn-xs btn-white"><i class="fa fa-user"></i> Detay</a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            }
+
+        </div>
+    </div>
+
+    <a href="/Writer/AddWriter/" class="btn btn-primary">Yeni Yazar Ekle</a>  @*basına admin eklendi*@
+    <br />
+
+    <br />
+    @*@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))*@
+
+    <!-- Mainly scripts -->
+    <script src="~/aspnetadmin/js/jquery-3.1.1.min.js"></script>
+    <script src="~/aspnetadmin/js/popper.min.js"></script>
+    <script src="~/aspnetadmin/js/bootstrap.js"></script>
+    <script src="~/aspnetadmin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="~/aspnetadmin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+
+    <!-- Custom and plugin javascript -->
+    <script src="~/aspnetadmin/js/inspinia.js"></script>
+    <script src="~/aspnetadmin/js/plugins/pace/pace.min.js"></script>
+
+
+</body>
+
+</html>
+

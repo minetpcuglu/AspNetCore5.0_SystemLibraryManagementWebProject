@@ -13,8 +13,13 @@ namespace DataAccessLayer.EntityFramework
 {
    public class EfBookRepository:GenericRepository<Book>,IBookDal
     {
-       
 
-      
+        //public List<Book> GetBookByWriterId(int id)
+        //{
+        //    using (var c = new Context())
+        //    {
+        //        return c.Books.Include(x => x.Category).Where(x => x.WriterId == id).ToList(); 
+        //    }
+        //}
     }
 }

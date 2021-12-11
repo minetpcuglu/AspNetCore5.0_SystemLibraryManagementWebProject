@@ -20,12 +20,14 @@ namespace BusinessLayer.Concrete
 
         public void Add(Book t)
         {
+            t.BookStatus = true;
             _bookDal.insert(t);
         }
 
         public void Delete(Book t)
         {
-            _bookDal.Delete(t);
+            t.BookStatus = false;
+            _bookDal.Update(t);
         }
 
         public Book GetById(int id)
@@ -42,6 +44,7 @@ namespace BusinessLayer.Concrete
 
         public void Update(Book t)
         {
+            t.BookStatus = true;
             _bookDal.Update(t);
         }
 
@@ -49,5 +52,10 @@ namespace BusinessLayer.Concrete
         {
             return _bookDal.GetListAll(x => x.WriterId == id);
         }
+
+        //public List<Book> BookListByWriter(int id)
+        //{
+        //    return _bookDal.GetListAll(x => x.WriterId == id);
+        //}
     }
 }
