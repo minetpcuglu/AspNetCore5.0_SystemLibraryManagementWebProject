@@ -21,6 +21,13 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             return View(value);
         }
 
+        public IActionResult BookReadAll(int id)
+        {
+           
+            var value = bookManager.GetBookById(id);
+            return View(value);
+        }
+
         [HttpGet]
         public IActionResult AddBook()
         {
@@ -28,7 +35,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddCategory(Book book)
+        public IActionResult AddBook(Book book)
         {
             //ValidationResult result = categoryRules.Validate(book);
 

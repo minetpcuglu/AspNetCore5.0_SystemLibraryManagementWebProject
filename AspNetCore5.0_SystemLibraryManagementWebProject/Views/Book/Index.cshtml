@@ -27,18 +27,16 @@
         </div>
     </div>
 
-    <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
-
-
+    
+       
             @foreach (var book in Model)
             {
-                <div class="col-lg-3">
+                
                     <div class="contact-box center-version">
 
                         <a href="/Book/BookReadAll/@book.BookId">
 
-                            <img alt="image" class="rounded-lg" src="@book.BookImage" @*style="width:50px;" height:"25px;"*@>
+                            <img alt="image" class="rounded-lg" src="/img/@book.BookImage" @*style="width:50px;" height:"25px;"*@>
 
 
 
@@ -72,13 +70,12 @@
                         </div>
 
                     </div>
-                </div>
+         
 
 
             }
 
-        </div>
-    </div>
+  
 
     <a href="/Writer/AddWriter/" class="btn btn-primary">Yeni Yazar Ekle</a>  @*basına admin eklendi*@
     <br />
