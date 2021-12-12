@@ -22,5 +22,13 @@ namespace DataAccessLayer.EntityFramework
                 return c.Writers.Include(x => x.Books).ToList(); //kitap tablosuna ait degerler 
             }
         }
+
+        public List<Book> GetListWithCategoryByWriterId(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Books.Include(x => x.Category).Where(x => x.WriterId == id).ToList(); ;
+            }
+        }
     }
 }

@@ -12,6 +12,8 @@ namespace BusinessLayer.Abstract
         List<Writer> GetWriterById(int id);
         List<Writer> GetWriterListWithBook(); //Include metodu kullanımı için yazar göre listeleme
 
+        List<Book> GetListWithCategoryByWriterId(int id);
+
 
     }
 }

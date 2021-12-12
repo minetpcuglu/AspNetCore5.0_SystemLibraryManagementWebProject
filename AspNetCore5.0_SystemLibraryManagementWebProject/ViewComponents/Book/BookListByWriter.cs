@@ -16,7 +16,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.ViewComponents.Book
         public IViewComponentResult Invoke(int id)
         {
 
-            var Value =bookManager.GetBookByWriterId(id);
+            var Value =bookManager.GetListWithCategoryByWriterId(id);
             return View(Value);
         }
     }

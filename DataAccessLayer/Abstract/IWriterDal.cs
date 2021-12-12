@@ -11,5 +11,7 @@ namespace DataAccessLayer.Abstract
     {
         List<Writer> GetListWithBook(); //kitaplarla beraber yazarı getir
 
+        List<Book> GetListWithCategoryByWriterId(int id);
+
     }
 }
