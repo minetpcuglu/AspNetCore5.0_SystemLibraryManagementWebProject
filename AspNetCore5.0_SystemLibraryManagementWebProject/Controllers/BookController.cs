@@ -24,7 +24,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         public IActionResult BookReadAll(int id)
         {
            
-            var value = bookManager.GetBookById(id);
+            var value = bookManager.GetListWithCategoryByWriterId(id);
             return View(value);
         }
 
