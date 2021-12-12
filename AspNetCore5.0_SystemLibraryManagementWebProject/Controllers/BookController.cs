@@ -3,12 +3,15 @@ using BusinessLayer.ValidationRules.FluentValidation;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Threading.Tasks;
+using X.PagedList;
 
 namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 {
@@ -18,10 +21,10 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
         WriterManager writerManager = new WriterManager(new EfWriterRepository());
         BookValidator bookRules = new BookValidator();
-        public IActionResult Index()
+        public IActionResult Index(int page = 1)
         {
             var value = bookManager.GetListWithCategory();
-            return View(value);
+            return View(value.ToPagedList(page, 8));
         }
 
         public IActionResult BookReadAll(int id)
@@ -59,12 +62,24 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         }
 
         [HttpPost]
-        public IActionResult AddBook(Book book)
+        public async Task<IActionResult> AddBook(Book book, IFormFile file)
         {
             ValidationResult result = bookRules.Validate(book);
 
             if (result.IsValid)
             {
+                if (file != null)
+                {
+                    var extension = Path.GetExtension(file.FileName); //uzantiya ulasmak //.jpg .png
+                    var randomFileName = string.Format($"{Guid.NewGuid()}{extension}");  //random bir sayı ile resim dosyaları birbirine çakışmaması
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", randomFileName);
+                   book.BookImage = randomFileName;
+
+                    using (var stream = new FileStream(path, FileMode.Create))  //using içinde olması isimiz bittiginde otamatşk silinecek olması.
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                }
                 bookManager.Add(book);
                 return RedirectToAction("Index", "Book");
             }

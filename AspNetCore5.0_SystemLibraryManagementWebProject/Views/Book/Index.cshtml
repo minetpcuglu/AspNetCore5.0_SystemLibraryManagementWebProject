@@ -1,4 +1,4 @@
-﻿@model List<Book>
+﻿@model IPagedList<Book>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -38,7 +38,7 @@
 
                     <a href="/Book/BookReadAll/@book.BookId">
 
-                        <img alt="image" class="rounded-lg" src="@book.BookImage" style="width:100px; height:150px;">
+                        <img alt="image" class="rounded-lg" src="/img/@book.BookImage" style="width:100px; height:150px;">
 
 
 
@@ -85,7 +85,7 @@
     <br />
 
     <br />
-    @*@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))*@
+    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
 
     <!-- Mainly scripts -->
     <script src="~/aspnetadmin/js/jquery-3.1.1.min.js"></script>
