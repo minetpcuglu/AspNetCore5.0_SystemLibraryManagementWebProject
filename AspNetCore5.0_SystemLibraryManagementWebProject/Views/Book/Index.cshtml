@@ -5,6 +5,7 @@
 }
 
 <h1>Kitap Listesi</h1>
+
 <!DOCTYPE html>
 <html>
 
@@ -18,7 +19,7 @@
                     <a href="index.html">Anasayfa</a>
                 </li>
                 <li class="breadcrumb-item">
-                    Içerik
+                    İçerik
                 </li>
                 <li class="breadcrumb-item active">
                     <strong>Kitaplar</strong>
@@ -27,58 +28,60 @@
         </div>
     </div>
 
+    <div class="wrapper wrapper-content animated fadeInRight">
+        <div class="row">
+
+            @foreach (var book in Model)
+            {
+
+                <div class="contact-box center-version">
+
+                    <a href="/Book/BookReadAll/@book.BookId">
+
+                        <img alt="image" class="rounded-lg" src="@book.BookImage" style="width:100px; height:150px;">
 
 
 
-    @foreach (var book in Model)
-    {
+                        <h3 class="m-b-xs"><strong>@book.BookName </strong></h3>
 
-        <div class="contact-box center-version">
+                        <div class="font-bold"><strong>Tür :</strong>@book.Category.Name</div>
+                        <div class="font-bold"><strong>@book.Publisher </strong>Yayınevi</div>
 
-            <a href="/Book/BookReadAll/@book.BookId">
+                        <strong>Içerik </strong><br>
+                        @if (book.BookDescription.Length <= 49)
+                        {
+                            @book.BookDescription
+                        }
 
-                <img alt="image" class="rounded-lg" src="@book.BookImage" style="width:100px; height:150px;">
+                        else
+                        {
+                            @book.BookDescription.Substring(0, book.BookDescription.Substring(0, 49).LastIndexOf(" "))<b>...</b>
+                        }
 
-
-
-                <h3 class="m-b-xs"><strong>@book.BookName </strong></h3>
-
-                <div class="font-bold"><strong>Tür :</strong>@book.Category.Name</div>
-                <div class="font-bold"><strong>@book.Publisher </strong>Yayınevi</div>
-
-                <strong>Içerik </strong><br>
-                @if (book.BookDescription.Length <= 49)
-                {
-                    @book.BookDescription
-                }
-
-                else
-                {
-                    @book.BookDescription.Substring(0, book.BookDescription.Substring(0, 49).LastIndexOf(" "))<b>...</b>
-                }
-
-                @*<a href="/Blog/BlogReadAll/@writer.WriterId" class="btn btn-primary read-m">Devamını Oku..</a>*@
+                        @*<a href="/Blog/BlogReadAll/@writer.WriterId" class="btn btn-primary read-m">Devamını Oku..</a>*@
 
 
 
-            </a>
-            <div class="contact-box-footer">
-                <div class="m-t-xs btn-group">
-                    <a href="/Writer/WriterReadAll/@book.BookId" class="btn btn-xs btn-white"><i class="fa fa-book"></i> Yazar </a>
-                    <a href="/Book/BookEditProfile/@book.BookId" class="btn btn-xs btn-white"><i class="fa fa-search"></i> Düzenle</a>
-                    <a href="/Book/BookReadAll/@book.BookId" class="btn btn-xs btn-white"><i class="fa fa-user"></i> Detay</a>
+                    </a>
+                    <div class="contact-box-footer">
+                        <div class="m-t-xs btn-group">
+                            <a href="/Writer/WriterReadAll/@book.BookId" class="btn btn-xs btn-white"><i class="fa fa-book"></i> Yazar </a>
+                            <a href="/Book/BookEditProfile/@book.BookId" class="btn btn-xs btn-white"><i class="fa fa-search"></i> Düzenle</a>
+                            <a href="/Book/BookReadAll/@book.WriterId" class="btn btn-xs btn-white"><i class="fa fa-user"></i> Detay</a>
+                        </div>
+                    </div>
+
                 </div>
-            </div>
+
+
+
+            }
+
 
         </div>
+    </div>
 
-
-
-    }
-
-
-
-    <a href="/Writer/AddWriter/" class="btn btn-primary">Yeni Yazar Ekle</a>  @*basına admin eklendi*@
+    <a href="/Book/AddBook/" class="btn btn-primary">Yeni Kitap Ekle</a> 
     <br />
 
     <br />
@@ -99,4 +102,6 @@
 </body>
 
 </html>
+
+
 

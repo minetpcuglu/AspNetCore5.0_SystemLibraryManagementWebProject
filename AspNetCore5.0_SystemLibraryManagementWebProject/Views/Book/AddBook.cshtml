@@ -1,0 +1,67 @@
+﻿@model Book
+@{
+    ViewData["Title"] = "AddBook";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Kitap Ekleme Sayfası</h1>
+
+<br />
+<br />
+
+<form method="post" asp-controller="Book" asp-action="AddBook" enctype="multipart/form-data">
+
+    <div>
+        <label asp-for="BookName"> <b>Kitap Adı:</b></label>
+        <input asp-for="BookName" class="form-control" />
+        <span asp-validation-for="BookName" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="NumberPage"> <b>Sayfa Sayısı:</b></label>
+        <input asp-for="NumberPage" type="number" class="form-control" />
+        <span asp-validation-for="NumberPage" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="PrintDate"> <b>Basım Tarihi:</b></label>
+        <input asp-for="PrintDate" type="datetime-local" class="form-control" />
+        <span asp-validation-for="PrintDate" class="text-danger"></span>
+    </div>
+
+
+    <div>
+        <label asp-for="Publisher"><b>Yayınevi:</b></label>
+        <input asp-for="Publisher" class="form-control" />
+        <span asp-validation-for="Publisher" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="BookImage"> <b>Resim:</b></label>
+        @*<input type="file" name="file" class="form-control" />*@
+        <input asp-for="BookImage" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="BookDescription"> <b>Kitap Hakkında:</b></label>
+        <input asp-for="BookDescription" class="form-control" />
+        <span asp-validation-for="BookDescription" id="txtdescription" class="text-danger"></span>
+
+    </div>
+    <br />
+    <label asp-for="CategoryId"> <b>Kategori:</b></label>
+    @Html.DropDownListFor(x => x.CategoryId, (List<SelectListItem>)ViewBag.value, new { @class = "form-control" })
+    <span asp-validation-for="CategoryId" class="text-danger"></span>
+    <br />
+    <br />
+    <label asp-for="WriterId"> <b>Yazar:</b></label>
+    @Html.DropDownListFor(x => x.WriterId, (List<SelectListItem>)ViewBag.value2, new { @class = "form-control" })
+    <span asp-validation-for="WriterId" class="text-danger"></span>
+    <br />
+
+
+
+    <br />
+    <br />
+    <button type="submit" class="btn btn-outline-success"><b>Yeni Yazar Ekle</b></button>
+    <br />
+
+
+</form>

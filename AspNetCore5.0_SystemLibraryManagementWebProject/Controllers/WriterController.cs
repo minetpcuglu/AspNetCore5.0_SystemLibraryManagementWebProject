@@ -5,6 +5,7 @@ using EntityLayer.Concrete;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -17,6 +18,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
     public class WriterController : Controller
     {
         WriterManager writerManager = new WriterManager(new EfWriterRepository());
+    
         WriterValidator writerRules = new WriterValidator();
         public IActionResult Index(int page = 1)
         {
@@ -39,6 +41,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         [HttpGet]
         public IActionResult AddWriter()
         {
+           
             return View();
         }
 
