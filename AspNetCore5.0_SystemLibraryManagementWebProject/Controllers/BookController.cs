@@ -96,5 +96,66 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             return View();
 
         }
+
+
+        [HttpGet]
+        public IActionResult WriterEditProfile(int id)
+        {
+            List<SelectListItem> categoryValue = (from x in categoryManager.GetList()
+                                                  select new SelectListItem
+                                                  {
+                                                      Text = x.Name,
+                                                      Value = x.CategoryId.ToString()
+                                                  }).ToList();
+
+            ViewBag.value = categoryValue;
+
+            List<SelectListItem> writerValue = (from x in writerManager.GetList()
+                                                select new SelectListItem
+                                                {
+                                                    Text = x.Name + " " + x.Surname,
+
+                                                    Value = x.WriterId.ToString()
+                                                }).ToList();
+
+            ViewBag.value2 = writerValue;
+
+            var bookvalue = bookManager.GetById(id);
+            return View(bookvalue);
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> BookEditProfile(Book book, IFormFile file)
+        {
+            ValidationResult result = bookRules.Validate(book);
+            if (result.IsValid)
+            {
+                if (file != null)
+                {
+                    var extension = Path.GetExtension(file.FileName); //uzantiya ulasmak //.jpg .png
+                    var randomFileName = string.Format($"{Guid.NewGuid()}{extension}");  //random bir sayı ile resim dosyaları birbirine çakışmaması
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", randomFileName);
+                    book.BookImage = randomFileName;
+
+                    using (var stream = new FileStream(path, FileMode.Create))  //using içinde olması isimiz bittiginde otamatşk silinecek olması.
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                }
+
+                bookManager.Update(book);
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+                }
+            }
+            return View();
+        }
     }
 }
