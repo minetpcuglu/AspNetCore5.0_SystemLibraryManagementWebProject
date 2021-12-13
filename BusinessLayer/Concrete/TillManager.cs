@@ -38,6 +38,9 @@ namespace BusinessLayer.Concrete
             return _tillDal.GetAll();
         }
 
+
+      
+
         public void Update(Till t)
         {
             _tillDal.Update(t);

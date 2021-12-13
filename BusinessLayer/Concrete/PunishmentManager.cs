@@ -38,6 +38,7 @@ namespace BusinessLayer.Concrete
             return _punishmentDal.GetAll();
         }
 
+    
         public void Update(Punishment t)
         {
             _punishmentDal.Update(t);

@@ -38,6 +38,8 @@ namespace BusinessLayer.Concrete
             return _categoryDal.GetAll();
         }
 
+        
+
         public void Update(Category t)
         {
             _categoryDal.Update(t);

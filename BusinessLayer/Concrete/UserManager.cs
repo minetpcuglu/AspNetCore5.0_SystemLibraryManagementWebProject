@@ -38,6 +38,7 @@ namespace BusinessLayer.Concrete
             return _userDal.GetAll();
         }
 
+
         public void Update(User t)
         {
             _userDal.Update(t);

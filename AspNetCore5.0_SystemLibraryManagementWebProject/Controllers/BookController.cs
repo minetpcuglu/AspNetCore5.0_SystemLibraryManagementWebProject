@@ -21,13 +21,14 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
         WriterManager writerManager = new WriterManager(new EfWriterRepository());
         BookValidator bookRules = new BookValidator();
-        public IActionResult Index(int page = 1)
+        public IActionResult Index( int page = 1)
         {
+           
             var value = bookManager.GetListWithCategory();
             return View(value.ToPagedList(page, 8));
         }
 
-        public IActionResult BookReadAll(int id)
+        public IActionResult BookReadAll( int id)
         {
            
             var value = bookManager.GetListWithCategoryByWriterId(id);
@@ -158,6 +159,13 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             return View();
         }
 
+
+        public IActionResult DeleteBook(int id)
+        {
+            var value = bookManager.GetById(id);
+            bookManager.Delete(value);
+            return RedirectToAction("Index");
+        }
 
     }
 }

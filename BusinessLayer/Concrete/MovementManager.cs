@@ -38,6 +38,8 @@ namespace BusinessLayer.Concrete
             return _movementDal.GetAll();
         }
 
+       
+
         public void Update(Movement t)
         {
             _movementDal.Update(t);

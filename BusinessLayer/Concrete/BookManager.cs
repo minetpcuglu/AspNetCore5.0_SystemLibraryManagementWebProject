@@ -26,6 +26,8 @@ namespace BusinessLayer.Concrete
 
         public void Delete(Book t)
         {
+      
+
             t.BookStatus = false;
             _bookDal.Update(t);
         }
@@ -37,6 +39,7 @@ namespace BusinessLayer.Concrete
 
         public List<Book> GetList()
         {
+
             return _bookDal.GetAll();
         }
 
@@ -72,5 +75,6 @@ namespace BusinessLayer.Concrete
         {
             return _bookDal.GetListWithCategoryByWriterId(id);
         }
+
     }
 }
