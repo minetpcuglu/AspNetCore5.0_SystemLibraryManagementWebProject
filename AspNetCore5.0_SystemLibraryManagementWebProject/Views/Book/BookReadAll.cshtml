@@ -49,7 +49,7 @@
                             <div class="user-button">
                                 <div class="row">
                                     <div class="col-md-6">
-                                        <a href="/writer/WriterEditProfile/@book.BookId" class="btn btn-primary btn-sm btn-block"><i class="fa fa-search"></i> Düzenle</a>
+                                        <a href="/Book/BookEditProfile/@book.BookId" class="btn btn-primary btn-sm btn-block"><i class="fa fa-search"></i> Düzenle</a>
                                     </div>
                                     <div class="col-md-6">
                                         @Html.ActionLink("Sil", "DeleteBook", new { id = book.BookId }, new { @class = "btn btn-danger btn-sm btn-block ", onclick = "return confirm('Silmek istiyor musunuz ?')" })

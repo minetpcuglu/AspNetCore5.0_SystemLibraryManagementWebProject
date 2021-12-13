@@ -10,6 +10,7 @@ namespace DataAccessLayer.Abstract
    public interface IBookDal:IGenericDal<Book>
     {
         List<Book> GetListWithCategory();
+        List<Book> GetListWithCategoryBookId(int id);
         List<Book> GetListWithCategoryByWriterId(int id);
         //List<Book> GetBookByWriterId(int id);
     }

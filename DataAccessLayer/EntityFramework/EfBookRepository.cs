@@ -30,14 +30,24 @@ namespace DataAccessLayer.EntityFramework
             }
         }
 
+      
+
         public List<Book> GetListWithCategoryByWriterId(int id)
         {
             using (var c = new Context())
             {
-                return c.Books.Include(x => x.Category).Where(x => x.WriterId == id && x.BookStatus==true).ToList(); ;
+                return c.Books.Include(x => x.Category).Where(x => x.WriterId == id && x.BookStatus == true).ToList(); ;
             }
         }
 
-       
+        public List<Book> GetListWithCategoryBookId(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Books.Include(x => x.Category).Where(x => x.BookId == id && x.BookStatus == true).ToList(); ;
+            }
+        }
+
+
     }
 }

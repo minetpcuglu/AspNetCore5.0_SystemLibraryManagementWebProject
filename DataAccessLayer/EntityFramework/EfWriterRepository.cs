@@ -30,5 +30,7 @@ namespace DataAccessLayer.EntityFramework
                 return c.Books.Include(x => x.Category).Where(x => x.WriterId == id).ToList(); ;
             }
         }
+
+   
     }
 }
