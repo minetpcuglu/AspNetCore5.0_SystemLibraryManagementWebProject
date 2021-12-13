@@ -99,7 +99,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 
 
         [HttpGet]
-        public IActionResult WriterEditProfile(int id)
+        public IActionResult BookEditProfile(int id)
         {
             List<SelectListItem> categoryValue = (from x in categoryManager.GetList()
                                                   select new SelectListItem
@@ -157,5 +157,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             }
             return View();
         }
+
+
     }
 }
