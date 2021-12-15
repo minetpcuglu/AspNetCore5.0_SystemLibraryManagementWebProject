@@ -1,0 +1,37 @@
+﻿@model IPagedList<Employee>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Personel Listesi</h1>
+
+<br />
+<table class="table table-striped  table-hover table-bordered">
+    <tr>
+        <th>#</th>
+        <th>Personel</th>
+   
+
+        <th style="width:240px">Güncelle / Sil </th>
+    </tr>
+
+    @foreach (var employee in Model)
+    {
+        <tr>
+            <th>@employee.EmployeeId</th>
+            <td><p>@employee.NameSurname</p></td>
+
+           
+
+            <td>
+                <a href="/Employee/DeleteEmployee/@employee.EmployeeId" class="btn btn-outline-danger">Sil</a>
+                <a href="/Employee/EmployeeUpdate/@employee.EmployeeId" class="btn btn-outline-warning">Güncelle</a>
+                
+            </td>
+        </tr>
+    }
+</table>
+<br />
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+<a href="/Employee/AddEmployee/" class="btn btn-primary">Yeni Personel Ekle</a>
