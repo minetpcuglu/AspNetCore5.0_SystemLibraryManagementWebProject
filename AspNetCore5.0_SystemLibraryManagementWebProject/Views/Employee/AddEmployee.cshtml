@@ -1,0 +1,32 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "AddEmployee";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Personel Ekleme Sayfası</h1>
+
+<br />
+<form method="post" asp-controller="Employee" asp-action="AddEmployee">
+    <div>
+        <div>
+            <br />
+            <label asp-for="NameSurname"> <b>Adı Soyadı:</b></label>
+            <input asp-for="NameSurname" type="text" class="form-control" />
+            <span asp-validation-for="NameSurname" class="text-danger"></span>
+
+            <br />
+            <br />
+
+
+        </div>
+    </div>
+
+    <br>
+
+    <button type="submit" href="/Employee/AddEmployee/" class="btn btn-outline-success"><b>Personel Oluştur</b></button>
+    <br />
+
+
+</form>
+
