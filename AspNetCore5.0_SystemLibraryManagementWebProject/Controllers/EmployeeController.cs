@@ -46,5 +46,13 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             }
             return View();
         }
+
+      
+        public IActionResult DeleteEmployee(int id)
+        {
+           var value= employeeManager.GetById(id);
+            employeeManager.Delete(value);
+            return RedirectToAction("Index");
+        }
     }
 }
