@@ -1,0 +1,51 @@
+﻿
+@{
+    ViewData["Title"] = "UserReadAll";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Kullanıcılar</h1>
+<br />
+<br />
+<table class="table table-bordered  table-hover">
+    <tr>
+        <th>#</th>
+        <th>Kullanıcı Adı</th>
+        <th>Email</th>
+        <th>Şifre</th>
+        <th>Telefon</th>
+        <th>Adı</th>
+        <th>Soyadı</th>
+        <th>Resim</th>
+        <th>Eğitim</th>
+        <th>Güncelle</th>
+        <th>Sil</th>
+
+    </tr>
+    @foreach (var user in Model)
+    {
+        <tr>
+            <td>@user.UserId</td>
+            <th>@user.UserName</th>
+            <td>@user.Email</td>
+            <td>@user.Password</td>
+            <td>@user.Telephone</td>
+            <td>@user.Name</td>
+            <td>@user.Surname</td>
+            <td>@user.Image</td>
+            <td>@user.Education</td>
+
+
+            <td><a href="/User/UpdateUser/@user.UserId" class="btn btn-outline-warning"> <b>Güncelle</b></a></td>
+            <td><a href="/User/DeleteUser/@user.UserId" id="DeleteBtn" onclick="return confirm('Silmek Istediginize Eminmisiniz');" class="btn btn-outline-danger"> <b>Sil</b></a></td>
+
+        </tr>
+    }
+</table>
+<br />
+<a href="/User/AddUser/" class="btn btn-primary">Yeni Kullanıcı Ekle</a>  @*basına admin eklendi*@
+<br />
+
+<br />
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+

@@ -20,11 +20,13 @@ namespace BusinessLayer.Concrete
 
         public void Add(User t)
         {
+            t.UserStatus = true;
             _userDal.insert(t);
         }
 
         public void Delete(User t)
         {
+            t.UserStatus = false;
             _userDal.Delete(t);
         }
 
@@ -35,12 +37,13 @@ namespace BusinessLayer.Concrete
 
         public List<User> GetList()
         {
-            return _userDal.GetAll();
+            return _userDal.GetListAll(x => x.UserStatus == true);
         }
 
 
         public void Update(User t)
         {
+            t.UserStatus= true;
             _userDal.Update(t);
         }
     }

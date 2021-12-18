@@ -24,6 +24,13 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             return View(value.ToPagedList(page, 10));
         }
 
+        //public IActionResult UserReadAll(int id,int page = 1 )
+        //{
+        //    var value = userManager.GetList();
+        //    return View(value.ToPagedList(page, 10));
+        //}
+
+
         [HttpGet]
         public IActionResult AddUser()
         {
