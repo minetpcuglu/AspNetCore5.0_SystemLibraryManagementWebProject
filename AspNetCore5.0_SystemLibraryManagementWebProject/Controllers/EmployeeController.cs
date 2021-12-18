@@ -54,5 +54,32 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             employeeManager.Delete(value);
             return RedirectToAction("Index");
         }
+
+
+        [HttpGet]
+        public IActionResult EmployeeUpdate(int id)
+        {
+            var value = employeeManager.GetById(id);
+            return View(value);
+        }
+
+        [HttpPost]
+        public IActionResult EmployeeUpdate(Employee employee)
+        {
+            ValidationResult result = employeeRules.Validate(employee);
+            if (result.IsValid)
+            {
+                employeeManager.Update(employee);
+                return RedirectToAction("Index");
+            }
+            else if (!result.IsValid)
+            {
+                foreach (var rule in result.Errors)
+                {
+                    ModelState.AddModelError(rule.PropertyName, rule.ErrorMessage);
+                }
+            }
+            return View();
+        }
     }
 }

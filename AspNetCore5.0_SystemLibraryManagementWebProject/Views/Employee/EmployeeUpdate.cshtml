@@ -1,0 +1,30 @@
+﻿@model Employee
+@{
+    ViewData["Title"] = "EmployeeUpdate";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Müşteri Güncelleme Sayfası</h1>
+<br />
+<form method="post" asp-controller="Employee" asp-action="EmployeeUpdate">
+    <div class="row">
+        <div class="col-md-12">
+            <div asp-validation-summary="All"></div>
+            <input type="hidden" name="EmployeeId" value="@Model.EmployeeId" />
+            <div class="form-group">
+                <label asp-for="NameSurname"><b> Personel Adı Soyadı: </b>  </label>
+                <input asp-for="NameSurname" class="form-control" value="@Model.NameSurname" />
+                <span asp-validation-for="NameSurname" class="text-danger"></span>
+
+            </div>
+
+
+            <button type="submit" class="btn btn-primary">Güncelle</button>
+
+        </div>
+        <br />
+    </div>
+</form>
+
+
+
