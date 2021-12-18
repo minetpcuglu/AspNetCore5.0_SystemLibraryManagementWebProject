@@ -40,6 +40,10 @@ namespace BusinessLayer.Concrete
             return _userDal.GetListAll(x => x.UserStatus == true);
         }
 
+        public List<User> GetUserById(int id)
+        {
+            return _userDal.GetListAll(x => x.UserId == id);
+        }
 
         public void Update(User t)
         {

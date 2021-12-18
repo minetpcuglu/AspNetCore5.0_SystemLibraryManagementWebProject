@@ -1,4 +1,4 @@
-﻿
+﻿@model List<User>
 @{
     ViewData["Title"] = "UserReadAll";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -32,7 +32,8 @@
             <td>@user.Telephone</td>
             <td>@user.Name</td>
             <td>@user.Surname</td>
-            <td>@user.Image</td>
+            <td><img alt="image" class="img-fluid" src="/img/@user.Image" style="width:50px;" height:"25px;"></td>
+
             <td>@user.Education</td>
 
 
@@ -47,5 +48,5 @@
 <br />
 
 <br />
-@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+
 
