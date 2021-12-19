@@ -25,9 +25,7 @@ namespace EntityLayer.Concrete
         public int MovementId { get; set; }
         public virtual Movement Movement { get; set; }
 
-        /*İlişkiler*/
-        public int? EmployeeId { get; set; }
-        public virtual Employee Employee { get; set; }
+       
 
     }
 }

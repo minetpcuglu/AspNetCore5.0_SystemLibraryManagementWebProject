@@ -14,7 +14,7 @@ namespace EntityLayer.Concrete
         public string NameSurname { get; set; }
 
         /*İlişkiler*/
-        public ICollection<Punishment> Punishments { get; set; }
+        public ICollection<Movement> Movements { get; set; }
         /**/
     }
 }

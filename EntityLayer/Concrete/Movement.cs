@@ -25,6 +25,9 @@ namespace EntityLayer.Concrete
         public int UserId { get; set; }
         public virtual User User { get; set; }
 
+        /*İlişkiler*/
+        public int? EmployeeId { get; set; }
+        public virtual Employee Employee { get; set; }
 
         /*İlişkiler*/
         public ICollection<Punishment> Punishments { get; set; }
