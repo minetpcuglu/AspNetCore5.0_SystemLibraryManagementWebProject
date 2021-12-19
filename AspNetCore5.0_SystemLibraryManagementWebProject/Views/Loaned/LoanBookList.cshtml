@@ -8,7 +8,7 @@
 
 <br />
 <br />
-<table class="table table-bordered table-secondary table-hover">
+<table class="table table-bordered  table-hover">
     <tr>
         <th>Işlem ID</th>
         <th>Kitap Adı</th>
@@ -16,7 +16,7 @@
         <th>Personel </th>
         <th>Alış Tarihi </th>
         <th>Iade Tarihi </th>
-        <th>Güncelle</th>
+        <th>İşlemler</th>
 
 
     </tr>
@@ -24,12 +24,12 @@
     {
         <tr>
             <td>@movement.MovementId</td>
-            <td><b>@movement.BookId</b></td>
+            <td><b>@movement.Book.BookName</b></td>
             <td><b>@movement.UserId</b></td>
             <td><b>@movement.EmployeeId</b></td>
             <td><b>@movement.AlisTarihi.ToShortDateString()</b></td>
             <td><b>@movement.IadeTarihi.ToShortDateString()</b></td>
-            <td><a href="/Loaned/DeleteLoaned/@movement.MovementId" id="DeleteBtn" onclick="return confirm('Iade Etmek Istediginize Eminmisiniz');" class="btn btn-outline-success"> <b>Iade Et</b></a></td>
+            <td><a href="/Loaned/DeleteLoaned/@movement.MovementId" id="DeleteBtn" onclick="return confirm('Iade Etmek Istediginize Eminmisiniz');" class="btn btn-outline-warning"> <b>Iade Et</b></a></td>
 
         </tr>
     }

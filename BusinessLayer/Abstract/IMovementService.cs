@@ -9,5 +9,6 @@ namespace BusinessLayer.Abstract
 {
    public interface IMovementService:IGenericService<Movement>
     {
+        List<Movement> GetListWithBook();
     }
 }

@@ -20,7 +20,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
       
         public IActionResult LoanBookList() //Ödünç kitap Listesi
         {
-            var value = movementManager.GetList();
+            var value = movementManager.GetListWithBook();
             return View(value);
         }
 

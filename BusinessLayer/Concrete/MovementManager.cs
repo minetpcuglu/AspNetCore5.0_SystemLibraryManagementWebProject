@@ -38,7 +38,10 @@ namespace BusinessLayer.Concrete
             return _movementDal.GetAll();
         }
 
-       
+        public List<Movement> GetListWithBook()
+        {
+            return _movementDal.GetListWithBook();
+        }
 
         public void Update(Movement t)
         {

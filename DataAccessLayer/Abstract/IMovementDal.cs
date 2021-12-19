@@ -9,5 +9,6 @@ namespace DataAccessLayer.Abstract
 {
     public interface IMovementDal:IGenericDal<Movement>
     {
+        List<Movement> GetListWithBook();
     }
 }
