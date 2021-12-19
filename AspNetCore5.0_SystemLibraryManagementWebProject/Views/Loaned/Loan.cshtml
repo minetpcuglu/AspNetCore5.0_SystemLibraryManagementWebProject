@@ -1,0 +1,56 @@
+﻿@model Movement
+@{
+    ViewData["Title"] = "Loan";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Kitap Ekleme Sayfası</h1>
+
+<br />
+<br />
+
+<form method="post" asp-controller="Loaned" asp-action="Loan" enctype="multipart/form-data">
+
+    <div>
+        <label asp-for="UserId"> <b>Üye ID:</b></label>
+        <input asp-for="UserId" class="form-control" />
+        <span asp-validation-for="UserId" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="BookId"> <b>Kitap ID:</b></label>
+        <input asp-for="BookId"  class="form-control" />
+        <span asp-validation-for="BookId" class="text-danger"></span>
+    </div>
+    <div>
+        <label asp-for="EmployeeId"> <b>Personel ID:</b></label>
+        <input asp-for="EmployeeId" class="form-control" />
+        <span asp-validation-for="EmployeeId" id="txtdescription" class="text-danger"></span>
+
+    </div>
+
+    <div>
+        <label asp-for="AlisTarihi"> <b>Kitap Alış Tarihi:</b></label>
+        <input asp-for="AlisTarihi" type="datetime" name="AlisTarihi" value="@DateTime.Now.ToShortDateString()" class="form-control" />
+        <span asp-validation-for="AlisTarihi" class="text-danger"></span>
+
+    </div>
+
+    <div>
+        <label asp-for="IadeTarihi"> <b>Kitap Iade Tarihi:</b></label>
+        <input asp-for="IadeTarihi" type="datetime" name="AlisTarihi" value="@DateTime.Now.AddDays(7)" class="form-control" />
+        <span asp-validation-for="IadeTarihi" class="text-danger"></span>
+
+    </div>
+
+
+
+
+    <br />
+    <br />
+    <button type="submit" class="btn btn-outline-success"><b>Ödünç Kitap Ver</b></button>
+    <br />
+
+
+</form>
+
+
