@@ -1,0 +1,41 @@
+﻿@model List<Movement>
+@{
+    ViewData["Title"] = "LoanBookList";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Ödünç Kitap Listesi</h1>
+
+<br />
+<br />
+<table class="table table-bordered table-secondary table-hover">
+    <tr>
+        <th>Işlem ID</th>
+        <th>Kitap Adı</th>
+        <th>Üye </th>
+        <th>Personel </th>
+        <th>Alış Tarihi </th>
+        <th>Iade Tarihi </th>
+        <th>Güncelle</th>
+
+
+    </tr>
+    @foreach (var movement in Model)
+    {
+        <tr>
+            <td>@movement.MovementId</td>
+            <td><b>@movement.BookId</b></td>
+            <td><b>@movement.UserId</b></td>
+            <td><b>@movement.EmployeeId</b></td>
+            <td><b>@movement.AlisTarihi.ToShortDateString()</b></td>
+            <td><b>@movement.IadeTarihi.ToShortDateString()</b></td>
+            <td><a href="/Loaned/DeleteLoaned/@movement.MovementId" id="DeleteBtn" onclick="return confirm('Iade Etmek Istediginize Eminmisiniz');" class="btn btn-outline-success"> <b>Iade Et</b></a></td>
+
+        </tr>
+    }
+</table>
+<br />
+<a href="/Category/AddCategory/" class="btn btn-primary">Yeni Kategori Ekle</a>  @*basına admin eklendi*@
+<br />
+
+
