@@ -39,7 +39,7 @@
 
                         <a href="/user/UserReadAll/@user.UserId">
 
-                            <img alt="image" class="rounded-lg" src="/img/@user.Image" @*style="width:50px;" height:"25px;"*@>
+                            <img alt="image" class="rounded-lg" src="/img/@user.Image" style="width:80px;" height:"35px;">
 
 
 
@@ -59,6 +59,7 @@
 
                                 <a href="/User/UserEditProfile/@user.UserId" class="btn btn-xs btn-white"><i class="fa fa-search"></i> Düzenle</a>
                                 <a href="/User/UserReadAll/@user.UserId" class="btn btn-xs btn-white"><i class="fa fa-user"></i> Detay</a>
+                                <a href="/User/DeleteUser/@user.UserId" id="DeleteBtn" onclick="return confirm('Silmek Istediginize Eminmisiniz');" class="btn btn-xs btn-danger"><i class="fa fa-desktop"></i> Sil</a>
                             </div>
                         </div>
 

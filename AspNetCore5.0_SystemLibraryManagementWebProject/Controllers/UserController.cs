@@ -75,8 +75,57 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             }
 
             return View();
+        }
 
 
+
+
+        public IActionResult DeleteUser(int id)
+        {
+            var value = userManager.GetById(id);
+            userManager.Delete(value);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public IActionResult UserEditProfile(int id)
+        {
+            var uservalue = userManager.GetById(id);
+            return View(uservalue);
+        }
+
+        [HttpPost]
+
+        public async Task<IActionResult> UserEditProfile(User user , IFormFile file)
+        {
+            ValidationResult result = userRules.Validate(user);
+            if (result.IsValid)
+            {
+                if (file != null)
+                {
+                    var extension = Path.GetExtension(file.FileName); //uzantiya ulasmak //.jpg .png
+                    var randomFileName = string.Format($"{Guid.NewGuid()}{extension}");  //random bir sayı ile resim dosyaları birbirine çakışmaması
+                    var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", randomFileName);
+                    user.Image = randomFileName;
+
+                    using (var stream = new FileStream(path, FileMode.Create))  //using içinde olması isimiz bittiginde otamatşk silinecek olması.
+                    {
+                        await file.CopyToAsync(stream);
+                    }
+                }
+
+                userManager.Update(user);
+
+                return RedirectToAction("Index");
+            }
+            else
+            {
+                foreach (var error in result.Errors)
+                {
+                    ModelState.AddModelError(error.PropertyName, error.ErrorMessage);
+                }
+            }
+            return View();
         }
     }
 }
