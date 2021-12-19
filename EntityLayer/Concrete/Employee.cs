@@ -12,5 +12,9 @@ namespace EntityLayer.Concrete
         [Key]
         public int EmployeeId { get; set; }
         public string NameSurname { get; set; }
+
+        /*İlişkiler*/
+        public ICollection<Punishment> Punishments { get; set; }
+        /**/
     }
 }
