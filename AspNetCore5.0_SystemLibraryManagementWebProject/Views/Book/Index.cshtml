@@ -29,12 +29,14 @@
         </div>
     </div>
 
-    <div class="wrapper wrapper-content animated fadeInRight">
-        <div class="row">
 
-            @foreach (var book in Model)
-            {
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
 
+
+        @foreach (var book in Model)
+        {
+            <div class="col-lg-3">
                 <div class="contact-box center-version">
 
                     <a href="/Book/BookReadAll/@book.BookId">
@@ -73,36 +75,34 @@
                     </div>
 
                 </div>
+            </div>
 
 
+        }
 
-            }
-
-
-        </div>
     </div>
+</div>
 
-    <a href="/Book/AddBook/" class="btn btn-primary">Yeni Kitap Ekle</a> 
-    <br />
+<a href="/Book/AddBook/" class="btn btn-primary">Yeni Kitap Ekle</a>
+<br />
 
-    <br />
-    @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
+<br />
+@Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
 
-    <!-- Mainly scripts -->
-    <script src="~/aspnetadmin/js/jquery-3.1.1.min.js"></script>
-    <script src="~/aspnetadmin/js/popper.min.js"></script>
-    <script src="~/aspnetadmin/js/bootstrap.js"></script>
-    <script src="~/aspnetadmin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="~/aspnetadmin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<!-- Mainly scripts -->
+<script src="~/aspnetadmin/js/jquery-3.1.1.min.js"></script>
+<script src="~/aspnetadmin/js/popper.min.js"></script>
+<script src="~/aspnetadmin/js/bootstrap.js"></script>
+<script src="~/aspnetadmin/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="~/aspnetadmin/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-    <!-- Custom and plugin javascript -->
-    <script src="~/aspnetadmin/js/inspinia.js"></script>
-    <script src="~/aspnetadmin/js/plugins/pace/pace.min.js"></script>
+<!-- Custom and plugin javascript -->
+<script src="~/aspnetadmin/js/inspinia.js"></script>
+<script src="~/aspnetadmin/js/plugins/pace/pace.min.js"></script>
 
 
 </body>
 
 </html>
-
 
 
