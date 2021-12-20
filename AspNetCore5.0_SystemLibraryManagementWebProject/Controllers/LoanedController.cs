@@ -20,6 +20,8 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
       
         public IActionResult LoanBookList() //Ödünç kitap Listesi
         {
+            //ViewBag.CountBlogTotelWriter = blogManager.GetBlogListByWriter(1).Count();
+            //ViewBag.GetListWithBook = movementManager.GetMovementListByBook(id);
             var value = movementManager.GetListWithBook();
             return View(value);
         }

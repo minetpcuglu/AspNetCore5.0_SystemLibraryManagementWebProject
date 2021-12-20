@@ -38,9 +38,20 @@ namespace BusinessLayer.Concrete
             return _movementDal.GetAll();
         }
 
+        //public List<Movement> GetListWithBookName(int id)
+        //{
+        //    return _movementDal.GetListWithBookName(id);
+        //}
+
+        //public List<Movement> GetMovementListByBook(int id)
+        //{
+        //    return _movementDal.GetListAll(x => x.BookId == id);
+        //}
+
         public List<Movement> GetListWithBook()
         {
-            return _movementDal.GetListWithBook();
+            
+            return _movementDal.GetListWithBookName();
         }
 
         public void Update(Movement t)

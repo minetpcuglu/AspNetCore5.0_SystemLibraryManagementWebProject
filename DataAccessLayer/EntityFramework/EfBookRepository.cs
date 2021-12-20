@@ -29,8 +29,9 @@ namespace DataAccessLayer.EntityFramework
                 return c.Books.Include(x => x.Category).Where(x=>x.BookStatus==true).ToList();
             }
         }
-
       
+
+
 
         public List<Book> GetListWithCategoryByWriterId(int id)
         {

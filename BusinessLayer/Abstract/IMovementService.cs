@@ -10,5 +10,8 @@ namespace BusinessLayer.Abstract
    public interface IMovementService:IGenericService<Movement>
     {
         List<Movement> GetListWithBook();
+        //List<Movement> GetMovementListByBook(int id);
+        //List<Movement> GetListWithBookName(int id);
+
     }
 }

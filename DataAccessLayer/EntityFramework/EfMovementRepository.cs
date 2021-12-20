@@ -13,12 +13,31 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfMovementRepository : GenericRepository<Movement>, IMovementDal
     {
-        public List<Movement> GetListWithBook()
+        public List<Movement> GetListWithBookName()
         {
             using (var c = new Context())
             {
                 return c.Movements.Include(x => x.Book).ToList();
             }
         }
+
+        //public List<Movement> GetListWithBookName(int id)
+        //{
+        //    using (var c = new Context())
+        //    {
+        //        return c.Movements.Include(x => x.Book).Where(x => x.UserId == id && x.EmployeeId==id).ToList(); ;
+        //    }
+        //}
+
+      
+       
+
+        //public List<Book> GetListWithBookName()
+        //{
+        //    using (var c = new Context())
+        //    {
+        //        return c.Books.Include(x => x.BookName).Where(x => x.BookStatus == true).ToList();
+        //    }
+        //}
     }
 }
