@@ -34,20 +34,19 @@
 
             <div class="form-group">
                 <label asp-for="AlisTarihi"><b> Alış Tarihi: </b>  </label>
-                <input asp-for="AlisTarihi" class="form-control"  name="AlisTarihi" value="@Model.AlisTarihi" />
+                @Html.TextBoxFor(x => x.AlisTarihi, "{0: dd.MM.yyyy}", new { @class = "form-control" })
                 <span asp-validation-for="AlisTarihi" class="text-danger"></span>
 
             </div>
             <div class="form-group">
                 <label asp-for="IadeTarihi"><b> İade Tarihi: </b>  </label>
-                <input asp-for="IadeTarihi" class="form-control" name="IadeTarihi" value="@Model.IadeTarihi" />
+                @Html.TextBoxFor(x=>x.IadeTarihi , "{0: dd.MM.yyyy}", new { @class = "form-control" })
                 <span asp-validation-for="IadeTarihi" class="text-danger"></span>
 
             </div>
             <div class="form-group">
                 <label asp-for="IadeTarihi"><b> Gecikmeli İade Tarihi: </b>  </label>
                 <input asp-for="IadeTarihi" type="datetime" name="IadeTarihi" value="@DateTime.Now.ToShortDateString()" class="form-control" />
-               
                 <span asp-validation-for="IadeTarihi" class="text-danger"></span>
 
             </div>
