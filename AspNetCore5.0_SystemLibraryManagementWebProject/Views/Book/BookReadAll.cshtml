@@ -15,9 +15,9 @@
                     @foreach (var book in Model)
                     {
                         Random r = new Random();
-                        int sayi = r.Next(1, 100);
+                        int sayi = r.Next(20, 1000);
                         Random r2 = new Random();
-                        int sayi2 = r.Next(1, 100);
+                        int sayi2 = r.Next(10, 1000);
                         <div class="ibox-content no-padding border-left-right">
                             <img alt="image" class="img-fluid" src="/img/@book.BookImage" style="width:250px; height:350px;">
                         </div>

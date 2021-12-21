@@ -44,7 +44,13 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         public IActionResult Loan(Movement movement) //Ödünç ver 
         {
            movementManager.Add(movement);
-            return View();
+            return RedirectToAction("LoanBookList");
+        }
+
+        public IActionResult TakeOnLoan(int id) //ödünç iade
+        {
+            var value = movementManager.GetById(id);
+            return View(value);
         }
     }
 }

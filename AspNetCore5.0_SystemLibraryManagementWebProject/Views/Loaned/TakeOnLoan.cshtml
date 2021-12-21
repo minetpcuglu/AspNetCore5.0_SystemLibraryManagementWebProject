@@ -1,0 +1,66 @@
+﻿@model Movement
+@{
+    ViewData["Title"] = "TakeOnLoan";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+
+<h1>Geri İade İşlemi Sayfası</h1>
+<br />
+<form method="post" asp-controller="Loaned" asp-action="TakeOnLoan">
+    <div class="row">
+        <div class="col-md-12">
+            <div asp-validation-summary="All"></div>
+            <input type="hidden" name="MovementId" value="@Model.MovementId" />
+            <div class="form-group">
+                <label asp-for="BookId"><b> Kitap : </b>  </label>
+                <input asp-for="BookId" class="form-control" value="@Model.BookId" />
+                <span asp-validation-for="BookId" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId"><b> Kullanıcı Adı Soyadı: </b>  </label>
+                <input asp-for="UserId" class="form-control" value="@Model.UserId" />
+                <span asp-validation-for="UserId" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="EmployeeId"><b> Personel Adı Soyadı: </b>  </label>
+                <input asp-for="EmployeeId" class="form-control" value="@Model.EmployeeId" />
+                <span asp-validation-for="EmployeeId" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="AlisTarihi"><b> Alış Tarihi: </b>  </label>
+                <input asp-for="AlisTarihi" class="form-control"  name="AlisTarihi" value="@Model.AlisTarihi" />
+                <span asp-validation-for="AlisTarihi" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="IadeTarihi"><b> İade Tarihi: </b>  </label>
+                <input asp-for="IadeTarihi" class="form-control" name="IadeTarihi" value="@Model.IadeTarihi" />
+                <span asp-validation-for="IadeTarihi" class="text-danger"></span>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="IadeTarihi"><b> Gecikmeli İade Tarihi: </b>  </label>
+                <input asp-for="IadeTarihi" type="datetime" name="IadeTarihi" value="@DateTime.Now.ToShortDateString()" class="form-control" />
+               
+                <span asp-validation-for="IadeTarihi" class="text-danger"></span>
+
+            </div>
+
+
+
+            <button type="submit" class="btn btn-primary">Güncelle</button>
+
+        </div>
+        <br />
+    </div>
+</form>
+
+
+
+

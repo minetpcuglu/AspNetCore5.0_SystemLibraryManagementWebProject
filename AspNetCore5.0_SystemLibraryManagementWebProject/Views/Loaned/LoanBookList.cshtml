@@ -31,7 +31,7 @@
             <td><b>@movement.EmployeeId</b></td>
             <td><b>@movement.AlisTarihi.ToShortDateString()</b></td>
             <td><b>@movement.IadeTarihi.ToShortDateString()</b></td>
-            <td><a href="/Loaned/DeleteLoaned/@movement.MovementId" id="DeleteBtn" onclick="return confirm('Iade Etmek Istediginize Eminmisiniz');" class="btn btn-outline-warning"> <b>Iade Et</b></a></td>
+            <td><a href="/Loaned/TakeOnLoan/@movement.MovementId" id="DeleteBtn" onclick="return confirm('Iade Etmek Istediginize Eminmisiniz');" class="btn btn-outline-warning"> <b>Iade Et</b></a></td>
 
         </tr>
     }

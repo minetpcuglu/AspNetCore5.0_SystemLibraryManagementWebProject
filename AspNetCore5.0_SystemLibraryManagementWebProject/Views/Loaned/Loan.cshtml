@@ -37,7 +37,7 @@
 
     <div>
         <label asp-for="IadeTarihi"> <b>Kitap Iade Tarihi:</b></label>
-        <input asp-for="IadeTarihi" type="datetime" name="AlisTarihi" value="@DateTime.Now.AddDays(7).ToShortDateString()" class="form-control" />
+        <input asp-for="IadeTarihi" type="datetime" name="IadeTarihi" value="@DateTime.Now.AddDays(7).ToShortDateString()" class="form-control" />
         <span asp-validation-for="IadeTarihi" class="text-danger"></span>
 
     </div>
