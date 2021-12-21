@@ -17,7 +17,15 @@ namespace DataAccessLayer.EntityFramework
         {
             using (var c = new Context())
             {
-                return c.Movements.Include(x => x.Book).ToList();
+                return c.Movements.Include(x => x.Book).Include(x=>x.Employee).Include(x=>x.User).ToList();
+            }
+        }
+
+        public List<Movement> GetListWithMovement(int id)
+        {
+            using (var c = new Context())
+            {
+                return c.Movements.Include(x => x.Book).Include(x => x.Employee).Include(x => x.User).ToList();
             }
         }
 
@@ -29,8 +37,8 @@ namespace DataAccessLayer.EntityFramework
         //    }
         //}
 
-      
-       
+
+
 
         //public List<Book> GetListWithBookName()
         //{

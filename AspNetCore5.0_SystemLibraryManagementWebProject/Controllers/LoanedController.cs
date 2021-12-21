@@ -37,6 +37,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         [HttpGet]
         public IActionResult Loan() //Ödünç ver 
         {
+         
             return View();
         }
 

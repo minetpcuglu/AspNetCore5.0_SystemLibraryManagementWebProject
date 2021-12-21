@@ -10,7 +10,7 @@ namespace DataAccessLayer.Abstract
     public interface IMovementDal:IGenericDal<Movement>
     {
 
-        //List<Movement> GetListWithBookName(int id);
+        List<Movement> GetListWithMovement(int id);
         List<Movement> GetListWithBookName();
     }
 }
