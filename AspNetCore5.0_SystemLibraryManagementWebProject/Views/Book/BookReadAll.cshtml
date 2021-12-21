@@ -14,7 +14,10 @@
                 <div>
                     @foreach (var book in Model)
                     {
-                      
+                        Random r = new Random();
+                        int sayi = r.Next(1, 100);
+                        Random r2 = new Random();
+                        int sayi2 = r.Next(1, 100);
                         <div class="ibox-content no-padding border-left-right">
                             <img alt="image" class="img-fluid" src="/img/@book.BookImage" style="width:250px; height:350px;">
                         </div>
@@ -34,16 +37,25 @@
                             </p>
                             <div class="row m-t-lg">
                                 <div class="col-md-4">
+
                                     <span class="bar">5,3,9,6,5,9,7,3,5,2</span>
-                                    <h5><strong>169</strong> Okundu</h5>
+                                    @if (book.BookStatus == true)
+                                    {
+                                        <h5><strong>Yaşasın,</strong> Kitap Şuanda Mevcut </h5>
+                                    }
+                                    else
+                                    {
+                                        <h5><strong>Üzgünüz,</strong> Kitap Şuan Başka Kullanıcıda </h5>
+                                    }
+
                                 </div>
                                 <div class="col-md-4">
                                     <span class="line">5,3,9,6,5,9,7,3,5,2</span>
-                                    <h5><strong>28</strong> Like</h5>
+                                    <h5><strong>@sayi</strong> defa Okundu</h5>
                                 </div>
                                 <div class="col-md-4">
                                     <span class="bar">5,3,2,-1,-3,-2,2,3,5,2</span>
-                                    <h5><strong>0</strong> Dislike</h5>
+                                    <h5><strong>@sayi2</strong> Like</h5>
                                 </div>
                             </div>
                             <div class="user-button">

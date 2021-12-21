@@ -1,4 +1,5 @@
 ﻿@model List<Movement>
+ @*Tuple<Movement,Book,Employee,User>*@ 
 @{
     ViewData["Title"] = "LoanBookList";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
@@ -36,6 +37,6 @@
     }
 </table>
 <br />
-<a href="/Category/AddCategory/" class="btn btn-primary">Yeni Kategori Ekle</a>
+<a href="/Loaned/Loan/" class="btn btn-primary">Ödünç Kitap Ver</a>
 @*basına admin eklendi*@
 <br />

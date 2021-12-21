@@ -12,19 +12,27 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
     public class LoanedController : Controller  //takeonloan ödünc alma 
     {
         MovementManager movementManager = new MovementManager(new EfMovementRepository());
+        CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
+       
         public IActionResult Index()
         {
             return View();
         }
 
       
+        [HttpGet]
         public IActionResult LoanBookList() //Ödünç kitap Listesi
         {
-            //ViewBag.CountBlogTotelWriter = blogManager.GetBlogListByWriter(1).Count();
-            //ViewBag.GetListWithBook = movementManager.GetMovementListByBook(id);
             var value = movementManager.GetListWithBook();
-            return View(value);
+            return View(/*Tuple.Create<Movement,Book,Employee,User>(new Movement(),new Book(),new Employee(),new User())*/ value);
         }
+
+        //[HttpPost]
+        //public IActionResult LoanBookList([Bind(Prefix =) //Ödünç kitap Listesi
+        //{
+
+        //    return View(Tuple.Create<Movement, Book, Employee, User>(new Movement(), new Book(), new Employee(), new User()));
+        //}
 
         [HttpGet]
         public IActionResult Loan() //Ödünç ver 
