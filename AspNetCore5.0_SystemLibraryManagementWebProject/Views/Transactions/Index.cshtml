@@ -1,0 +1,44 @@
+﻿@model List<Movement>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<h1>Teslim Alınan Kitap Listesi</h1>
+
+
+<br />
+<br />
+<table class="table table-bordered  table-hover">
+    <tr>
+        <th>Işlem ID</th>
+        <th>Kitap Adı</th>
+        <th>Üye Kullanıcı Adı</th>
+        <th>Personel Adı Soyadı </th>
+        <th>Alış Tarihi </th>
+        <th>Teslim Tarihi </th>
+        <th>Detaylar</th>
+
+
+    </tr>
+    @foreach (var movement in Model)
+    {
+        <tr>
+            <td>@movement.MovementId</td>
+            <td> <b> @*@ViewBag.GetListWithBook*@ @movement.Book.BookName </b></td>
+            <td><b>@movement.User.UserName</b></td>
+            <td><b>@movement.Employee.NameSurname</b></td>
+            <td><b>@movement.AlisTarihi.ToShortDateString()</b></td>
+            <td><b>@movement.UyeGetirdigiTarihi.ToShortDateString()</b></td>
+            <td><a href="/Loaned/TakeOnLoan/@movement.MovementId" class="btn btn-outline-danger"> <b>Detaylar</b></a></td>
+
+        </tr>
+    }
+</table>
+<!--<br />
+<a href="/Loaned/Loan/" class="btn btn-primary">Ödünç Kitap Ver</a>-->
+@*basına admin eklendi*@
+<!--<br />-->
+
+
