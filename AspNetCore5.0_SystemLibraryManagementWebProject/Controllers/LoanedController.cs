@@ -57,6 +57,8 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         //    return View(/*Tuple.Create<Movement,Book,Employee,User>(new Movement(),new Book(),new Employee(),new User())*/);
         //}
          /*,[Bind(Prefix ="kullanici")]User Model1, [Bind(Prefix = "personel")] Employee Model2, [Bind(Prefix = "kitap")]Book Model3, [Bind(Prefix = "hareket")] Movement Model4*/
+       
+        
         public IActionResult TakeOnLoan(int id) //ödünç iade
         {
             var value = movementManager.GetById(id);
