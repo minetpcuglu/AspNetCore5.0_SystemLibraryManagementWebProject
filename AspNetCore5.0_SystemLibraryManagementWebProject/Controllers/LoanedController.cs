@@ -60,5 +60,15 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             var value = movementManager.GetById(id);
             return View(value);
         }
+
+        [HttpGet]
+        public IActionResult TakeOnLoanUpdate(Movement movement) //Ödünç ver 
+        {
+           
+            movement.IslemDurum = true;
+            movementManager.Update(movement);
+            return View();
+        }
+       
     }
 }
