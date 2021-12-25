@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.Concrete;
+using DataAccessLayer.Concrete.Context;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Mvc;
@@ -13,6 +14,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
     {
         MovementManager movementManager = new MovementManager(new EfMovementRepository());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
+        Context c = new Context();
        
         public IActionResult Index()
         {
@@ -54,20 +56,23 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             
         //    return View(/*Tuple.Create<Movement,Book,Employee,User>(new Movement(),new Book(),new Employee(),new User())*/);
         //}
-
-        public IActionResult TakeOnLoan(int id /*,[Bind(Prefix ="kullanici")]User Model1, [Bind(Prefix = "personel")] Employee Model2, [Bind(Prefix = "kitap")]Book Model3, [Bind(Prefix = "hareket")] Movement Model4*/) //ödünç iade
+         /*,[Bind(Prefix ="kullanici")]User Model1, [Bind(Prefix = "personel")] Employee Model2, [Bind(Prefix = "kitap")]Book Model3, [Bind(Prefix = "hareket")] Movement Model4*/
+        public IActionResult TakeOnLoan(int id) //ödünç iade
         {
             var value = movementManager.GetById(id);
-            return View(value);
+         
+            return View("TakeOnLoan",value);
         }
 
-        [HttpGet]
+    
         public IActionResult TakeOnLoanUpdate(Movement movement) //Ödünç ver 
         {
-           
-            movement.IslemDurum = true;
-            movementManager.Update(movement);
-            return View();
+            var value = c.Movements.Find(movement.MovementId);
+            value.UyeGetirdigiTarihi = movement.UyeGetirdigiTarihi;
+            value.IslemDurum = true;
+            c.SaveChanges();
+
+            return RedirectToAction("LoanBookList");
         }
        
     }
