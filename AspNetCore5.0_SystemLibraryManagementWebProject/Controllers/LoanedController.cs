@@ -24,7 +24,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         public IActionResult LoanBookList() //Ödünç kitap Listesi
         {
             var value = movementManager.GetListWithBook();
-            return View(/*Tuple.Create<Movement,Book,Employee,User>(new Movement(),new Book(),new Employee(),new User())*/ value);
+            return View( value);
         }
 
         //[HttpPost]
@@ -48,7 +48,14 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             return RedirectToAction("LoanBookList");
         }
 
-        public IActionResult TakeOnLoan(int id) //ödünç iade
+        //[HttpGet]
+        //public IActionResult TakeOnLoan() //ödünç iade
+        //{
+            
+        //    return View(/*Tuple.Create<Movement,Book,Employee,User>(new Movement(),new Book(),new Employee(),new User())*/);
+        //}
+
+        public IActionResult TakeOnLoan(int id /*,[Bind(Prefix ="kullanici")]User Model1, [Bind(Prefix = "personel")] Employee Model2, [Bind(Prefix = "kitap")]Book Model3, [Bind(Prefix = "hareket")] Movement Model4*/) //ödünç iade
         {
             var value = movementManager.GetById(id);
             return View(value);

@@ -15,6 +15,8 @@ namespace EntityLayer.Concrete
         public DateTime AlisTarihi { get; set; }
 
         public DateTime IadeTarihi { get; set; }
+        public DateTime UyeGetirdigiTarihi { get; set; }
+        public bool IslemDurum { get; set; }
 
         /*İlişkiler*/
         public int BookId { get; set; }
