@@ -1,0 +1,109 @@
+﻿<!doctype html>
+<html lang="en">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Book World & Book Worm </title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="~/BookTheme/html//BookTheme/html/images/favicon.ico" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="~/BookTheme/html/css/bootstrap.min.css">
+    <!-- Typography CSS -->
+    <link rel="stylesheet" href="~/BookTheme/html/css/typography.css">
+    <!-- Style CSS -->
+    <link rel="stylesheet" href="~/BookTheme/html/css/style.css">
+    <!-- Responsive CSS -->
+    <link rel="stylesheet" href="~/BookTheme/html/css/responsive.css">
+
+</head>
+
+<body>
+    <!-- loader Start -->
+    <div id="loading">
+        <div id="loading-center">
+        </div>
+    </div>
+    <!-- loader END -->
+    <!-- Wrapper Start -->
+    <div class="wrapper">
+        <!-- Sidebar  -->
+        @await Html.PartialAsync("SideBar");
+        <!-- TOP Nav Bar -->
+        @await Html.PartialAsync("TopNavBar");
+
+
+        <div id="content-page" class="content-page">
+            <div class="container-fluid">
+                <div class="row">
+                    @RenderBody()
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Wrapper END -->
+    <!-- Footer -->
+    @await Html.PartialAsync("Footer");
+
+
+    <!-- Footer END -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="~/BookTheme/html/js/jquery.min.js"></script>
+    <script src="~/BookTheme/html/js/popper.min.js"></script>
+    <script src="~/BookTheme/html/js/bootstrap.min.js"></script>
+    <!-- Appear JavaScript -->
+    <script src="~/BookTheme/html/js/jquery.appear.js"></script>
+    <!-- Countdown JavaScript -->
+    <script src="~/BookTheme/js/countdown.min.js"></script>
+    <!-- Counterup JavaScript -->
+    <script src="~/BookTheme/html/js/waypoints.min.js"></script>
+    <script src="~/BookTheme/html/js/jquery.counterup.min.js"></script>
+    <!-- Wow JavaScript -->
+    <script src="~/BookTheme/html/js/wow.min.js"></script>
+    <!-- Apexcharts JavaScript -->
+    <script src="~/BookTheme/html/js/apexcharts.js"></script>
+    <!-- Slick JavaScript -->
+    <script src="~/BookTheme/html/js/slick.min.js"></script>
+    <!-- Select2 JavaScript -->
+    <script src="~/BookTheme/html/js/select2.min.js"></script>
+    <!-- Owl Carousel JavaScript -->
+    <script src="~/BookTheme/html/js/owl.carousel.min.js"></script>
+    <!-- Magnific Popup JavaScript -->
+    <script src="~/BookTheme/html/js/jquery.magnific-popup.min.js"></script>
+    <!-- Smooth Scrollbar JavaScript -->
+    <script src="~/BookTheme/html/js/smooth-scrollbar.js"></script>
+    <!-- lottie JavaScript -->
+    <script src="~/BookTheme/html/js/lottie.js"></script>
+    <!-- am core JavaScript -->
+    <script src="~/BookTheme/html/js/core.js"></script>
+    <!-- am charts JavaScript -->
+    <script src="~/BookTheme/html/js/charts.js"></script>
+    <!-- am animated JavaScript -->
+    <script src="~/BookTheme/html/js/animated.js"></script>
+    <!-- am kelly JavaScript -->
+    <script src="~/BookTheme/html/js/kelly.js"></script>
+    <!-- am maps JavaScript -->
+    <script src="~/BookTheme/html/js/maps.js"></script>
+    <!-- am worldLow JavaScript -->
+    <script src="~/BookTheme/html/js/worldLow.js"></script>
+    <!-- Raphael-min JavaScript -->
+    <script src="~/BookTheme/html/js/raphael-min.js"></script>
+    <!-- Morris JavaScript -->
+    <script src="~/BookTheme/html/js/morris.js"></script>
+    <!-- Morris min JavaScript -->
+    <script src="~/BookTheme/html/js/morris.min.js"></script>
+    <!-- Flatpicker Js -->
+    <script src="~/BookTheme/html/js/flatpickr.js"></script>
+    <!-- Style Customizer -->
+    <script src="~/BookTheme/html/js/style-customizer.js"></script>
+    <!-- Chart Custom JavaScript -->
+    <script src="~/BookTheme/html/js/chart-custom.js"></script>
+    <!-- Custom JavaScript -->
+    <script src="~/BookTheme/html/js/custom.js"></script>
+</body>
+
+
+</html>
