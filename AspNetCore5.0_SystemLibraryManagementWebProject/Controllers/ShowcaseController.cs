@@ -1,4 +1,6 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using BusinessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
+using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,9 +10,11 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 {
     public class ShowcaseController : Controller
     {
+        CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
         public IActionResult Index()
         {
-            return View();
+            var value = categoryManager.GetList();
+            return View(value);
         }
     }
 }
