@@ -30,4 +30,9 @@
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Areas\Showcase\Data\" />
+    <Folder Include="Areas\Showcase\Models\" />
+  </ItemGroup>
+
 </Project>
