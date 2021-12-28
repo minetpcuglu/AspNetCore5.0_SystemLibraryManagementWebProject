@@ -5,45 +5,43 @@
         <div class="container-fluid">
             <h4 class="rad-txt">
                 <span class="abtxt1">Kitaplar</span>
-                <span class="abtext">İçerikler</span>
+                <span class="abtext">Detaylar</span>
             </h4>
             <!-- about-bottom grid1 -->
             <div class="col-md-6 about-bottom-right">
-                <p class="abt-p">
-                   Toplam +200 Aşkın kitap ve +50 den fazla yazarla en büyük online içerik kütüphanesi olma yolunda ilerliyoruz
-                </p>
+
                 @foreach (var book in Model)
                 {
 
+                   
+                    <div class="col-md-6 col-sm-6 col-xs-6 services-w3ls">
+                        <div class="ab1">
+                            <div>
+                                <img alt="image" class="rounded-sm" src="/img/@book.BookImage" style="width:80px; height:130px; margin-left:80px">
+                            </div>
+                            <br />
+                            <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                                <h5>@book.BookName</h5>
+                                <p>@book.BookDescription.Substring(0, book.BookDescription.Substring(0, 49).LastIndexOf(" "))</p>
+                                <a href="/Book/BookReadAll/@book.BookId" class="btn btn-success m-xs" style="margin-left:50px">Detay..</a>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
 
-                <div class="col-md-6 col-sm-6 col-xs-6 services-w3ls">
-                    <div class="ab1">
-                        <div >
-                           <img alt="image" class="rounded-sm" src="/img/@book.BookImage" style="width:100px; height:150px; margin-left:80px">
-                        </div>
-                        <br />
-                        <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
-                            <h5>@book.BookName</h5>
-                            <p>@book.BookDescription.Substring(0, book.BookDescription.Substring(0, 49).LastIndexOf(" "))</p>
-                            <a href="/Book/BookReadAll/@book.BookId" class="btn btn-success m-xs">Detaylar..</a>
-                        </div>
-                        <div class="clearfix"></div>
                     </div>
-         
+                    @*<div class="col-md-6 col-sm-6 col-xs-6 services-w3ls service2">
+                <div class="ab1">
+                    <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                        <span class="fa fa-book" aria-hidden="true"></span>
+                    </div>
+                    <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                        <h5>@book.BookName</h5>
+                        <p>@book.BookDescription</p>
+                    </div>
+                    <div class="clearfix"></div>
                 </div>
-                @*<div class="col-md-6 col-sm-6 col-xs-6 services-w3ls service2">
-                    <div class="ab1">
-                        <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
-                            <span class="fa fa-book" aria-hidden="true"></span>
-                        </div>
-                        <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
-                            <h5>@book.BookName</h5>
-                            <p>@book.BookDescription</p>
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-              
-                </div>*@
+
+                 </div>*@
                 }
                 <div class="clearfix"></div>
             </div>

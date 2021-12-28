@@ -1,0 +1,131 @@
+﻿@model IEnumerable<Writer>
+
+
+<div id="team" class="team section">
+    <div class="team-container">
+        <div class="team-row">
+            <!-- team grid1 -->
+            <div class="col-md-5 team-grid-left">
+                @foreach (var writer in Model)
+                {
+                    <!-- team individual grid -->
+                    <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+                        <div class="team-effect">
+                            <img src="/img/@writer.Image" style="height:280px" width="120" alt="img" class="img-responsive">
+                            <div class="social-icon">
+                                <a href="#" class="social-button twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-button facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#" class="social-button google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="team-text">
+                            <h4>John Smith</h4>
+                            <span>Designation</span>
+                            <p>vallis molestie arcu morbi dapibus suscipit ante sit efficitur eu ante vesti.</p>
+
+                        </div>
+                    </div>
+                    <!-- //team individual grid -->
+                    <!-- team individual grid -->
+                    <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+                        <div class="team-text">
+                            <h4>Thomson Doe</h4>
+                            <span>Designation</span>
+                            <p>vallis molestie arcu morbi dapibus suscipit ante sit efficitur eu ante vesti.</p>
+                        </div>
+                        <div class="team-effect">
+                            <img src="~/vitrinpanel/images/t1.jpg" alt="img" class="img-responsive">
+                            <div class="social-icon">
+                                <a href="#" class="social-button twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-button facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#" class="social-button google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <!-- //team individual grid -->
+                        <!--</div>-->
+                        }
+                    </div>
+                    <!-- //team-grid1 ends here-->
+                    <!--team-grid2 -->
+                    <div class="col-md-2 col-sm-2 team-mid-txt text-center">
+                        <span>our</span>
+                        <h5>t</h5>
+                        <h5>e</h5>
+                        <h5>a</h5>
+                        <h5>m</h5>
+                    </div>
+                    <!--//team-grid2 ends here-->
+                    <!-- team grid3 -->
+                    <!-- team individual grid -->
+                    <!--<div class="col-md-5 team-grid-right">
+                        <div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+                            <div class="team-text">
+                                <h4>Smith Kevin</h4>
+                                <span>Designation</span>
+                                <p>vallis molestie arcu morbi dapibus suscipit ante sit efficitur eu ante vesti.</p>
+                            </div>
+                            <div class="team-effect">
+                                <img src="~/vitrinpanel/images/t2.jpg" alt="img" class="img-responsive">
+                                <div class="social-icon">
+                                    <a href="#" class="social-button twitter">
+                                        <i class="fa fa-twitter"></i>
+                                    </a>
+                                    <a href="#" class="social-button facebook">
+                                        <i class="fa fa-facebook"></i>
+                                    </a>
+                                    <a href="#" class="social-button google">
+                                        <i class="fa fa-google-plus"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>-->
+                    <!-- //team individual grid -->
+                    <!-- team individual grid -->
+                    <!--<div class="col-md-6 col-sm-6 col-xs-6 team-grids">
+                        <div class="team-effect">
+                            <img src="~/vitrinpanel/images/t4.jpg" alt="img" class="img-responsive">
+                            <div class="social-icon">
+                                <a href="#" class="social-button twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-button facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#" class="social-button google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="team-text">
+                            <h4>Laura Hill</h4>
+                            <span>Designation</span>
+                            <p>vallis molestie arcu morbi dapibus suscipit ante sit efficitur eu ante vesti.</p>
+                        </div>
+                    </div>-->
+                    <!-- //team individual grid -->
+                    <!--<div class="clearfix"> </div>
+                    </div>-->
+                    <!-- //team grid3 -->
+                    <div class="clearfix"> </div>
+                }
+            </div>
+            <!-- //team-row ends here -->
+        </div>
+        <!-- // team container ends here -->
+    </div>
+    <!-- //team -->
+    <!--testimonials -->
+
+</div>

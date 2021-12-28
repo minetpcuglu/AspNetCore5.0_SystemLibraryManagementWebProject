@@ -6,15 +6,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNetCore5._0_SystemLibraryManagementWebProject.ViewComponents.Book
+namespace AspNetCore5._0_SystemLibraryManagementWebProject.ViewComponents.Writer
 {
-    public class ShowcaseBookList : ViewComponent
+    public class ShowcaseWriterList:ViewComponent
     {
-        BookManager bookManager = new BookManager(new EfBookRepository());
+
+        WriterManager writerManager = new WriterManager(new EfWriterRepository());
         public IViewComponentResult Invoke()
         {
 
-            var Value = bookManager.GetList().Take(4);
+            var Value = writerManager.GetList().Take(2);
             return View(Value);
         }
     }
