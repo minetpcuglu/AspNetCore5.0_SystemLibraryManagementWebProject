@@ -15,7 +15,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.ViewComponents.Writer
         public IViewComponentResult Invoke()
         {
 
-            var Value = writerManager.GetList().Take(2);
+            var Value = writerManager.GetList().Take(4);
             return View(Value);
         }
     }
