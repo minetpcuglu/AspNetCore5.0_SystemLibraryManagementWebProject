@@ -26,7 +26,7 @@ namespace DataAccessLayer.EntityFramework
         {
             using (var c = new Context())
             {
-                return c.Books.Include(x => x.Category)/*.Where(x=>x.BookStatus==true)*/.ToList();
+                return c.Books.Include(x => x.Category).Include(x=>x.Writer)/*.Where(x=>x.BookStatus==true)*/.ToList();
             }
         }
       
