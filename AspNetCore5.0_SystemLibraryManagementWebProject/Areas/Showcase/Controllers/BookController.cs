@@ -19,6 +19,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Areas.Showcase.Contro
 
         public IActionResult GetlistBookId(int id)
         {
+          
             var value = bookManager.GetListWithCategoryBookId(id);
             return View(value);
         }

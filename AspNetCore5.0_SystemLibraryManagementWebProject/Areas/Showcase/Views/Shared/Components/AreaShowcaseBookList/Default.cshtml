@@ -1,6 +1,6 @@
-﻿@model IEnumerable<Book>
+﻿@model IEnumerable<EntityLayer.Concrete.Book>
 
-
+<div class="about-sec section" id="about">
     <div class="about-bottom section">
         <div class="container-fluid">
             <h4 class="rad-txt">
@@ -13,7 +13,7 @@
                 @foreach (var book in Model)
                 {
 
-                   
+
                     <div class="col-md-6 col-sm-6 col-xs-6 services-w3ls">
                         <div class="ab1">
                             <div>
@@ -30,28 +30,28 @@
 
                     </div>
                     @*<div class="col-md-6 col-sm-6 col-xs-6 services-w3ls service2">
-                <div class="ab1">
-                    <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
-                        <span class="fa fa-book" aria-hidden="true"></span>
-                    </div>
-                    <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
-                        <h5>@book.BookName</h5>
-                        <p>@book.BookDescription</p>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
+                        <div class="ab1">
+                            <div class="col-md-3 col-sm-3 col-xs-3 ab1-icon">
+                                <span class="fa fa-book" aria-hidden="true"></span>
+                            </div>
+                            <div class="col-md-9 col-sm-9 col-xs-9 ab1-text">
+                                <h5>@book.BookName</h5>
+                                <p>@book.BookDescription</p>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
 
-                 </div>*@
+                         </div>*@
                 }
                 <div class="clearfix"></div>
             </div>
             <!-- //about-bottom grid1 ends here -->
-            <div class="col-md-6 home-about2">
-                <!-- about-bottom grid2 -->
-                <div class="col-md-6 col-sm-6 col-xs-6 bg-right"></div>
-                <!-- //about-bottom grid2 ends here -->
-                <!-- about-bottom grid3 -->
-                <div class="col-md-6 col-sm-6 col-xs-6 w3ls-section  stats">
+            <!--<div class="col-md-6 home-about2">-->
+            <!-- about-bottom grid2 -->
+            <!--<div class="col-md-6 col-sm-6 col-xs-6 bg-right"></div>-->
+            <!-- //about-bottom grid2 ends here -->
+            <!-- about-bottom grid3 -->
+            <div class="col-md-6 col-sm-6 col-xs-6 w3ls-section  stats">
                     <div class="stats-aboutinfo services-main">
                         <div class="agileits_w3layouts-stats-grids text-center">
                             <div class="stats-icon">
@@ -113,3 +113,4 @@
         </div>
         <!-- //about container ends here-->
     </div>
+

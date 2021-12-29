@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 {
+    
     public class ShowcaseController : Controller
     {
         CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
