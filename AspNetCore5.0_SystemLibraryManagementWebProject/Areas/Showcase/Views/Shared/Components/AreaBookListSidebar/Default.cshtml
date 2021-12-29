@@ -1,0 +1,204 @@
+﻿@model List<EntityLayer.Concrete.Book>
+<div class="side-bar col-md-3">
+    @foreach (var item in Model)
+    {
+
+
+    <!--preference -->
+    <div class="left-side">
+        <h3 class="shopf-sear-headits-sear-head">
+            Türler
+        </h3>
+        <ul>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">@item.Category.Name</span>
+            </li>
+          
+
+        </ul>
+    </div>
+    <!-- // preference -->
+    <div class="search-hotel">
+        <h3 class="shopf-sear-headits-sear-head">
+            <span>author</span> in focus
+        </h3>
+        <form action="#" method="post">
+            <input type="search" placeholder="search here" name="search" required="">
+            <input type="submit" value="Search">
+        </form>
+    </div>
+    <!-- price range -->
+    <div class="range">
+        <h3 class="shopf-sear-headits-sear-head">
+            <span>Price</span> range
+        </h3>
+        <ul class="dropdown-menu6">
+            <li>
+
+                <div id="slider-range"></div>
+                <input type="text" id="amount" style="border: 0; color: #ffffff; font-weight: normal;" />
+            </li>
+        </ul>
+    </div>
+    <!-- //price range -->
+    <!--preference -->
+    <div class="left-side">
+        <h3 class="shopf-sear-headits-sear-head">
+            <span>Yeni </span> Eklenenler
+        </h3>
+        <ul>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">@ViewBag.NewBook</span>
+            </li>
+         
+
+        </ul>
+    </div>
+    <!-- // preference -->
+    <!-- discounts -->
+    <div class="left-side">
+        <h3 class="shopf-sear-headits-sear-head">Language</h3>
+        <ul>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">English</span>
+            </li>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">Spanish</span>
+            </li>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">Japanese</span>
+            </li>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">German</span>
+            </li>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">Korean</span>
+            </li>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">Chinese</span>
+            </li>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">French</span>
+            </li>
+        </ul>
+    </div>
+    <!-- //discounts -->
+    <!-- Binding -->
+    <div class="left-side">
+        <h3 class="shopf-sear-headits-sear-head">Format</h3>
+        <ul>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">Hardcover</span>
+            </li>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">Board Book</span>
+            </li>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">Bundle</span>
+            </li>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">Paperback</span>
+            </li>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">Audio Book</span>
+            </li>
+        </ul>
+    </div>
+    <!-- //Binding -->
+    <!-- discounts -->
+    <div class="left-side">
+        <h3 class="shopf-sear-headits-sear-head">Discount</h3>
+        <ul>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">5% - 20%</span>
+            </li>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">20% - 40%</span>
+            </li>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">40% - 60%</span>
+            </li>
+            <li>
+                <input type="checkbox" class="checked">
+                <span class="span">60% or more</span>
+            </li>
+        </ul>
+    </div>
+    <!-- //discounts -->
+    <!-- reviews -->
+    <div class="customer-rev left-side">
+        <h3 class="shopf-sear-headits-sear-head">Customer Review</h3>
+        <ul>
+            <li>
+                <a href="#">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <span>5.0</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <span>4.0</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <span>3.5</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <span>3.0</span>
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star-half-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <i class="fa fa-star-o" aria-hidden="true"></i>
+                    <span>2.5</span>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <!-- //reviews -->
+    }
+
+</div>
