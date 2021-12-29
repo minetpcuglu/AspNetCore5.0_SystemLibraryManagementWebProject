@@ -1,10 +1,11 @@
 ﻿@using X.PagedList
 @using X.PagedList.Mvc.Core
-@model IPagedList<EntityLayer.Concrete.Book>
+@model IPagedList<EntityLayer.Concrete.Writer>
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Areas/Showcase/Views/Shared/_AreaVitrinLayout.cshtml";
 }
+
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -23,7 +24,7 @@
                             </a>
                         </li>
                         <li class="btn btn2">
-                            <a href="/Showcase/Book/Index/">Kitap Listesi</a>
+                            <a href="/Showcase/Writer/Index/">Yazar Listesi</a>
                         </li>
                     </ul>
                 </div>
@@ -34,7 +35,7 @@
         <div class="innerf-pages section">
             <div class="container-cart">
                 <!-- product left -->
-                @await Component.InvokeAsync("AreaBookListSidebar")
+                @*@await Component.InvokeAsync("AreaBookListSidebar")*@
 
                 <!-- //product left -->
                 <!-- product right -->
@@ -42,18 +43,18 @@
                     <div class="wrapper_top_shop">
                         <!-- product-sec1 -->
                         <div class="product-sec1">
-                            @foreach (var book in Model)
+                            @foreach (var writer in Model)
                             {
                                 <div class="col-md-3">
                                     <div class="product-chr-info chr">
                                         <div class="thumbnail">
                                             <a href="single_product.html">
-                                                <img src="/img/@book.BookImage" style="width:100px; height:150px;" alt="">
+                                                <img src="/img/@writer.Image" style="height:200px" width="200" alt="">
                                             </a>
                                         </div>
                                         <div class="caption">
-                                            <h4>@book.BookName</h4>
-                                            <p>@book.Writer.Name @book.Writer.Surname</p>
+                                           
+                                            <p>@writer.Name @writer.Surname</p>
                                             <div class="caption">
 
                                                 <ul class="rating-single">
@@ -89,7 +90,7 @@
                                             </div>
 
 
-                                            <a href="/Showcase/Book/GetlistBookId/@book.BookId" class="btn btn-success  fa fa-book" style="margin-left:50px;">  Detay</a>
+                                            <a href="/Showcase/Writer/GetlistWriterId/@writer.WriterId" class="btn btn-success  fa fa-user"  style="margin-left:50px;">  Detay</a>
 
                                         </div>
                                     </div>
