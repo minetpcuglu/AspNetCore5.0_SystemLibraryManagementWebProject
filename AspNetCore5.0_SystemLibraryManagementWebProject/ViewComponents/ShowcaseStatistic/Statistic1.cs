@@ -16,7 +16,8 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.ViewComponents.Shocas
         public IViewComponentResult Invoke()
         {
             ViewBag.totelBook = bookManager.GetList().Count(); //toplam bkitap sayısı **birden fazla manager kulllanılcaksa viewbag kullan 
-            //ViewBag.totelUser = c.Users.Count(); //toplam KUllanıcı sayısı
+            ViewBag.totelUser = c.Users.Count(); //toplam KUllanıcı sayısı
+            ViewBag.totelWriter = c.Writers.Count(); //toplam KUllanıcı sayısı
             //ViewBag.totelComment = c.Comments.Count(); //toplam yorum sayısı
 
             //string api = "da0d56b3b95e412d8799d554ba6221a7";
