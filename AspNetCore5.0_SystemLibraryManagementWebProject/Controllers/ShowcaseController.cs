@@ -17,5 +17,8 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             var value = categoryManager.GetList();
             return View(value);
         }
+
+    
+
     }
 }

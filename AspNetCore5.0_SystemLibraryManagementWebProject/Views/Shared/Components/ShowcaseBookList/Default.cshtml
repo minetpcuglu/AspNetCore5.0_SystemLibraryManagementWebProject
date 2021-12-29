@@ -13,7 +13,7 @@
                 @foreach (var book in Model)
                 {
 
-                   
+
                     <div class="col-md-6 col-sm-6 col-xs-6 services-w3ls">
                         <div class="ab1">
                             <div>
@@ -45,70 +45,7 @@
                 }
                 <div class="clearfix"></div>
             </div>
-            <!-- //about-bottom grid1 ends here -->
-            <div class="col-md-6 home-about2">
-                <!-- about-bottom grid2 -->
-                <div class="col-md-6 col-sm-6 col-xs-6 bg-right"></div>
-                <!-- //about-bottom grid2 ends here -->
-                <!-- about-bottom grid3 -->
-                <div class="col-md-6 col-sm-6 col-xs-6 w3ls-section  stats">
-                    <div class="stats-aboutinfo services-main">
-                        <div class="agileits_w3layouts-stats-grids text-center">
-                            <div class="stats-icon">
-                                <span class="fa fa-book" aria-hidden="true"></span>
-                            </div>
-                            <div class="stats-right">
-                                <h6>volumes</h6>
-                                <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='221073' data-delay='.5' data-increment="300">221073</div>
-
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                        <div class="agileits_w3layouts-stats-grids text-center">
-                            <div class="stats-icon">
-                                <span class="fa fa-university" aria-hidden="true"></span>
-                            </div>
-                            <div class="stats-right">
-                                <h6>branches</h6>
-                                <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='780' data-delay='.5' data-increment="50">980</div>
-
-                            </div>
-                            <div class="clearfix"></div>
-
-
-                        </div>
-                        <div class="agileits_w3layouts-stats-grids text-center">
-                            <div class="stats-icon">
-                                <span class="fa fa-laptop" aria-hidden="true"></span>
-                            </div>
-                            <div class="stats-right">
-                                <h6>e-books</h6>
-                                <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='9800' data-delay='.5' data-increment="50">9800</div>
-
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                        <div class="agileits_w3layouts-stats-grids text-center">
-                            <div class="stats-icon">
-                                <span class="fa fa-users" aria-hidden="true"></span>
-                            </div>
-                            <div class="stats-right">
-                                <h6>visitors</h6>
-                                <div class='numscroller numscroller-big-bottom' data-slno='1' data-min='0' data-max='123623' data-delay='.5' data-increment="300">123623</div>
-
-                            </div>
-                            <div class="clearfix"></div>
-
-                        </div>
-                        <div class="clearfix"></div>
-                    </div>
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <!-- //about-bottom grid3 ends here -->
-            <!-- //Numscroller -->
+            @await Component.InvokeAsync("Statistic1")
             <div class="clearfix"></div>
         </div>
         <!-- //about container ends here-->
