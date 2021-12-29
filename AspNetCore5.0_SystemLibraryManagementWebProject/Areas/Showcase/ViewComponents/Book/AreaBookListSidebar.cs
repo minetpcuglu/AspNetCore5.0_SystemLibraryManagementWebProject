@@ -17,7 +17,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Areas.Showcase.ViewCo
         public IViewComponentResult Invoke()
         {
             ViewBag.NewBook = c.Books.OrderByDescending(x => x.BookId).Select(x => x.BookName).Take(4).FirstOrDefault();//son eklenen kitaplar
-            var Value = bookManager.GetListWithCategory();
+            var Value = bookManager.GetList();
             return View(Value);
         }
     }
