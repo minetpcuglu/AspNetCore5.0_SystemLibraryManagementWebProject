@@ -1,0 +1,47 @@
+﻿@model List<EntityLayer.Concrete.Book>
+
+
+<div id="team" class="team section">
+    <div class="team-container">
+        <div class="team-row">
+            <h4 class="rad-txt">
+                <span class="abtxt1">Yazara ait</span>
+                <span class="abtext">Kitaplar</span>
+            </h4>
+            <!-- team grid1 -->
+            <div>
+                @foreach (var book in Model)
+                {
+                    <!-- team individual grid -->
+                    <div class="col-md-3 col-sm-3 col-xs-3 team-grids">
+                        <div class="team-effect">
+                            <img src="/img/@book.BookImage" style="height:280px" width="120" alt="img" class="img-responsive">
+                            <div class="social-icon">
+                                <a href="#" class="social-button twitter">
+                                    <i class="fa fa-twitter"></i>
+                                </a>
+                                <a href="#" class="social-button facebook">
+                                    <i class="fa fa-facebook"></i>
+                                </a>
+                                <a href="#" class="social-button google">
+                                    <i class="fa fa-google-plus"></i>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="team-text">
+                            <h4>@book.BookName</h4>
+                            <span>@book.Category.Name</span>
+                            <p>@book.BookDescription.Substring(0, book.BookDescription.Substring(0, 87).LastIndexOf(" ")) ...</p>
+
+                        </div>
+                    </div>
+
+                }
+            </div>
+
+            <div class="clearfix"> </div>
+        </div>
+        <!-- //team-row ends here -->
+    </div>
+    <!-- // team container ends here -->
+</div>
