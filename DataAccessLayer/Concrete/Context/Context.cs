@@ -23,5 +23,6 @@ namespace DataAccessLayer.Concrete.Context
         public DbSet<Till> Tills { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<Writer> Writers { get; set; }
+        public DbSet<About> Abouts { get; set; }
     }
 }
