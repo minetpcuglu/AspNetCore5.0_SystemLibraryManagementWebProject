@@ -1,0 +1,29 @@
+﻿@model List<EntityLayer.Concrete.About>
+@{
+    ViewData["Title"] = "About";
+    Layout = "~/Areas/Showcase/Views/Shared/_AreaVitrinLayout.cshtml";
+}
+
+
+<div class="about-bottom section">
+    <div class="container-fluid">
+        <h4 class="rad-txt">
+            <span class="abtxt1">Hakkımızda</span>
+            <span class="abtext"> World & Book</span>
+        </h4>
+        <!-- about-bottom grid1 -->
+        <div>
+            @foreach (var about in Model)
+            {
+                <p class="abt-p">
+                    @about.Description
+                </p>
+            }
+
+
+        </div>
+        <!-- //about container ends here-->
+    </div>
+</div>
+
+

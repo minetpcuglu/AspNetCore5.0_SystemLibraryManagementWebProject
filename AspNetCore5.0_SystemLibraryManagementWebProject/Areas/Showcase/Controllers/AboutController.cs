@@ -6,25 +6,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
+namespace AspNetCore5._0_SystemLibraryManagementWebProject.Areas.Showcase.Controllers
 {
-    
-    public class ShowcaseController : Controller
+    [Area("Showcase")]
+    public class AboutController : Controller
     {
-    
-        CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
         AboutManager aboutManager = new AboutManager(new EfAboutRepository());
-        public IActionResult Index()
+        public IActionResult About()
         {
-            var value = categoryManager.GetList();
+            var value = aboutManager.GetList();
             return View(value);
         }
-
-
-
-
-
-    
-
     }
 }
