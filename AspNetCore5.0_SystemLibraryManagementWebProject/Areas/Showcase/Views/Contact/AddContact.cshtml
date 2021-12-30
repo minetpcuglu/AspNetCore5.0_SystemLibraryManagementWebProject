@@ -1,0 +1,139 @@
+﻿@model List<EntityLayer.Concrete.Contact>
+@{
+    ViewData["Title"] = "AddContact";
+    Layout = "~/Areas/Showcase/Views/Shared/_AreaVitrinLayout.cshtml";
+}
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+
+
+<body id="page-top" data-spy="scroll" data-target=".navbar-fixed-top">
+    <div id="home">
+    
+ <br /><br />
+        <div class="crumbs text-center">
+            <div class="container">
+                <div class="row">
+                    <ul class="btn-group btn-breadcrumb bc-list">
+                        <li class="btn btn1">
+                            <a href="index.html">
+                                <i class="glyphicon glyphicon-home"></i>
+                            </a>
+                        </li>
+                        <li class="btn btn2">
+                            <a href="contact.html">İletişim</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <br />
+        <br />
+        <!--//breadcrumbs ends here-->
+        <!-- contact -->
+        <div class="section contact" id="contact">
+            <div class="container">
+                <h4 class="rad-txt text-center">
+                    <span class="abtxt1">İletişim</span>
+                    <span class="abtext">Sayfası</span>
+                </h4>
+               
+                    <div class="contact-form">
+                        <div class="col-md-7">
+                            <!-- contact form grid -->
+                            <div class="contact-top1">
+                                <h5>Bir Mesaj Oluştur</h5>
+                                <form method="post" asp-controller="Contact" asp-action="AddCategory">
+                                    <input type="text" name="Name" placeholder="İsim" required="">
+                                    <input type="text" name="LastName" placeholder="Soyisim" required="">
+
+                                    <input class="email" type="email" name="Mail" placeholder="Mail" required="">
+                                    <input class="text" type="text" name="Subject" placeholder="Konu" required="">
+                                    <br /><br />
+                                    <textarea placeholder="Mesaj" name="Message"  required=""></textarea>
+                                    <input type="submit" value="Submit" id="SubmitBtn" onclick="return confirm('Mesajı Göndermek Istediginize Eminmisiniz');" class="btn btn-success">
+                                </form>
+                            </div>
+                            <!--  //contact form grid ends here -->
+                        </div>
+                        <!-- contact map grid -->
+                        <div class="col-md-5 map contact-right">
+                            <div class="contact-top1">
+                                <h5>Konum</h5>
+                                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3023.9503398796587!2d-73.9940307!3d40.719109700000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c25a27e2f24131%3A0x64ffc98d24069f02!2sCANADA!5e0!3m2!1sen!2sin!4v1441710758555"
+                                        allowfullscreen></iframe>
+                            </div>
+                        </div>
+                        <!--//contact map grid ends here-->
+                        <div class="clearfix"></div>
+                    </div>
+                  
+                    <!-- contact details -->
+                    <div class="contact-bottom">
+                        <h6>Admin İletişim</h6>
+                        <!-- contact details left -->
+                        <div class="col-md-6 col-sm-6">
+                            <div class="contact-left">
+                                <div class="address">
+                                    <h5>Adres:</h5>
+                                    <p>
+                                        Kastamonu/Kuzeykent
+                                        <br>Türkiye
+                                    </p>
+                                </div>
+                                <div class="address address-mdl">
+                                    <h5>Telefon:</h5>
+                                    <p>
+                                        0507 000 00 00
+                                    </p>
+                                    <p>
+                                        0507 000 00 00
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- //contact details left -->
+                        <!-- contact details right -->
+                        <div class="col-md-6 col-sm-6">
+                            <div class="contact-right">
+                                <div class="address">
+                                    <h5>Email:</h5>
+                                    <p>
+                                        <a href="mailto:info@example.com">minetopcuoglu6@gmail.com</a>
+                                    </p>
+                                    <p>
+                                        <a href="mailto:info@example.com">mntpcuglu@gmail.com</a>
+                                    </p>
+                                </div>
+                                <div class="footer-social address  address-mdl">
+                                    <h5>Sosyal Medya hesaplarım</h5>
+                                    <ul>
+                                        <li>
+                                            <a href="https://www.linkedin.com/in/mine-topcuoglu-869a45218/">
+                                                <span class="fa fa-linkedin icon_twitter"></span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="https://github.com/minetpcuglu">
+                                                <span class="fa fa-github icon_g_plus"></span>
+                                            </a>
+                                        </li>
+                                 
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <!-- //contact-details right -->
+                        <div class="clearfix"></div>
+                    </div>
+                    <!-- //contact details ends here -->
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
