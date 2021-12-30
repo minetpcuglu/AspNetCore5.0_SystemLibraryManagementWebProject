@@ -1,0 +1,124 @@
+﻿@model List<EntityLayer.Concrete.Writer>
+@{
+    ViewData["Title"] = "WriterReadAll";
+    Layout = "~/Areas/Showcase/Views/Shared/_AreaVitrinLayout.cshtml";
+}
+
+<!-- //banner -->
+<!-- breadcrumbs -->
+@foreach (var writer in Model)
+{
+    <div class="crumbs text-center">
+        <div class="container">
+
+            <div class="row">
+                <br />
+                <br />
+                <ul class="btn-group btn-breadcrumb bc-list">
+                    <li class="btn btn1">
+                        <a href="index.html">
+                            <i class="glyphicon glyphicon-home"></i>
+                        </a>
+                    </li>
+
+                    <li class="btn btn2">
+
+                        <a href="/Showcase/Book/Index/">Yazar Listesi</a>
+                    </li>
+                    <li class="btn btn3">
+                        <a href="/Showcase/Writer/Index/">Yazar Profili</a>
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </div>
+    <!--//breadcrumbs ends here-->
+    <!-- Single -->
+    <div class="innerf-pages section">
+        <div class="container">
+
+            <div class="col-md-4 single-right-left ">
+
+                <div class="grid images_3_of_2">
+                    <div class="flexslider1">
+                        <ul class="slides">
+                            <li data-thumb="images/s1.jpg">
+                                <div class="thumb-image">
+                                    <img src="/img/@writer.Image" style="height:300px" width="300" data-imagezoom="true" alt=" " class="img-responsive">
+                                </div>
+                            </li>
+
+                        </ul>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-8 single-right-left simpleCart_shelfItem">
+
+
+
+                <h3>
+                    @writer.Name @writer.Surname
+                    <span></span>
+                </h3>
+                <p>
+                    Mail:
+                    <a href="#">@writer.Mail</a>
+                </p>
+
+                <div class="caption">
+
+                    <ul class="rating-single">
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <span class="fa fa-star yellow-star" aria-hidden="true"></span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="clearfix"> </div>
+                    <h6>
+                    </h6>
+                </div>
+                <div class="desc_single">
+                    <h5>Yazar Hakkında</h5>
+                    <p>
+                        @writer.Description
+                    </p>
+                </div>
+          
+
+
+
+            </div>
+            <div class="clearfix"> </div>
+
+        </div>
+
+    </div>
+
+}
+<!--// Single -->
+<!-- footer -->

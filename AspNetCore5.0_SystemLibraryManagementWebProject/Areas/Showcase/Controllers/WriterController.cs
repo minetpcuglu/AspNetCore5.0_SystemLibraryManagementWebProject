@@ -9,6 +9,7 @@ using X.PagedList;
 
 namespace AspNetCore5._0_SystemLibraryManagementWebProject.Areas.Showcase.Controllers
 {
+    [Area("Showcase")]
     public class WriterController : Controller
     {
         WriterManager writerManager = new WriterManager(new EfWriterRepository());

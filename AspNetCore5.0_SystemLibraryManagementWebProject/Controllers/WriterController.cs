@@ -15,7 +15,7 @@ using X.PagedList;
 
 namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 {
-    [Area("Showcase")]
+   
     public class WriterController : Controller
     {
         WriterManager writerManager = new WriterManager(new EfWriterRepository());
@@ -27,7 +27,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             var value = writerManager.GetList();
         
 
-            return View(value.ToPagedList(page, 8));
+            return View(value.ToPagedList(page, 12));
         }
 
         public IActionResult WriterReadAll(int id)

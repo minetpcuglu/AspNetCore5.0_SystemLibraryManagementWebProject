@@ -19,7 +19,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Areas.Showcase.Contro
         {
             ViewBag.NewBook = c.Books.OrderByDescending(x => x.BookId).Select(x => x.BookName).Take(4).FirstOrDefault();//son eklenen blog
             var value = bookManager.GetListWithCategory();
-            return View(value.ToPagedList(page, 8));
+            return View(value.ToPagedList(page, 9));
         }
 
         public IActionResult GetlistBookId(int id)
