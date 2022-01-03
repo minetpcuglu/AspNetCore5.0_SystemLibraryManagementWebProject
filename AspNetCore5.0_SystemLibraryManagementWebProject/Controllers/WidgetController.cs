@@ -12,5 +12,10 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         {
             return View();
         }
+
+        public IActionResult Weather()
+        {
+            return View();
+        }
     }
 }
