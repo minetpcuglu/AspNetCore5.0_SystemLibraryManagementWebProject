@@ -49,6 +49,10 @@
                 <input asp-for="IadeTarihi" type="datetime" name="UyeGetirdigiTarihi" value="@DateTime.Now.ToShortDateString()" class="form-control" />
                 <span asp-validation-for="IadeTarihi" class="text-danger"></span>
             </div>
+            <br />
+            <label>Geç Gelen Gün Sayısı</label>
+            <input type="text" class="form-control" id="gecgelenkitap" value="@ViewBag.dgr" />
+            <br />
 
             <button type="submit" class="btn btn-primary">Ödünç Kitabı Geri Al</button>
 

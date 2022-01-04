@@ -12,6 +12,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 {
     public class LoanedController : Controller  //takeonloan ödünc alma 
     {
+
         MovementManager movementManager = new MovementManager(new EfMovementRepository());
         CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
         Context c = new Context();
@@ -62,6 +63,11 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         public IActionResult TakeOnLoan(int id) //ödünç iade
         {
             var value = movementManager.GetById(id);
+            DateTime date = DateTime.Parse(value.IadeTarihi.ToString());
+            DateTime date2 = Convert.ToDateTime(DateTime.Now.ToShortDateString());
+            TimeSpan date3 = date2 - date;
+            ViewBag.dgr = date3.TotalDays;
+         
          
             return View("TakeOnLoan",value);
         }
