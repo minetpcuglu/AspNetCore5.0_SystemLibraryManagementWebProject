@@ -111,6 +111,9 @@ namespace DataAccessLayer.Migrations
                     b.Property<string>("Mail")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<string>("Message")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Name")
                         .HasColumnType("nvarchar(max)");
 
@@ -189,9 +192,6 @@ namespace DataAccessLayer.Migrations
                     b.Property<DateTime>("FinishDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<decimal>("Money")
-                        .HasColumnType("decimal(18,2)");
-
                     b.Property<int>("MovementId")
                         .HasColumnType("int");
 
@@ -200,6 +200,9 @@ namespace DataAccessLayer.Migrations
 
                     b.Property<int?>("UserId")
                         .HasColumnType("int");
+
+                    b.Property<decimal>("totelmoney")
+                        .HasColumnType("decimal(18,2)");
 
                     b.HasKey("PunishmentId");
 
