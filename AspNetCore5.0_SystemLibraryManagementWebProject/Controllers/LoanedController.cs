@@ -30,6 +30,8 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             return View( value);
         }
 
+     
+
         //[HttpPost]
         //public IActionResult LoanBookList([Bind(Prefix =) //Ödünç kitap Listesi
         //{

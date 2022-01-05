@@ -32,8 +32,6 @@
 
 <div class="wrapper wrapper-content animated fadeInRight">
     <div class="row">
-
-
         @foreach (var book in Model)
         {
             <div class="col-lg-3">
@@ -63,8 +61,6 @@
 
                         @*<a href="/Blog/BlogReadAll/@writer.WriterId" class="btn btn-primary read-m">Devamını Oku..</a>*@
 
-
-
                     </a>
                     <div class="contact-box-footer">
                         <div class="m-t-xs btn-group">
@@ -76,16 +72,12 @@
 
                 </div>
             </div>
-
-
         }
-
     </div>
 </div>
 
 <a href="/Book/AddBook/" class="btn btn-primary">Yeni Kitap Ekle</a>
 <br />
-
 <br />
 @Html.PagedListPager((IPagedList)Model, page => Url.Action("Index", new { page }))
 
