@@ -25,8 +25,6 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         {
          
             var value = writerManager.GetList();
-        
-
             return View(value.ToPagedList(page, 12));
         }
 
