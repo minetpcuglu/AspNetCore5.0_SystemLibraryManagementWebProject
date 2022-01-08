@@ -15,6 +15,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.ViewComponents.Widget
             {
 
                 ViewBag.BookCount = c.Books.Count();
+                ViewBag.BookCountStatus = c.Books.Where(x=>x.BookStatus==false).Count();
 
                 return View();
             }

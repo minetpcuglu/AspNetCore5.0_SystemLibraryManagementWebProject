@@ -27,64 +27,26 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     <ul class="ca-menu">
         @await Component.InvokeAsync("BookLing")
-        <li>
-            <a href="#">
-                <i class="fa fa-user" aria-hidden="true"></i>
-                <div class="ca-content">
-                    <h4 class="ca-main one">@*@ViewBag.dgr2*@</h4>
-                    <h3 class="ca-sub one">Üye Sayımız</h3>
-                </div>
-            </a>
-        </li>
+        @await Component.InvokeAsync("UserCount")
+       
         <li>
             <a href="#">
                 <i class="fa fa-money" aria-hidden="true"></i>
                 <div class="ca-content">
                     <h4 class="ca-main two">@*@ViewBag.dgr3*@</h4>
-                    <h3 class="ca-sub two">Kasadaki Tutar</h3>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-apple" aria-hidden="true"></i>
-                <div class="ca-content">
-                    <h4 class="ca-main three">@*@ViewBag.dgr4*@</h4>
-                    <h3 class="ca-sub three">Ödünçteki Kitaplar</h3>
+                    <h3 class="ca-sub two">78</h3>
                 </div>
             </a>
         </li>
 
+        @await Component.InvokeAsync("BookStatusLing")
     </ul>
 
     <ul class="ca-menu">
-        <li>
-            <a href="#">
-                <i class="fa fa-list" aria-hidden="true"></i>
-                <div class="ca-content">
-                    <h4 class="ca-main">@*@ViewBag.dgr5*@</h4>
-                    <h3 class="ca-sub">Kategori Sayımız</h3>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-language" aria-hidden="true"></i>
-                <div class="ca-content">
-                    <h4 class="ca-main one">Meltem Çınar</h4>
-                    <h3 class="ca-sub one">En Aktif Üye</h3>
-                </div>
-            </a>
-        </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-database" aria-hidden="true"></i>
-                <div class="ca-content">
-                    <h4 class="ca-main two">İki Şehrin Hikayesi</h4>
-                    <h3 class="ca-sub two">En Çok Okunan Kitap</h3>
-                </div>
-            </a>
-        </li>
+        @await Component.InvokeAsync("CategoryCount")
+        @await Component.InvokeAsync("WriterCount")
+        @await Component.InvokeAsync("BookNameLing")
+    
         <li>
             <a href="#">
                 <i class="fa fa-sticky-note" aria-hidden="true"></i>
