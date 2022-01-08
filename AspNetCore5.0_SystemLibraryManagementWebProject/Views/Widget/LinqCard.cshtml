@@ -47,26 +47,18 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     </ul>
     <ul class="ca-menu">
-        <li>
-            <a href="#">
-                <i class="fa fa-barcode" aria-hidden="true"></i>
-                <div class="ca-content">
-                    <h4 class="ca-main">@*@ViewBag.dgr9*@</h4>
-                    <h3 class="ca-sub">En İyi yayınevi</h3>
-                </div>
-            </a>
-        </li>
+        @await Component.InvokeAsync("BookPublisher")
         <li>
             <a href="#">
                 <i class="fa fa-bitcoin" aria-hidden="true"></i>
                 <div class="ca-content">
-                    <h4 class="ca-main one">@*Baran Yücedağ*@</h4>
+                    <h4 class="ca-main one">Mine Topcuoglu</h4>
                     <h3 class="ca-sub one">En Başarılı Personel</h3>
                 </div>
             </a>
         </li>
         @await Component.InvokeAsync("ContactCount")
-      
+
         <li>
             <a href="#">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
