@@ -25,6 +25,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 
         public IActionResult LinqCard()
         {
+            
             return View();
         }
 
