@@ -27,28 +27,23 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
     <ul class="ca-menu">
         @await Component.InvokeAsync("BookLing")
+        @await Component.InvokeAsync("CategoryCount")
         @await Component.InvokeAsync("UserCount")
+        @await Component.InvokeAsync("WriterCount")
        
-        <li>
-            <a href="#">
-                <i class="fa fa-money" aria-hidden="true"></i>
-                <div class="ca-content">
-                    <h4 class="ca-main two">@*@ViewBag.dgr3*@</h4>
-                    <h3 class="ca-sub two">78</h3>
-                </div>
-            </a>
-        </li>
+       
+
 
         @await Component.InvokeAsync("BookStatusLing")
     </ul>
 
     <ul class="ca-menu">
-        @await Component.InvokeAsync("CategoryCount")
-        @await Component.InvokeAsync("WriterCount")
-        @await Component.InvokeAsync("BookNameLing")
         @await Component.InvokeAsync("EmployeeCount")
-    
-        
+        @await Component.InvokeAsync("WriterTheMostBook")
+        @await Component.InvokeAsync("BookNameLing")
+       
+
+
 
     </ul>
     <ul class="ca-menu">
@@ -70,15 +65,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
                 </div>
             </a>
         </li>
-        <li>
-            <a href="#">
-                <i class="fa fa-diamond" aria-hidden="true"></i>
-                <div class="ca-content">
-                    <h4 class="ca-main two">@*@ViewBag.dgr11*@</h4>
-                    <h3 class="ca-sub two">Toplam Mesaj Sayısı</h3>
-                </div>
-            </a>
-        </li>
+        @await Component.InvokeAsync("ContactCount")
+      
         <li>
             <a href="#">
                 <i class="fa fa-calendar" aria-hidden="true"></i>
