@@ -15,7 +15,7 @@ namespace BusinessLayer.ValidationRules.FluentValidation
         {
 
             RuleFor(x => x.Name).NotEmpty().WithMessage("Yazar adı boş geçilemez");
-            RuleFor(x => x.Description).NotEmpty().WithMessage("Hakkımda boş geçilemez");
+            //RuleFor(x => x.Description).NotEmpty().WithMessage("Hakkımda boş geçilemez");
             RuleFor(x => x.Name).MaximumLength(50).WithMessage("Yazar adı maks 50 karakter olmalı");
             RuleFor(x => x.Name).MinimumLength(3).WithMessage("Yazar adı min 3 karakter olmalı");
             RuleFor(x => x.Surname).NotEmpty().WithMessage("Yazar soyadı boş geçilemez");
@@ -24,7 +24,7 @@ namespace BusinessLayer.ValidationRules.FluentValidation
             RuleFor(x => x.Mail).NotEmpty().EmailAddress().WithMessage("Yazar Mail boş geçilemez / E-mail formatında olmalı");
             RuleFor(x => x.Surname).MaximumLength(50).WithMessage("Yazar soyadı maks 50 karakter olmalı");
             RuleFor(x => x.Surname).MinimumLength(2).WithMessage("Yazar soyadı min 2 karakter olmalı");
-            RuleFor(x => x.Description).MinimumLength(50).WithMessage("Hakkımda min 50 karakter olmalı");
+            //RuleFor(x => x.Description).MinimumLength(50).WithMessage("Hakkımda min 50 karakter olmalı");
         }
 
         private bool IsPasswordValidRules(string arg)

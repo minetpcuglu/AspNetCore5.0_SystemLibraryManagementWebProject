@@ -54,26 +54,29 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
             </div>
             <div class="register-right">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
                 <div class="register-in">
+
                     <h2><span class="fa fa-pencil"></span> Kayıt Ol</h2>
                     <div class="register-form">
-                        <form method="post" asp-controller="Register" asp-action="WriterAdd" enctype="multipart/form-data">
+
+                        <form method="post" asp-controller="Register" asp-action="Index" enctype="multipart/form-data">
                             <div class="fields-grid">
 
                                 <div class="form-row">
                                     <div class="col-md-6 mb-3">
-                                     
+
                                         <input asp-for="Name" class="form-control" placeholder="Adınız" />
-                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                        <span asp-validation-for="Name" class="border-white"></span>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                     
+
                                         <input asp-for="Surname" class="form-control" placeholder="Soyadınız" />
                                         <span asp-validation-for="Surname" class="text-danger"></span>
                                     </div>
-                                
+
                                     <div class="col-md-6 mb-3">
-                                      
+
                                         <input asp-for="Mail" type="email" class="form-control" placeholder="Email Adresiniz" />
                                         <span asp-validation-for="Mail" class="text-danger"></span>
                                     </div>
@@ -85,16 +88,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <span asp-validation-for="Password" class="text-danger"></span>
                                     </div>
                                     <div class="col-md-6 mb-3">
-                                       
+
                                         <input name="againPassword" type="password" class="form-control" placeholder="Şifre Tekrarı.." />
 
                                     </div>
 
                                     <br />
-                                    <div class="form-group col-md-6">
-                                     
-                                        @Html.DropDownList("GetCity", (ViewBag.getCity), "Şehir Seçiniz", new { @class = "form-control dropdown" })
-                                    </div>
+                                    @*<div class="form-group col-md-6">
+                                <label for="exampleInputPassword2 mb-2"><b>Şehir:</b></label>
+                                @Html.DropDownList("GetCity", (ViewBag.getCity), "Şehir Seçiniz", new { @class = "form-control dropdown" })
+                            </div>*@
                                     <br />
                                     <div class="form-group">
                                         <label asp-for="Image"> <b>Resim:</b></label>
@@ -102,11 +105,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <br />
                                 </div>
-
+                                <br />
+                                <button type="submit" class="btn btn-outline-success"><b>Üye Ol</b></button>
+                                <br />
                                 <div class="clear"> </div>
                                 <label class="checkbox"><input type="checkbox" name="checkbox" checked><i></i>Tüm Hakları, <a href="#">Kabul ediyorum</a></label>
                             </div>
-                            <input type="submit" value="Üye Ol">
+
                         </form>
                     </div>
 
