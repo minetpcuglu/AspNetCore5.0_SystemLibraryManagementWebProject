@@ -1,4 +1,4 @@
-﻿
+﻿@model Writer
 @{
     Layout = null;
 }
@@ -12,7 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Üye Olma Paneli</title>
+    <title>Yazar Üye Olma Paneli</title>
     <!-- custom-theme -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -41,9 +41,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="logo">
                         <a href="#"><span class="fa fa-graduation-cap" aria-hidden="true"></span></a>
                     </div>
-                    <h1>Kayıt Olma Ekranı</h1>
+                    <h1>Yazar Kayıt Olma Ekranı</h1>
                     <p>
-                       Kütüphanemize hoşgeldinniz,giriş yapmak için lütfen üye olun...
+                        Kütüphanemize hoşgeldiniz,giriş yapmak için lütfen üye olun...
                     </p>
                     <div class="content3">
                         <ul>
@@ -57,63 +57,61 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="register-in">
                     <h2><span class="fa fa-pencil"></span> Kayıt Ol</h2>
                     <div class="register-form">
-                        <form action="#" method="post">
+                        <form method="post" asp-controller="Register" asp-action="WriterAdd" enctype="multipart/form-data">
                             <div class="fields-grid">
-                                <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="First name" required="">
-                                    <label>İsim </label>
-                                    <span></span>
+
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+                                     
+                                        <input asp-for="Name" class="form-control" placeholder="Adınız" />
+                                        <span asp-validation-for="Name" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                     
+                                        <input asp-for="Surname" class="form-control" placeholder="Soyadınız" />
+                                        <span asp-validation-for="Surname" class="text-danger"></span>
+                                    </div>
+                                
+                                    <div class="col-md-6 mb-3">
+                                      
+                                        <input asp-for="Mail" type="email" class="form-control" placeholder="Email Adresiniz" />
+                                        <span asp-validation-for="Mail" class="text-danger"></span>
+                                    </div>
                                 </div>
-                                <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="First name" required="">
-                                    <label>Soyisim </label>
-                                    <span></span>
+                                <div class="form-row">
+                                    <div class="col-md-6 mb-3">
+
+                                        <input asp-for="Password" type="password" class="form-control" placeholder="Şifre" />
+                                        <span asp-validation-for="Password" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+                                       
+                                        <input name="againPassword" type="password" class="form-control" placeholder="Şifre Tekrarı.." />
+
+                                    </div>
+
+                                    <br />
+                                    <div class="form-group col-md-6">
+                                     
+                                        @Html.DropDownList("GetCity", (ViewBag.getCity), "Şehir Seçiniz", new { @class = "form-control dropdown" })
+                                    </div>
+                                    <br />
+                                    <div class="form-group">
+                                        <label asp-for="Image"> <b>Resim:</b></label>
+                                        <input type="file" name="file" class="form-control" />
+                                    </div>
+                                    <br />
                                 </div>
-                                <div class="styled-input agile-styled-input-top">
-                                    <input type="text" name="First name" required="">
-                                    <label>Kulllanıcı Adı</label>
-                                    <span></span>
-                                </div>
-                                <div class="styled-input">
-                                    <input type="email" name="Email" required="">
-                                    <label>Email Adresiniz</label>
-                                    <span></span>
-                                </div>
-                                <div class="styled-input">
-                                    <input type="tel" name="Phone" required="">
-                                    <label>Telefon Numaranız</label>
-                                    <span></span>
-                                </div>
-                                <div class="styled-input">
-                                    <input type="password" name="password" required="">
-                                    <label>Şifre </label>
-                                    <span></span>
-                                </div>
-                                <div class="styled-input">
-                                    <input type="password" name="password" required="">
-                                    <label>Şifre Tekrarı</label>
-                                    <span></span>
-                                </div>
-                                <div class="styled-input agile-styled-input-top">
-                                    <select id="category2" required="">
-                                        <option value="">Öğrenim Durumu</option>
-                                        <option value="">Lisans</option>
-                                        <option value="">Yüksek Lisans</option>
-                                        <option value="">İlköğretim</option>
-                                        <option value="">Anaokulu</option>
-                                        <option value="">Ortaokul</option>
-                                        <option value="">ÖnLisans</option>
-                                        <option value="">Lise</option>
-                                    </select>
-                                    <span></span>
-                                </div>
+
                                 <div class="clear"> </div>
                                 <label class="checkbox"><input type="checkbox" name="checkbox" checked><i></i>Tüm Hakları, <a href="#">Kabul ediyorum</a></label>
                             </div>
                             <input type="submit" value="Üye Ol">
                         </form>
                     </div>
+
                 </div>
+
                 <div class="clear"> </div>
             </div>
             <div class="clear"> </div>
