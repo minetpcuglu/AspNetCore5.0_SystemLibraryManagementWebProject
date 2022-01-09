@@ -95,9 +95,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     <br />
                                     @*<div class="form-group col-md-6">
-                                <label for="exampleInputPassword2 mb-2"><b>Şehir:</b></label>
-                                @Html.DropDownList("GetCity", (ViewBag.getCity), "Şehir Seçiniz", new { @class = "form-control dropdown" })
-                            </div>*@
+                    <label for="exampleInputPassword2 mb-2"><b>Şehir:</b></label>
+                    @Html.DropDownList("GetCity", (ViewBag.getCity), "Şehir Seçiniz", new { @class = "form-control dropdown" })
+                </div>*@
                                     <br />
                                     <div class="form-group">
                                         <label asp-for="Image"> <b>Resim:</b></label>
@@ -105,13 +105,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <br />
                                 </div>
-                                <br />
-                                <button type="submit" class="btn btn-outline-success"><b>Üye Ol</b></button>
-                                <br />
+                             
                                 <div class="clear"> </div>
                                 <label class="checkbox"><input type="checkbox" name="checkbox" checked><i></i>Tüm Hakları, <a href="#">Kabul ediyorum</a></label>
                             </div>
-
+                            <input type="submit" value="Üye Ol">
                         </form>
                     </div>
 
