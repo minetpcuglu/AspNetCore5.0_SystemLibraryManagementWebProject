@@ -74,11 +74,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <input asp-for="Surname" class="form-control" placeholder="Soyadınız" />
                                         <span asp-validation-for="Surname" class="text-danger"></span>
                                     </div>
+                                    <div class="col-md-6 mb-3">
+
+                                        <input asp-for="UserName" class="form-control" placeholder="Kullanıcı Adınız" />
+                                        <span asp-validation-for="UserName" class="text-danger"></span>
+                                    </div>
 
                                     <div class="col-md-6 mb-3">
 
                                         <input asp-for="Email" type="email" class="form-control" placeholder="Email Adresiniz" />
                                         <span asp-validation-for="Email" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+
+                                        <input asp-for="Telephone" type="text" class="form-control" placeholder="0 ile başlayan Telefon Numarası" />
+                                        <span asp-validation-for="Telephone" class="text-danger"></span>
+                                    </div>
+                                    <div class="col-md-6 mb-3">
+
+                                        <input asp-for="Education" type="text" class="form-control" placeholder="Okudugunuz Eğitim Seviyesi (örn:Lisans.)" />
+                                        <span asp-validation-for="Education" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -92,31 +107,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <input name="againPassword" type="password" class="form-control" placeholder="Şifre Tekrarı.." />
 
                                     </div>
-
                                     <br />
-                                    @*<div class="form-group col-md-6">
-            <label for="exampleInputPassword2 mb-2"><b>Şehir:</b></label>
-            @Html.DropDownList("GetCity", (ViewBag.getCity), "Şehir Seçiniz", new { @class = "form-control dropdown" })
-        </div>*@
+                                   
+
+      
                                     <br />
                                     <div class="form-group">
                                         <label asp-for="Image"> <b>Resim:</b></label>
                                         <input type="file" name="file" class="form-control" />
                                     </div>
                                     <br />
-                                    <div class="styled-input agile-styled-input-top">
-                                        <select id="category2" required="" name="Education">
-                                            <option value="">Lisans</option>
-                                            <option value="">Yüksek Lisans</option>
-                                            <option value="">Ön Lisans</option>
-                                            <option value="">Lise</option>
-                                            <option value="">Ortaöğretim</option>
-                                            <option value="">İlköğretim</option>
-                                            <option value="">Okumuyor</option>
-                                            <option value="">Diğer</option>
-                                        </select>
-                                        <span></span>
-                                    </div>
+                                   
                                 </div>
                              
                                 <div class="clear"> </div>
