@@ -46,7 +46,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
                     }
                 }
                 user.UserStatus = true;
-                //user.Description = "Lütfen bir seyler yazınız";
+            
                
                 writerManager.Add(user);
                 return RedirectToAction("Index", "Dashboard");
