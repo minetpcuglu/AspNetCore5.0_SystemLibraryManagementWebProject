@@ -37,16 +37,17 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 
 <body>
     <h1>Kullanıcı Login Formu</h1>
+    
     <div class=" w3l-login-form">
         <h2>Giriş Paneli</h2>
+        @Html.ValidationSummary(true, "", new { @class = "text-white" })
         <form action="#" method="POST">
-
             <div class=" w3l-form-group">
                 <label>Kullanıcı Adı:</label>
                 <div class="group">
                     <i class="fas fa-user"></i>
                     <input type="text" class="form-control" name="UserName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Kullanıcı Adı" required="">
-                  
+
                 </div>
             </div>
             <div class=" w3l-form-group">
