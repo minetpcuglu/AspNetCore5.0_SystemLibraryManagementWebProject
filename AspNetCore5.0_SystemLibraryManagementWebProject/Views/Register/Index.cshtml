@@ -1,4 +1,4 @@
-﻿@model Writer
+﻿@model User
 @{
     Layout = null;
 }
@@ -12,7 +12,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Yazar Üye Olma Paneli</title>
+    <title>Öğrenci Üye Olma Paneli</title>
     <!-- custom-theme -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -41,7 +41,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="logo">
                         <a href="#"><span class="fa fa-graduation-cap" aria-hidden="true"></span></a>
                     </div>
-                    <h1>Yazar Kayıt Olma Ekranı</h1>
+                    <h1>Öğrenci Kayıt Olma Ekranı</h1>
                     <p>
                         Kütüphanemize hoşgeldiniz,giriş yapmak için lütfen üye olun...
                     </p>
@@ -77,8 +77,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     <div class="col-md-6 mb-3">
 
-                                        <input asp-for="Mail" type="email" class="form-control" placeholder="Email Adresiniz" />
-                                        <span asp-validation-for="Mail" class="text-danger"></span>
+                                        <input asp-for="Email" type="email" class="form-control" placeholder="Email Adresiniz" />
+                                        <span asp-validation-for="Email" class="text-danger"></span>
                                     </div>
                                 </div>
                                 <div class="form-row">
@@ -95,15 +95,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                     <br />
                                     @*<div class="form-group col-md-6">
-                    <label for="exampleInputPassword2 mb-2"><b>Şehir:</b></label>
-                    @Html.DropDownList("GetCity", (ViewBag.getCity), "Şehir Seçiniz", new { @class = "form-control dropdown" })
-                </div>*@
+            <label for="exampleInputPassword2 mb-2"><b>Şehir:</b></label>
+            @Html.DropDownList("GetCity", (ViewBag.getCity), "Şehir Seçiniz", new { @class = "form-control dropdown" })
+        </div>*@
                                     <br />
                                     <div class="form-group">
                                         <label asp-for="Image"> <b>Resim:</b></label>
                                         <input type="file" name="file" class="form-control" />
                                     </div>
                                     <br />
+                                    <div class="styled-input agile-styled-input-top">
+                                        <select id="category2" required="" name="Education">
+                                            <option value="">Lisans</option>
+                                            <option value="">Yüksek Lisans</option>
+                                            <option value="">Ön Lisans</option>
+                                            <option value="">Lise</option>
+                                            <option value="">Ortaöğretim</option>
+                                            <option value="">İlköğretim</option>
+                                            <option value="">Okumuyor</option>
+                                            <option value="">Diğer</option>
+                                        </select>
+                                        <span></span>
+                                    </div>
                                 </div>
                              
                                 <div class="clear"> </div>

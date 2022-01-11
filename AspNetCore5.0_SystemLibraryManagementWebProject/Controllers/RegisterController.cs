@@ -16,8 +16,8 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 {
     public class RegisterController : Controller
     {
-        WriterManager writerManager = new WriterManager(new EfWriterRepository());
-        WriterValidator writerRules = new WriterValidator();
+        UserManager writerManager = new UserManager(new EfUserRepository());
+        UserValidator writerRules = new UserValidator();
 
         [HttpGet]
         public IActionResult Index()
@@ -27,29 +27,29 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Index(Writer writer, string city, string againPassword, IFormFile file)
+        public async Task<IActionResult> Index(User user, string city, string againPassword, IFormFile file)
         {
 
-            ValidationResult result = writerRules.Validate(writer);
-            if (result.IsValid && writer.Password == againPassword)
+            ValidationResult result = writerRules.Validate(user);
+            if (result.IsValid && user.Password == againPassword)
             {
                 if (file != null)
                 {
                     var extension = Path.GetExtension(file.FileName); //uzantiya ulasmak //.jpg .png
                     var randomFileName = string.Format($"{Guid.NewGuid()}{extension}");  //random bir sayı ile resim dosyaları birbirine çakışmaması
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", randomFileName);
-                    writer.Image = randomFileName;
+                    user.Image = randomFileName;
 
                     using (var stream = new FileStream(path, FileMode.Create))  //using içinde olması isimiz bittiginde otamatşk silinecek olması.
                     {
                         await file.CopyToAsync(stream);
                     }
                 }
-                writer.WriterStatus = true;
-                writer.Description = "Lütfen bir seyler yazınız";
+                user.UserStatus = true;
+                //user.Description = "Lütfen bir seyler yazınız";
                
-                writerManager.Add(writer);
-                return RedirectToAction("Index", "Writer");
+                writerManager.Add(user);
+                return RedirectToAction("Index", "Dashboard");
             }
             else if (!result.IsValid)
             {
@@ -62,7 +62,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             }
             else
             {
-                ModelState.AddModelError("writerPassword", "Hatalı giriş. Girilen şifreler eşleşmedi tekrar deneyiniz.");
+                ModelState.AddModelError("userPassword", "Hatalı giriş. Girilen şifreler eşleşmedi tekrar deneyiniz.");
             }
             return View();
 
