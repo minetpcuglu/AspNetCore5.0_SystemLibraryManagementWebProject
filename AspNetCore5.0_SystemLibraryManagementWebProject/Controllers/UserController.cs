@@ -16,6 +16,7 @@ using X.PagedList;
 namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 {
     //[Authorize]
+    //[AllowAnonymous]
     public class UserController : Controller
     {
         UserManager userManager = new UserManager(new EfUserRepository());
