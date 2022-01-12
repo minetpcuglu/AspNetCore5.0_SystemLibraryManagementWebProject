@@ -54,7 +54,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Areas.Showcase.Contro
 
                 userManager.Update(user);
 
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Dashboard");
             }
             else
             {
