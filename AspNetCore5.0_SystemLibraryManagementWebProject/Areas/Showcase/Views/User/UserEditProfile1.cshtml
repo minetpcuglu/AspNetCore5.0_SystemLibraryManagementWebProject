@@ -16,43 +16,41 @@
                 <form class="forms-sample">
                     <div class="form-group">
                         <label for="exampleInputName1">İsim</label>
-                      @Html.TextBoxFor(x=>x.Name , new  {@class = "form-control" })
+                        @Html.TextBoxFor(x => x.Name, new { @class = "form-control" })
                     </div>
                     <div class="form-group">
                         <label for="exampleInputEmail3">Soyisim</label>
-                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                        @Html.TextBoxFor(x => x.Surname, new { @class = "form-control" })
                     </div>
                     <div class="form-group">
-                        <label for="exampleInputPassword4">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+                        <label for="exampleInputEmail3">Kullanıcı Adı</label>
+                        @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
                     </div>
                     <div class="form-group">
-                        <label for="exampleSelectGender">Gender</label>
-                        <select class="form-control" id="exampleSelectGender">
-                            <option>Male</option>
-                            <option>Female</option>
-                        </select>
+                        <label for="exampleInputEmail3">E-Mail</label>
+                        @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
                     </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">şifre</label>
+                        @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Eğitim Bilgisi</label>
+                        @Html.TextBoxFor(x => x.Education, new { @class = "form-control" })
+                    </div>
+
                     <div class="form-group">
                         <label>File upload</label>
                         <input type="file" name="img[]" class="file-upload-default">
                         <div class="input-group col-xs-12">
-                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
-                            <span class="input-group-append">
-                                <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
-                            </span>
+                            @Html.TextBoxFor(x => x.Image, new { @class = "form-control" })
+                            <input type="file" name="file" class="form-control" />
+
                         </div>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputCity1">City</label>
-                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleTextarea1">Textarea</label>
-                        <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
-                    <button class="btn btn-light">Cancel</button>
+
+                    <button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
+                    <button class="btn btn-light">İptal</button>
                 </form>
             </div>
         </div>
