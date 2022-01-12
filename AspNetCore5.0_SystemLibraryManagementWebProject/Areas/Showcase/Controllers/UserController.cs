@@ -3,6 +3,7 @@ using BusinessLayer.ValidationRules.FluentValidation;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,6 +14,7 @@ using System.Threading.Tasks;
 
 namespace AspNetCore5._0_SystemLibraryManagementWebProject.Areas.Showcase.Controllers
 {
+    [AllowAnonymous]
     [Area("Showcase")]
     public class UserController : Controller
     {
@@ -26,10 +28,11 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Areas.Showcase.Contro
        
         }
 
+      
         [HttpGet]
         public IActionResult UserEditProfile1(int id)
         {
-            var uservalue = userManager.GetById(3);
+            var uservalue = userManager.GetById(id);
             return View(uservalue);
         }
 
@@ -54,7 +57,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Areas.Showcase.Contro
 
                 userManager.Update(user);
 
-                return RedirectToAction("Index","Dashboard");
+                return RedirectToAction("Index");
             }
             else
             {
