@@ -1,0 +1,165 @@
+﻿@model EntityLayer.Concrete.User
+@{
+    ViewData["Title"] = "UserEditProfile1";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<br />
+
+@using (Html.BeginForm("UserEditProfile1", "User", FormMethod.Post))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Kullanıcı Bilgi Güncelleme Sayfası</h4>
+      
+                <form class="forms-sample">
+                    <div class="form-group">
+                        <label for="exampleInputName1">İsim</label>
+                      @Html.TextBoxFor(x=>x.Name , new  {@class = "form-control" })
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputEmail3">Soyisim</label>
+                        <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword4">Password</label>
+                        <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleSelectGender">Gender</label>
+                        <select class="form-control" id="exampleSelectGender">
+                            <option>Male</option>
+                            <option>Female</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>File upload</label>
+                        <input type="file" name="img[]" class="file-upload-default">
+                        <div class="input-group col-xs-12">
+                            <input type="text" class="form-control file-upload-info" disabled placeholder="Upload Image">
+                            <span class="input-group-append">
+                                <button class="file-upload-browse btn btn-gradient-primary" type="button">Upload</button>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputCity1">City</label>
+                        <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleTextarea1">Textarea</label>
+                        <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-gradient-primary mr-2">Submit</button>
+                    <button class="btn btn-light">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+}
+
+<!--<form method="post" asp-controller="User" asp-action="UserEditProfile1" enctype="multipart/form-data">
+
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yazar Profil Bilgileri Düzenleme</h4>
+
+
+
+
+                <div class="form-group">
+                    <label asp-for="UserName"> <b>Kullanıcı Adı :</b></label>
+                    <input asp-for="UserName" type="text" class="form-control" />
+                    <span asp-validation-for="UserName" class="text-danger"></span>
+                </div>-->
+@*<div class="form-group">
+        <label asp-for="WriterMail"> <b>Mail:</b></label>
+        <input asp-for="WriterMail" type="email" class="form-control" />
+        <span asp-validation-for="WriterMail" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="WriterPassword"> <b>Şifre:</b></label>
+        <input asp-for="WriterPassword" class="form-control" />
+        <span asp-validation-for="WriterPassword" class="text-danger"></span>
+    </div>
+
+
+    <div class="form-group">
+        <label asp-for="WriterImage"> <b>Resim:</b></label>
+        <input type="file" name="file" class="form-control" />
+    </div>
+    <div>
+        <label asp-for="WriterAbout"> <b>Yazar Hakkında:</b></label>
+        <textarea asp-for="WriterAbout" class="form-control"></textarea>
+        <span asp-validation-for="WriterAbout" class="text-danger"></span>
+    </div>*@
+<!--<br />
+                <button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
+                <button class="btn btn-light">İptal</button>
+
+            </div>
+        </div>
+    </div>
+
+
+</form>-->
+@*<form method="post" asp-controller="User" asp-action="UserEditProfile" enctype="multipart/form-data">
+
+        <div class="col-12 grid-margin stretch-card">
+            <div class="card">
+                <div class="card-body">
+                    <h4 class="card-title">Kullanıcı Profil Bilgileri Düzenleme</h4>
+
+
+                    @Html.HiddenFor(x => x.UserId, new { @class = "form-control" })
+
+                    <div class="form-group">
+                        <label asp-for="UserName"> <b>Kullanıcı Adı:</b></label>
+                        <input asp-for="UserName" type="text" class="form-control" />
+                        <span asp-validation-for="UserName" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Email"> <b>E-Mail:</b></label>
+                        <input asp-for="Email" type="email" class="form-control" />
+                        <span asp-validation-for="Email" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Password"><b>Şifre:</b></label>
+                        <input asp-for="Password" type="password" class="form-control" />
+                        <span asp-validation-for="Password" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Telephone"><b>Şifre:</b></label>
+                        <input asp-for="Telephone" type="tel" class="form-control" />
+                        <span asp-validation-for="Telephone" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Name"> <b>Adınız:</b></label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Surname"> <b>Soyadınız:</b></label>
+                        <input asp-for="Surname" class="form-control" />
+                        <span asp-validation-for="Surname" class="text-danger"></span>
+                    </div>
+                    <div>
+                        <label asp-for="Education"> <b>Eğitim:</b></label>
+                        <input asp-for="Education" class="form-control" />
+                        <span asp-validation-for="Education" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Image"> <b>Resim:</b></label>
+                        <input type="file" name="file" class="form-control" />
+                    </div>
+                    <br />
+                    <button type="submit" class="btn btn-gradient-primary mr-2">Kaydet</button>
+
+                </div>
+            </div>
+        </div>
+
+
+    </form>*@
