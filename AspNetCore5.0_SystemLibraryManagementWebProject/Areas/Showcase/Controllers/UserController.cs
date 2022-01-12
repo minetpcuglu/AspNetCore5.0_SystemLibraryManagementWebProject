@@ -1,5 +1,6 @@
 ﻿using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules.FluentValidation;
+using DataAccessLayer.Concrete.Context;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -20,20 +21,38 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Areas.Showcase.Contro
     {
         UserManager userManager = new UserManager(new EfUserRepository());
         UserValidator userRules = new UserValidator();
-        public IActionResult Index(int id)
+
+
+
+
+        public IActionResult Index()
         {
+            Context c = new Context();
+            var userName = User.Identity.Name;
+            //sisteme otantike olan kullanıcının bilgilerinin gelmesi
+            var id = c.Users.Where(x => x.UserName == userName).Select(y => y.UserId).FirstOrDefault();
+            var uservalue = userManager.GetUserById(id);
+          
+
             ViewBag.x = id;
-            var value = userManager.GetUserById(id);
-            return View(value);
+            //var value = userManager.GetUserById(id);
+            return View(uservalue);
        
         }
 
       
         [HttpGet]
-        public IActionResult UserEditProfile1(int id)
+        public IActionResult UserEditProfile1()
         {
-            var uservalue = userManager.GetById(id);
+
+            Context c = new Context();
+            var userName = User.Identity.Name;
+            //sisteme otantike olan kullanıcının bilgilerinin gelmesi
+            var userId = c.Users.Where(x => x.UserName == userName).Select(y => y.UserId).FirstOrDefault();
+            var uservalue = userManager.GetById(userId);
             return View(uservalue);
+
+            
         }
 
         [HttpPost]

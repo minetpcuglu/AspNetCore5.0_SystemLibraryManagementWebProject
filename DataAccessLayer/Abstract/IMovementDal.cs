@@ -11,6 +11,8 @@ namespace DataAccessLayer.Abstract
     {
 
         List<Movement> GetListWithMovement(int id);
+
+        List<Movement> GetListWithBookByUserId(int id);
         List<Movement> GetListWithBookName();
     }
 }

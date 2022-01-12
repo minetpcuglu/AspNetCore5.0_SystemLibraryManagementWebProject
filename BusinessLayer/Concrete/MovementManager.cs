@@ -59,6 +59,11 @@ namespace BusinessLayer.Concrete
             return _movementDal.GetListWithBookName();
         }
 
+        public List<Movement> GetListWithBookByUserId(int id)
+        {
+            return _movementDal.GetListWithBookByUserId(id);
+        }
+
         public void Update(Movement t)
         {
             _movementDal.Update(t);

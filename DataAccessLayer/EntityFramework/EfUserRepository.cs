@@ -1,6 +1,8 @@
 ﻿using DataAccessLayer.Abstract;
+using DataAccessLayer.Concrete.Context;
 using DataAccessLayer.Repositories.GenericRepository;
 using EntityLayer.Concrete;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,5 +13,6 @@ namespace DataAccessLayer.EntityFramework
 {
   public class EfUserRepository : GenericRepository<User>, IUserDal
     {
+    
     }
 }

@@ -11,6 +11,7 @@ namespace BusinessLayer.Abstract
     {
         List<Movement> GetListWithBook();
         List<Movement> GetListWith(int id);
+        List<Movement> GetListWithBookByUserId(int id);
         //List<Movement> GetMovementListByBook(int id);
         //List<Movement> GetListWithBookName(int id);
 

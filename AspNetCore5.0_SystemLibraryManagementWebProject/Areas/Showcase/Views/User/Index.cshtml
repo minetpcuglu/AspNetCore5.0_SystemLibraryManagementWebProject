@@ -10,6 +10,7 @@
             <div class="ibox ">
                 <div class="ibox-title">
                     <h5>Kullanıcı Profili</h5>
+                    <br />
                 </div>
                 <div>
                     @foreach (var user in Model)
@@ -19,6 +20,7 @@
                         <div class="ibox-content no-padding border-left-right">
                             <img alt="image" class="img-fluid" src="/img/@user.Image">
                         </div>
+                        <br />
                         <div class="ibox-content profile-content">
                             <h4><strong>@user.Name @user.Surname</strong></h4>
                             <p><i class="fa fa-star"></i> @user.UserName</p>
@@ -30,20 +32,7 @@
                                 @user.Education
                                 @user.Telephone
                             </p>
-                            <div class="row m-t-lg">
-                                <div class="col-md-4">
-                                    <span class="bar">5,3,9,6,5,9,7,3,5,2</span>
-                                    <h5><strong>169</strong> Kitaplar</h5>
-                                </div>
-                                <div class="col-md-4">
-                                    <span class="line">5,3,9,6,5,9,7,3,5,2</span>
-                                    <h5><strong>28</strong> Takipçi</h5>
-                                </div>
-                                <div class="col-md-4">
-                                    <span class="bar">5,3,2,-1,-3,-2,2,3,5,2</span>
-                                    <h5><strong>240</strong> Takip Ettigi</h5>
-                                </div>
-                            </div>
+                            <br />
                             <div class="user-button">
                                 <div class="row">
                                     <div class="col-md-6">
@@ -64,7 +53,7 @@
         <div class="col-md-8">
             <div class="ibox ">
                 <div class="ibox-title">
-                    <h5>Kitaplarım</h5>
+                    <h5>Okudugum Kitaplar</h5>
                     <div class="ibox-tools">
                         <a class="collapse-link">
                             <i class="fa fa-chevron-up"></i>
@@ -85,7 +74,7 @@
                         </a>
                     </div>
                 </div>
-                @await Component.InvokeAsync("BookListByWriter", new { id = ViewBag.x })
+                @await Component.InvokeAsync("AreaMovementByUser", new { id = ViewBag.x })
             </div>
 
         </div>

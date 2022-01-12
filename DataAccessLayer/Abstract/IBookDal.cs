@@ -12,6 +12,7 @@ namespace DataAccessLayer.Abstract
         List<Book> GetListWithCategory();
         List<Book> GetListWithCategoryBookId(int id);
         List<Book> GetListWithCategoryByWriterId(int id);
+
         //List<Book> GetBookByWriterId(int id);
     }
 }

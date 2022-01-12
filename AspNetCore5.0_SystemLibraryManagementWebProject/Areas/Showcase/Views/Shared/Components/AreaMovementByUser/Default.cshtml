@@ -1,0 +1,48 @@
+﻿@model List<EntityLayer.Concrete.Movement>
+
+
+<div class="ibox-content">
+
+    <div>
+        <div class="feed-activity-list">
+            @if (Model.Count() > 0)
+            {
+                <h4>Kitaplar</h4>
+            }
+            else
+            {
+                <h3>Hiç Kitap okumamıssın ilk Kitabı Oku..</h3>
+            }
+
+
+            @foreach (var movement in Model)
+            {
+                <div class="feed-element">
+                    <div class="ibox-content no-padding border-left-right">
+                        <img alt="image" class="img-fluid" src="/img/@movement.Book.BookImage" width="85" height="100">
+                    </div>
+
+                    <div class="media-body ">
+
+                        <small class="float-right text-navy">@book.Publisher Yayınevi / @book.PrintDate.ToShortDateString()</small>
+                        <br />
+                        <strong>@book.BookName</strong> /<strong>Sayfa Sayısı - @book.NumberPage Tür: @book.Category.Name </strong> <br>
+                        <br />
+                        <small class="text-muted">@book.BookDescription  <strong></strong> </small>
+                        <div class="actions">
+                            @*<a href="" class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Oku </a>*@
+                            <a href="" class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Begen</a>
+                            <a href="/book/BookReadAll/@book.BookId" class="btn btn-xs btn-success"><i class="fa fa-book"></i> Detay</a>
+                        </div>
+                    </div>
+
+                </div>
+            }
+        </div>
+
+        <a href="/Book/AddBook/" class="btn btn-primary btn-block m"> <i class="fa fa-book"></i> Yeni Kitap Ekle</a>
+        @*<button class="btn btn-primary btn-block m"><i class="fa fa-book"></i> Yeni Kitap Ekle</button>*@
+
+    </div>
+
+</div>
