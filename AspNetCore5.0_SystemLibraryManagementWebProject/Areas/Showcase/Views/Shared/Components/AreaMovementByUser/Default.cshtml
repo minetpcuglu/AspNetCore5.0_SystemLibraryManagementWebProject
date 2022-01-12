@@ -11,36 +11,44 @@
             }
             else
             {
-                <h3>Hiç Kitap okumamıssın ilk Kitabı Oku..</h3>
+                <h3>Hiç Kitap okumamıssın ilk Kitabını Okumalısın..</h3>
             }
 
 
             @foreach (var movement in Model)
             {
+                <br />
                 <div class="feed-element">
-                    <div class="ibox-content no-padding border-left-right">
-                        <img alt="image" class="img-fluid" src="/img/@movement.Book.BookImage" width="85" height="100">
-                    </div>
+                   
 
                     <div class="media-body ">
 
-                        <small class="float-right text-navy">@book.Publisher Yayınevi / @book.PrintDate.ToShortDateString()</small>
+
                         <br />
-                        <strong>@book.BookName</strong> /<strong>Sayfa Sayısı - @book.NumberPage Tür: @book.Category.Name </strong> <br>
+                        <strong>@movement.Book.BookName</strong> /<strong> Sayfa Sayısı - @movement.Book.NumberPage  </strong> <br>
                         <br />
-                        <small class="text-muted">@book.BookDescription  <strong></strong> </small>
+                        <div class="ibox-content no-padding border-left-right">
+                            <img alt="image" class="img-fluid" src="/img/@movement.Book.BookImage" width="85" height="100">
+                        </div><br />
+                        <small class="float-right text-navy">@movement.Book.Publisher Yayınevi / @movement.Book.PrintDate.ToShortDateString()</small>
+                        <b>Alış Tarihi: @movement.AlisTarihi.ToShortDateString()</b> /<b> Iade Tarihi : @movement.IadeTarihi.ToShortDateString()</b> <br>
+                        <br />
+                        <small class="text-muted">@movement.Book.BookDescription  <strong></strong> </small>
+                        <br />
                         <div class="actions">
+                            <br /><br />
                             @*<a href="" class="btn btn-xs btn-white"><i class="fa fa-thumbs-up"></i> Oku </a>*@
-                            <a href="" class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Begen</a>
-                            <a href="/book/BookReadAll/@book.BookId" class="btn btn-xs btn-success"><i class="fa fa-book"></i> Detay</a>
+                            <a href="" class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Yorumla</a>
+                            <a href="/showcase/Book/GetlistBookId/@movement.Book.BookId" class="btn btn-xs btn-success"><i class="fa fa-book"></i> Detay</a>
+                            <br />
                         </div>
                     </div>
 
                 </div>
             }
         </div>
-
-        <a href="/Book/AddBook/" class="btn btn-primary btn-block m"> <i class="fa fa-book"></i> Yeni Kitap Ekle</a>
+        <br /><br />
+        <a href="/Loaned/Loan/" class="btn btn-primary btn-block m"> <i class="fa fa-book"></i> Yeni Kitap Ekle</a>
         @*<button class="btn btn-primary btn-block m"><i class="fa fa-book"></i> Yeni Kitap Ekle</button>*@
 
     </div>
