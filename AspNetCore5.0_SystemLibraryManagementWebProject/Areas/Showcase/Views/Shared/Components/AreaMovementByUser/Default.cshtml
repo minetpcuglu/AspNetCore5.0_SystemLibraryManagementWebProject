@@ -11,7 +11,7 @@
             }
             else
             {
-                <h3>Hiç Kitap okumamıssın ilk Kitabını Okumalısın..</h3>
+                <h3>Hiç Kitap okumamıssın,ilk Kitabını Okumalısın..</h3>
             }
 
 
@@ -31,7 +31,9 @@
                             <img alt="image" class="img-fluid" src="/img/@movement.Book.BookImage" width="85" height="100">
                         </div><br />
                         <small class="float-right text-navy">@movement.Book.Publisher Yayınevi / @movement.Book.PrintDate.ToShortDateString()</small>
-                        <b>Alış Tarihi: @movement.AlisTarihi.ToShortDateString()</b> /<b> Iade Tarihi : @movement.IadeTarihi.ToShortDateString()</b> <br>
+                        <b>Alış Tarihi: @movement.AlisTarihi.ToShortDateString()</b> /<b> Iade Tarihi : @movement.IadeTarihi.ToShortDateString() </b> <br>
+                        <br />
+                        <b style="font-palette:light"> Teslim Ettiginiz Tarih: @movement.UyeGetirdigiTarihi.ToShortDateString() </b> <br>
                         <br />
                         <small class="text-muted">@movement.Book.BookDescription  <strong></strong> </small>
                         <br />
