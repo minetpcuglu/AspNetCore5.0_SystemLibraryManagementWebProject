@@ -15,6 +15,24 @@ namespace DataAccessLayer.Concrete.Context
             optionsBuilder.UseSqlServer("server=DESKTOP-RQ8KHFA;database=LibraryManagementDb;integrated security=true;");
         }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Message>()
+                .HasOne(x => x.SenderUser)
+                .WithMany(y => y.UserSender)
+                .HasForeignKey(z => z.SenderId)
+                .OnDelete(DeleteBehavior.ClientSetNull);
+
+
+            modelBuilder.Entity<Message>()
+              .HasOne(x => x.ReceiverUser)
+              .WithMany(y => y.UserReceiver)
+              .HasForeignKey(z => z.ReceiverId)
+              .OnDelete(DeleteBehavior.ClientSetNull);
+        }
+
+
+
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Book> Books { get; set; }
@@ -26,5 +44,6 @@ namespace DataAccessLayer.Concrete.Context
         public DbSet<About> Abouts { get; set; }
         public DbSet<Contact> Contacts { get; set; }
         public DbSet<Notification> Notifications { get; set; }
+        public DbSet<Message> Messages { get; set; }
     }
 }

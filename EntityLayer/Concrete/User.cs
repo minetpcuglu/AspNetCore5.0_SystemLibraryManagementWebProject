@@ -27,5 +27,8 @@ namespace EntityLayer.Concrete
 
         /*İlişkiler*/
         public ICollection<Movement> Movements { get; set; }
+
+        public virtual ICollection<Message> UserSender { get; set; }
+        public virtual ICollection<Message> UserReceiver { get; set; }
     }
 }
