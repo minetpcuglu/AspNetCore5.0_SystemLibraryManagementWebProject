@@ -1,0 +1,59 @@
+﻿@model List<Book>
+
+<div class="row">
+    <div class="col-12 grid-margin">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Yeni Eklenen Kitaplar</h4>
+                <div class="table-responsive">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th> # </th>
+                                <th> Kitap </th>
+                                <th> Kategori </th>
+                                <th>Konu</th>
+                                <th>Sayfa Sayısı</th>
+                                <th>Tarih / Yayınevi</th>
+
+                                <th> Detaylar </th>
+
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @foreach (var book in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        <img src="/img/@book.BookImage" class="mr-2" alt="image">
+                                    </td>
+                                    <td> @book.BookName</td>
+                                    <td>
+                                        <label class="badge badge-gradient-success">@book.Category.Name</label>
+                                    </td>
+
+                                    <td>
+                                        <br />
+                                        <small class="text-muted">@book.BookDescription.Substring(0, book.BookDescription.Substring(0, 20).LastIndexOf(" "))...  <strong></strong> </small>
+                                        <br />
+                                    </td>
+
+
+                                    <td> @book.NumberPage</td>
+                                    <td> @book.PrintDate.ToShortDateString() & @book.Publisher</td>
+                                    <td>
+                                        <a href="/showcase/Book/GetlistBookId/@book.BookId" class="btn btn-dark">Detaylar</a>
+                                    </td>
+
+                                </tr>
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+ 
+        </div>
+      
+    </div>
+</div>
+
