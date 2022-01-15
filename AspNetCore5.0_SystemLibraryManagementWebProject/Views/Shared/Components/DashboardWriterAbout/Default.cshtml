@@ -1,0 +1,28 @@
+﻿@model List<Writer>
+
+<div class="row">
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Sitemizdeki bazı yazarlar</h4>
+
+                <div class="d-flex mt-5 align-items-top">
+                    @foreach (var writer in Model)
+                    {
+
+
+                        <img src="/img/@writer.Image" class="img-sm rounded-bottom mr-lg-3" alt="image">
+                        <div class="mb-0 flex-grow">
+                            <h5 class="mr-2 mb-2">@writer.Name @writer.Surname -
+                            <br /><b>@writer.Mail</b></h5>
+                        
+                        </div>
+                        <div class="ml-auto">
+                            <i class="mdi mdi-heart-outline text-muted"></i>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

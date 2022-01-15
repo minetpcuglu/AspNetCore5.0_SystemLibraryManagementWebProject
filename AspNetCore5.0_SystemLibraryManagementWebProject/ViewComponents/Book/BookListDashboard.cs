@@ -17,7 +17,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.ViewComponents.Book
 
         public IViewComponentResult Invoke()
         {
-            //var Value= c.Books.OrderByDescending(x => x.BookId).Select(x => x.BookName).Take(4).FirstOrDefault();//son eklenen blog
+          
             var Value = bookManager.GetListWithCategory().Take(7).ToList();//son eklenen kitaplar
             return View(Value);
         }
