@@ -9,5 +9,6 @@ namespace BusinessLayer.Abstract
 {
    public interface IMessageService : IGenericService<Message>
     {
+        List<Message> GetInboxListByUser(int id); //kullanıyıca göre veri getirme
     }
 }

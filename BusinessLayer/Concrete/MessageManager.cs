@@ -42,5 +42,9 @@ namespace BusinessLayer.Concrete
         {
             _messageDal.Update(t);
         }
+        public List<Message> GetInboxListByUser(int id)  //alıcı mesaj
+        {
+            return _messageDal.GetListWithMessageByUser(id);
+        }
     }
 }
