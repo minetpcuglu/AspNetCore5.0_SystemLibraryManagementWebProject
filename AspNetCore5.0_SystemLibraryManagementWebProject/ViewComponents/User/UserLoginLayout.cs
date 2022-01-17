@@ -9,14 +9,11 @@ using System.Threading.Tasks;
 
 namespace AspNetCore5._0_SystemLibraryManagementWebProject.ViewComponents.User
 {
-    public class UserLogin : ViewComponent
+    public class UserLoginLayout : ViewComponent
     {
         UserManager userManager = new UserManager(new EfUserRepository());
         public IViewComponentResult Invoke()
         {
-         
-
-
             var username = User.Identity.Name;  //sisteme giren kullanıcı adı soyadı
             ViewBag.value = username;
             Context c = new Context();
@@ -27,7 +24,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.ViewComponents.User
             ViewBag.Image = userImage;
             return View();
 
-       ;
+            ;
         }
     }
 }
