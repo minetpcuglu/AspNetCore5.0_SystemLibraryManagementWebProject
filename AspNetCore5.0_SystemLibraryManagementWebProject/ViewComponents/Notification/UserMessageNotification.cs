@@ -14,9 +14,11 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.ViewComponents.Notifi
         MessageManager messageManager = new MessageManager(new EfMessageRepository());
         public IViewComponentResult Invoke()
         {
-        
-            int id = 3;
-            var value = messageManager.GetInboxListByUser(id);
+            var user = User.Identity.Name;
+            Context c = new Context();
+            var userId = c.Users.Where(x => x.UserName == user).Select(y => y.UserId).FirstOrDefault();
+         
+            var value = messageManager.GetInboxListByUser(userId);
             return View(value);
         }
     }
