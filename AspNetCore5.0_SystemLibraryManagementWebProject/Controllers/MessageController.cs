@@ -21,5 +21,12 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             return View(value);
             
         }
+        public IActionResult MessageDetails(int id)
+        {
+
+
+            var value = messageManager.GetById(id);
+            return View(value);
+        }
     }
 }
