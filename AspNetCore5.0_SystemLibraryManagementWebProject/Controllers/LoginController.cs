@@ -49,35 +49,35 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 
 
 
-        //[HttpGet]
-        //public IActionResult Index()
-        //{
-        //    return View();
-        //}
+        [HttpGet]
+        public IActionResult AdminLogin()
+        {
+            return View();
+        }
 
-        //[HttpPost]
-        //public async Task<IActionResult> AdminIndex(Employee employee)
-        //{
-        //    Context c = new Context();
-        //    var dataValue = c.Users.FirstOrDefault(x => x.UserName == user.UserName && x.Password == user.Password);
+        [HttpPost]
+        public async Task<IActionResult> AdminLogin(Employee employee)
+        {
+            Context c = new Context();
+            var dataValue = c.Employees.FirstOrDefault(x => x.Email == employee.Email && x.Password == employee.Password);
 
-        //    if (dataValue != null)
-        //    {
-        //        var claims = new List<Claim>
-        //        {
-        //            new Claim(ClaimTypes.Name,user.UserName)
-        //        };
-        //        var useridentity = new ClaimsIdentity(claims, "a");
-        //        ClaimsPrincipal principal = new ClaimsPrincipal(useridentity);
-        //        await HttpContext.SignInAsync(principal);
-        //        return RedirectToAction("Index", "Dashboard");
-        //    }
-        //    else
-        //    {
-        //        ModelState.AddModelError("", "Hatalı Kullanıcı Adı/Şifre");
-        //        return View();
-        //    }
+            if (dataValue != null)
+            {
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name,employee.Email)
+                };
+                var useridentity = new ClaimsIdentity(claims, "a");
+                ClaimsPrincipal principal = new ClaimsPrincipal(useridentity);
+                await HttpContext.SignInAsync(principal);
+                return RedirectToAction("Index", "Writer");
+            }
+            else
+            {
+                ModelState.AddModelError("", "Hatalı Kullanıcı Adı/Şifre");
+                return View();
+            }
 
-        //}
+        }
     }
 }
