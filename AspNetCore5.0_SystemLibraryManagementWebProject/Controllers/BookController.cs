@@ -195,7 +195,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
                 {
                     workbook.SaveAs(stream);
                     var content = stream.ToArray();
-                    return File(content, "application / vnd.openxmlformats officedocument.spreadsheetml.sheet", "KütüphaneKitapListesi.xlsx");
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet","KütüphaneKitapListesi.xls");
                 }
             }
            
@@ -209,6 +209,12 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
                 new BookModel{Id=1,Name="10 Dakika ",BookNumberPage="200",BookPublisher="2022" },
             };
             return bookModels;
+        }
+
+
+        public IActionResult BlogListExcel()
+        {
+            return View();
         }
 
 
