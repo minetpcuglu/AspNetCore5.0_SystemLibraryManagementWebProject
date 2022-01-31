@@ -42,5 +42,18 @@ namespace BusinessLayer.ValidationRules.FluentValidation
                 return false;
             }
         }
+        //private bool IsPasswordValidRulesl(string arg)
+        //{
+        //        Regex userPassword = new Regex(@"^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[0-9])[A-Za-z\d]");
+
+
+        //    if (userPassword.IsMatch(arg))
+        //        return true;
+
+        //    else
+        //        return false;
+
+            
+        //}
     }
 }

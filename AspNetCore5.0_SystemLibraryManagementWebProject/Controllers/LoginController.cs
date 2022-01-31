@@ -7,6 +7,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Security.Claims;
+
 using System.Threading.Tasks;
 
 namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
@@ -78,6 +79,13 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
                 return View();
             }
 
+        }
+
+
+        public async Task< ActionResult> LogOut()
+        {
+          await  HttpContext.SignOutAsync();
+            return RedirectToAction("Index", "Login");
         }
     }
 }
