@@ -1,0 +1,15 @@
+﻿
+@{
+    ViewData["Title"] = "BookNameListExcel";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Kitap Excel </h1>
+<br />
+<a href="/Book/ExportDynamicExcelBookList" class="btn btn-outline-success">Excel Listesini İndir</a>
+<script>
+    function DownloadExcelBookList() {
+        wind.open("/Book/ExportDynamicExcelBookList");
+    }
+</script>
+

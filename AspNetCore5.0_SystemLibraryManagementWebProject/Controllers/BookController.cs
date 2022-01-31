@@ -2,6 +2,7 @@
 using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules.FluentValidation;
 using ClosedXML.Excel;
+using DataAccessLayer.Concrete.Context;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -213,6 +214,56 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 
 
         public IActionResult BlogListExcel()
+        {
+            return View();
+        }
+
+        public IActionResult ExportDynamicExcelBookList()
+        {
+            using (var workbook = new XLWorkbook())
+
+            {
+                var worksheet = workbook.Worksheets.Add("Kitap Listesi");
+                worksheet.Cell(1, 1).Value = "Kitap ID";
+                worksheet.Cell(1, 2).Value = " Adı";
+                worksheet.Cell(1, 3).Value = " Sayfa";
+                worksheet.Cell(1, 4).Value = " Yayınevi";
+
+                int BookRowCount = 2;
+                foreach (var book in BookList())
+                {
+                    worksheet.Cell(BookRowCount, 1).Value = book.Id;
+                    worksheet.Cell(BookRowCount, 2).Value = book.Name;
+                    worksheet.Cell(BookRowCount, 3).Value = book.BookNumberPage;
+                    worksheet.Cell(BookRowCount, 4).Value = book.BookPublisher;
+
+                    BookRowCount++;
+                }
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return File(content, "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "KütüphaneKitapListesi.xlsx");
+                }
+            }
+        }
+
+        public List<BookModelDinamik> BookList()
+        {
+            List<BookModelDinamik> bookModels = new List<BookModelDinamik>();
+            using (var c = new Context())
+            {
+                bookModels = c.Books.Select(x => new BookModelDinamik {
+                Id=x.BookId,
+                Name =x.BookName,
+                BookNumberPage=x.NumberPage,
+                BookPublisher=x.Publisher
+                }).ToList();
+            }
+            return bookModels;
+        }
+
+        public IActionResult BookNameListExcel()
         {
             return View();
         }
