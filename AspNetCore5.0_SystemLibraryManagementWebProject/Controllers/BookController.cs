@@ -1,5 +1,7 @@
-﻿using BusinessLayer.Concrete;
+﻿using AspNetCore5._0_SystemLibraryManagementWebProject.Models;
+using BusinessLayer.Concrete;
 using BusinessLayer.ValidationRules.FluentValidation;
+using ClosedXML.Excel;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
 using FluentValidation.Results;
@@ -21,16 +23,16 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
         WriterManager writerManager = new WriterManager(new EfWriterRepository());
         BookValidator bookRules = new BookValidator();
-        public IActionResult Index( int page = 1)
+        public IActionResult Index(int page = 1)
         {
-           
+
             var value = bookManager.GetListWithCategory();
             return View(value.ToPagedList(page, 8));
         }
 
-        public IActionResult BookReadAll( int id)
+        public IActionResult BookReadAll(int id)
         {
-           
+
             var value = bookManager.GetListWithCategoryBookId(id);
             return View(value);
         }
@@ -50,9 +52,9 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             List<SelectListItem> writerValue = (from x in writerManager.GetList()
                                                 select new SelectListItem
                                                 {
-                                                    Text = x.Name +" "+ x.Surname,
+                                                    Text = x.Name + " " + x.Surname,
 
-                                                      Value = x.WriterId.ToString()
+                                                    Value = x.WriterId.ToString()
                                                 }).ToList();
 
             ViewBag.value2 = writerValue;
@@ -74,7 +76,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
                     var extension = Path.GetExtension(file.FileName); //uzantiya ulasmak //.jpg .png
                     var randomFileName = string.Format($"{Guid.NewGuid()}{extension}");  //random bir sayı ile resim dosyaları birbirine çakışmaması
                     var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot\\img", randomFileName);
-                   book.BookImage = randomFileName;
+                    book.BookImage = randomFileName;
 
                     using (var stream = new FileStream(path, FileMode.Create))  //using içinde olması isimiz bittiginde otamatşk silinecek olması.
                     {
@@ -166,6 +168,49 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
             bookManager.Delete(value);
             return RedirectToAction("Index");
         }
+
+        //excel 
+        public IActionResult ExportStaticExcelBook()
+        {
+            using (var workbook = new XLWorkbook())
+
+            {
+                var worksheet = workbook.Worksheets.Add("Kitap Listesi");
+                worksheet.Cell(1, 1).Value = "Kitap ID";
+                worksheet.Cell(1, 2).Value = " Adı";
+                worksheet.Cell(1, 3).Value = " Sayfa";
+                worksheet.Cell(1, 4).Value = " Yayınevi";
+
+                int BookRowCount = 2;
+                foreach (var book in GetBookList())
+                {
+                    worksheet.Cell(BookRowCount, 1).Value = book.Id;
+                    worksheet.Cell(BookRowCount, 2).Value = book.Name;
+                    worksheet.Cell(BookRowCount, 3).Value = book.BookNumberPage;
+                    worksheet.Cell(BookRowCount, 4).Value = book.BookPublisher;
+
+                    BookRowCount++;
+                }
+                using (var stream = new MemoryStream())
+                {
+                    workbook.SaveAs(stream);
+                    var content = stream.ToArray();
+                    return File(content, "application / vnd.openxmlformats officedocument.spreadsheetml.sheet", "KütüphaneKitapListesi.xlsx");
+                }
+            }
+           
+        }
+
+        public List<BookModel> GetBookList()
+        {
+            List<BookModel> bookModels = new List<BookModel>
+            {
+                new BookModel{Id=1,Name="10 Dakika 34 Saniye",BookNumberPage="170",BookPublisher="2021" },
+                new BookModel{Id=1,Name="10 Dakika ",BookNumberPage="200",BookPublisher="2022" },
+            };
+            return bookModels;
+        }
+
 
     }
 }
