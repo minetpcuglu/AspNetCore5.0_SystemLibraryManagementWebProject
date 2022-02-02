@@ -1,0 +1,40 @@
+﻿@model Message
+@{
+    ViewData["Title"] = "NewMessage";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+
+<br />
+
+@using (Html.BeginForm("NewMessage", "Message", FormMethod.Post))
+{
+    <div class="col-12 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Mesaj Gönderme Sayfası</h4>
+                @Html.HiddenFor(x => x.MessageId, new { @class = "form-control" })
+            <form class="forms-sample">
+                <div class="form-group">
+                    <label for="exampleInputName1">Alıcı Kullanıcı Adı</label>
+                    @Html.TextBoxFor(x => x.ReceiverUser.UserName, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Konu</label>
+                    @Html.TextBoxFor(x => x.Subject, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">İçerik</label>
+                    @Html.TextBoxFor(x => x.MessageDetail, new { @class = "form-control" })
+
+                </div>
+
+
+                <button type="submit" class="btn btn-gradient-primary mr-2">Gönder</button>
+            </form>
+            </div>
+        </div>
+    </div>
+}
