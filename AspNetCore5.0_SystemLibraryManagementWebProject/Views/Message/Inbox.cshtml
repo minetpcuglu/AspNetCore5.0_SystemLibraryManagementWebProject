@@ -28,7 +28,7 @@
             <tr>
                 <th>@message.MessageId</th>
                 <td>@message.Subject</td>
-                <td><b>@message.SenderUser.Name</b></td>
+                <td><b>@message.SenderUser.Name  @message.SenderUser.Surname</b></td>
                 <td>@message.MessageDate.ToShortDateString()</td>
                 <td>
                     <a href="/Message/MessageDetails/@message.MessageId" class="btn btn-primary btn-sm">Detaylar</a>
