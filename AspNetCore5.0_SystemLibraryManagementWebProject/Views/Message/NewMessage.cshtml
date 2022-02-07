@@ -14,10 +14,16 @@
             <div class="card-body">
                 <h4 class="card-title">Mesaj Gönderme Sayfası</h4>
                 @Html.HiddenFor(x => x.MessageId, new { @class = "form-control" })
+               
             <form class="forms-sample">
                 <div class="form-group">
-                    <label for="exampleInputName1">Alıcı Kullanıcı Adı</label>
-                    @Html.TextBoxFor(x => x.ReceiverUser.UserName, new { @class = "form-control" })
+                    <label for="exampleInputName1">Alıcı Kullanıcı Id</label>
+                    @Html.TextBoxFor(x => x.SenderId, new { @class = "form-control" })
+
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputName1">Alıcı Kullanıcı Id</label>
+                    @Html.TextBoxFor(x => x.ReceiverId, new { @class = "form-control" })
 
                 </div>
                 <div class="form-group">

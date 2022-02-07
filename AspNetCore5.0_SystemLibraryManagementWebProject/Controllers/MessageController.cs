@@ -40,15 +40,13 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         [HttpGet]
         public IActionResult NewMessage()
         {
-
+    
             return View();
         }
 
         [HttpPost]
         public IActionResult NewMessage(Message message)
         {
-            //var mail = (string).Session["UserName"].ToString();
-            //message.ReceiverUser = mail.tostring();
 
             message.MessageDate.ToShortDateString();
             message.MessageStatus = true;
