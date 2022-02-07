@@ -1,5 +1,6 @@
 ﻿using DataAccessLayer.Abstract;
 using DataAccessLayer.Concrete.Context;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,6 +12,7 @@ namespace DataAccessLayer.Repositories.GenericRepository
 {
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
+        DbSet<T> _object; //objeye deger atamak için constroctur yıkıcı metotu kullanıyoruz
 
         public void Delete(T t)
         {
@@ -19,6 +21,12 @@ namespace DataAccessLayer.Repositories.GenericRepository
             c.SaveChanges();
            
         }
+
+        public T Get(Expression<Func<T, bool>> filter)
+        {
+            return _object.SingleOrDefault(filter);
+        }
+     
 
         public List<T> GetAll()
         {

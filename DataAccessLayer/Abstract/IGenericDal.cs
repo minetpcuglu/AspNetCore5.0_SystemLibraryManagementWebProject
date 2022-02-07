@@ -14,6 +14,7 @@ namespace DataAccessLayer.Abstract
         void Update(T t);
         List<T> GetAll();
         List<T> GetListAll(Expression<Func<T, bool>> filter);  //filter 
+       T Get(Expression<Func<T, bool>> filter);  //dışarıdann cir şart alıcak
         T GetById(int id);
     }
 

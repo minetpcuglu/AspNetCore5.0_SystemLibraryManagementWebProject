@@ -4,6 +4,7 @@ using EntityLayer.Concrete;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -30,7 +31,7 @@ namespace BusinessLayer.Concrete
 
         public Message GetById(int id)
         {
-            return _messageDal.GetById(id);
+            return _messageDal.Get(x=>x.MessageId==id);
         }
 
         public List<Message> GetList()
@@ -46,5 +47,7 @@ namespace BusinessLayer.Concrete
         {
             return _messageDal.GetListWithMessageByUser(id);
         }
+
+    
     }
 }
