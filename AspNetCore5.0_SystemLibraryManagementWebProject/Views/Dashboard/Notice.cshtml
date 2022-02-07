@@ -1,0 +1,36 @@
+﻿@model List<Notice>
+@{
+    ViewData["Title"] = "Notice";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+<h3>Duyurular</h3>
+<br />
+<br />
+<table class="table table-bordered  table-hover">
+    <tr>
+        <th>#</th>
+        <th>Kategori</th>
+        <th>İçerik</th>
+
+
+    </tr>
+    @foreach (var notice in Model)
+    {
+        <tr>
+            <td>@notice.Id</td>
+            <th>@notice.Category</th>
+            @if (notice.Content == null)
+            {
+                <th style="color:red">içerik yok</th>
+            }
+            else
+            {
+                <th>@notice.Content</th>
+            }
+
+
+
+        </tr>
+    }
+</table>
+<br />

@@ -13,14 +13,21 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         BookManager bookManager = new BookManager(new EfBookRepository());
        CategoryManager categoryManager = new CategoryManager(new EfCategoryRepository());
         MovementManager movementManager = new MovementManager(new EfMovementRepository());
-       
-       
+        NoticeManager noticeManager = new NoticeManager(new EfNoticeRepository());
+
+
         public IActionResult Index()
         {
             ViewBag.CountBookTotel = bookManager.GetList().Count();
             ViewBag.CountCategoryTotel = categoryManager.GetList().Count();
             ViewBag.CountLoanBookTotel = movementManager.GetList().Where(x => x.IslemDurum == true).Count();
             return View();
+        }
+        
+        public IActionResult Notice()
+        {
+            var value = noticeManager.GetList();
+            return View(value);
         }
     }
 }
