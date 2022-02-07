@@ -6,7 +6,7 @@
 }
 
 
-<h1>Yazarların Gelen Kutusu</h1>
+<h1>Kullanıcı Gelen Kutusu</h1>
 <br />
 
 <table class="table table-striped  table-hover table-bordered">
@@ -41,7 +41,7 @@
     </tbody>
 </table>
 <br />
-<a href="/Message/NewMessage/" class="btn btn-success btn-sm">Yeni Mesaj Oluştur</a>
+@*<a href="/Message/NewMessage/" class="btn btn-success btn-sm">Yeni Mesaj Oluştur</a>*@
 
 <td>
     <a class="btn btn-primary btn-sm" asp-controller="Message" asp-action="NewMessage" asp-route-username="@User.Identity.Name">Yeni Mesaj Oluştur</a>
