@@ -30,8 +30,11 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 
         public IActionResult UserReadAll(int id)
         {
-           
+
             var value = userManager.GetUserById(id);
+            var value2 = userManager.GetUserById(id).Select(x=>x.Name +" "+x.Surname).FirstOrDefault();
+            ViewBag.Name = value2;
+            
             return View(value);
            
         }
