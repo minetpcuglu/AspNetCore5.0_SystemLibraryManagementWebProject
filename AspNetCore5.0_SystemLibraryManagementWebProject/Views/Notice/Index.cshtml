@@ -11,6 +11,7 @@
         <th>#</th>
         <th>Kategori</th>
         <th>İçerik</th>
+       
         <th>Sil</th>
         <th>Güncelle</th>
 
@@ -20,10 +21,11 @@
 <tr>
     <td>@notice.Id</td>
     <th>@notice.Category</th>
+    <th>@notice.Content</th>
 
-    <td><a href="/User/UserBookHistory/@notice.Id" class="btn btn-outline-dark"> <b>Detaylar</b></a></td>
-    <td><a href="/User/DeleteUser/@notice.Id" id="DeleteBtn" onclick="return confirm('Silmek Istediginize Eminmisiniz');" class="btn btn-outline-danger"> <b>Sil</b></a></td>
-    <td><a href="/User/UserBookHistory/@notice.Id" class="btn btn-outline-warning"> <b>Güncelle</b></a></td>
+    
+    <td><a href="/Notice/DeleteNotice/@notice.Id" id="DeleteBtn" onclick="return confirm('Silmek Istediginize Eminmisiniz');" class="btn btn-outline-danger"> <b>Sil</b></a></td>
+    <td><a href="/Notice/NoticeUpdate/@notice.Id" class="btn btn-outline-warning"> <b>Güncelle</b></a></td>
 </tr>
     }
 </table>
