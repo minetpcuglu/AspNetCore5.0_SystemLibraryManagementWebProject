@@ -1,0 +1,39 @@
+﻿@model Notice
+@{
+    ViewData["Title"] = "AddNotice";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+
+<h1>Duyuru Ekleme Sayfası</h1>
+
+<br />
+<form method="post" asp-controller="Notice" asp-action="AddNotice">
+    <div>
+        <div>
+            <br />
+            <label asp-for="Category"> <b>Kategori:</b></label>
+            <input asp-for="Category" type="text" class="form-control" />
+            <span asp-validation-for="Category" class="text-danger"></span>
+
+            <br />
+            <br />
+            <label asp-for="Content"> <b>İçerik:</b></label>
+            <input asp-for="Content" type="text" class="form-control" />
+            <span asp-validation-for="Content" class="text-danger"></span>
+
+            <br />
+
+
+        </div>
+    </div>
+
+    <br>
+
+    <button type="submit" href="/Notice/AddNotice/" class="btn btn-outline-success"><b>Duyuru Oluştur</b></button>
+    <br />
+
+
+</form>
+
+
