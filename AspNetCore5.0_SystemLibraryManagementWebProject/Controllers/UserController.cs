@@ -20,6 +20,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
     public class UserController : Controller
     {
         UserManager userManager = new UserManager(new EfUserRepository());
+        MovementManager movementManager = new MovementManager(new EfMovementRepository());
         UserValidator userRules = new UserValidator();
         public IActionResult Index(int page=1)
         {
@@ -129,6 +130,11 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
                 }
             }
             return View();
+        }
+        public IActionResult UserBookHistory(int id)
+        {
+            var value = movementManager.GetListWithBookByUserId(id).ToList();
+            return View(value);
         }
     }
 }

@@ -11,6 +11,8 @@ namespace BusinessLayer.Abstract
    public interface IMessageService : IGenericService<Message>
     {
         List<Message> GetInboxListByUser(int id); //kullanıyıca göre veri getirme
-      
+        List<Message> GetListInbox(string p); //şartlı listeleme
+        List<Message> GetListSendbox(string p); //şartlı listeleme
+
     }
 }

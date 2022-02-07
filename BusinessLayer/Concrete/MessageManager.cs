@@ -31,7 +31,7 @@ namespace BusinessLayer.Concrete
 
         public Message GetById(int id)
         {
-            return _messageDal.Get(x=>x.MessageId==id);
+            return _messageDal.GetById(id);
         }
 
         public List<Message> GetList()
@@ -48,6 +48,15 @@ namespace BusinessLayer.Concrete
             return _messageDal.GetListWithMessageByUser(id);
         }
 
-    
+        public List<Message> GetListInbox(string p) //gelen mesaj
+        {
+
+            throw new NotImplementedException();
+        }
+
+        public List<Message> GetListSendbox(string p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
