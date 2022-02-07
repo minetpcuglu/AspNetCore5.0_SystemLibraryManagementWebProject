@@ -15,13 +15,19 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
     public class MessageController : Controller
     {
         MessageManager messageManager = new MessageManager(new EfMessageRepository());
-        public IActionResult Inbox() /*Gelen kutusu*/
+        public IActionResult Inbox(string userName) /*Gelen kutusu*/
         {
-           
-            int id = 3;
-            var value = messageManager.GetInboxListByUser(id);
-            return View(value);
+            Context c = new Context();
+            var user = c.Users.FirstOrDefault(x => x.UserName == userName);
 
+            if (user.UserId != 0)
+            {
+                var result = messageManager.GetInboxListByUser(user.UserId);
+                return View(result);
+            }
+
+            return null;
+            
         }
         public IActionResult MessageDetails(int id)
         {

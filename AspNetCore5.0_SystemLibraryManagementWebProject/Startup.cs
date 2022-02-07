@@ -87,7 +87,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject
 
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=Login}/{action=Index}/{id?}");
 
 
             });
