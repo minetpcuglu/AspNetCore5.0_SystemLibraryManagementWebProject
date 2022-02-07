@@ -1,0 +1,32 @@
+﻿@model List<Notice>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+<h3>Duyurular</h3>
+<br />
+<br />
+<table class="table table-bordered  table-hover">
+    <tr>
+        <th>#</th>
+        <th>Kategori</th>
+        <th>İçerik</th>
+        <th>Sil</th>
+        <th>Güncelle</th>
+
+    </tr>
+    @foreach (var notice in Model)
+    {
+<tr>
+    <td>@notice.Id</td>
+    <th>@notice.Category</th>
+
+    <td><a href="/User/UserBookHistory/@notice.Id" class="btn btn-outline-dark"> <b>Detaylar</b></a></td>
+    <td><a href="/User/DeleteUser/@notice.Id" id="DeleteBtn" onclick="return confirm('Silmek Istediginize Eminmisiniz');" class="btn btn-outline-danger"> <b>Sil</b></a></td>
+    <td><a href="/User/UserBookHistory/@notice.Id" class="btn btn-outline-warning"> <b>Güncelle</b></a></td>
+</tr>
+    }
+</table>
+<br />
+<a href="/User/AddUser/" class="btn btn-primary">Yeni Duyuru Ekle</a>  @*basına admin eklendi*@
+<br />
