@@ -43,6 +43,7 @@ namespace DataAccessLayer.Concrete.Context
         public DbSet<Writer> Writers { get; set; }
         public DbSet<About> Abouts { get; set; }
         public DbSet<Contact> Contacts { get; set; }
+        public DbSet<Notice> Notices { get; set; }
         public DbSet<Notification> Notifications { get; set; }
         public DbSet<Message> Messages { get; set; }
     }
