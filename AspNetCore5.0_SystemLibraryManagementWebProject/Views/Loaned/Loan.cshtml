@@ -12,18 +12,18 @@
 <form method="post" asp-controller="Loaned" asp-action="Loan" enctype="multipart/form-data">
 
     <div>
-        <label asp-for="UserId"> <b>Üye ID:</b></label>
-        <input asp-for="UserId" class="form-control" />
+        <label asp-for="UserId"> <b>Üye:</b></label>
+        @Html.DropDownListFor(x => x.UserId, (List<SelectListItem>)ViewBag.value, new { @class = "form-control" })
         <span asp-validation-for="UserId" class="text-danger"></span>
     </div>
     <div>
-        <label asp-for="BookId"> <b>Kitap ID:</b></label>
-        <input asp-for="BookId"  class="form-control" />
+        <label asp-for="BookId"> <b>Kitap :</b></label>
+        @Html.DropDownListFor(x => x.BookId, (List<SelectListItem>)ViewBag.value3, new { @class = "form-control" })
         <span asp-validation-for="BookId" class="text-danger"></span>
     </div>
     <div>
-        <label asp-for="EmployeeId"> <b>Personel ID:</b></label>
-        <input asp-for="EmployeeId" class="form-control" />
+        <label asp-for="EmployeeId"> <b>Personel :</b></label>
+        @Html.DropDownListFor(x => x.EmployeeId, (List<SelectListItem>)ViewBag.value2, new { @class = "form-control" })
         <span asp-validation-for="EmployeeId" id="txtdescription" class="text-danger"></span>
 
     </div>
