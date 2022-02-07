@@ -26,7 +26,7 @@ namespace DataAccessLayer.EntityFramework
             
                 using (var c = new Context())
                 {
-                    return c.Movements.Include(x => x.Book).Where(x => x.UserId == id /*&& x.BookStatus == true*/).ToList(); ;
+                    return c.Movements.Include(x => x.Book).Include(x=>x.Employee).Where(x => x.UserId == id /*&& x.BookStatus == true*/).ToList(); ;
                 }
  
 

@@ -1,8 +1,27 @@
-﻿
+﻿@model List<Movement>
 @{
     ViewData["Title"] = "UserBookHistory";
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
-<h1>UserBookHistory</h1>
+<h1>Kullanıcı Kitap Geçmişi</h1>
 
+
+<br />
+<table class="table table-danger">
+    <tr>
+        <th>Kitap Adı</th>
+        <th>Personel</th>
+        <th>Alış Tarihi</th>
+        <th>Iade Tarihi</th>
+    </tr>
+    @foreach (var movement in Model)
+    {
+        <tr>
+            <td>@movement.Book.BookName</td>
+            <td>@movement.Employee.NameSurname</td>
+            <td>@movement.AlisTarihi.ToShortDateString()</td>
+            <td>@movement.IadeTarihi.ToShortDateString()</td>
+        </tr>
+    }
+</table>
