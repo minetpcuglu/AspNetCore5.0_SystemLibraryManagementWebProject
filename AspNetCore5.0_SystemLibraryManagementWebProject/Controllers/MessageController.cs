@@ -15,9 +15,10 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
     public class MessageController : Controller
     {
         MessageManager messageManager = new MessageManager(new EfMessageRepository());
+        Context c = new Context();
         public IActionResult Inbox(string userName) /*Gelen kutusu*/
         {
-            Context c = new Context();
+
             var user = c.Users.FirstOrDefault(x => x.UserName == userName);
 
             if (user.UserId != 0)
@@ -28,7 +29,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 
 
             return null;
-            
+
         }
         public IActionResult MessageDetails(int id)
         {
@@ -41,15 +42,17 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
         [HttpGet]
         public IActionResult NewMessage()
         {
-    
-            return View();
+
+            return View() ;
+          
         }
 
         [HttpPost]
         public IActionResult NewMessage(Message message)
         {
 
-            message.MessageDate.ToShortDateString();
+            var value = DateTime.Now;
+          
             message.MessageStatus = true;
             messageManager.Add(message);
             
