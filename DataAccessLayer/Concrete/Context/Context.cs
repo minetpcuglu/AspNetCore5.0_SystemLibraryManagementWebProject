@@ -1,4 +1,5 @@
 ﻿using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete.Context
 {
-   public class Context:DbContext
+   public class Context : IdentityDbContext<AppUser, AppRole, int>
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -29,6 +30,8 @@ namespace DataAccessLayer.Concrete.Context
               .WithMany(y => y.UserReceiver)
               .HasForeignKey(z => z.ReceiverId)
               .OnDelete(DeleteBehavior.ClientSetNull);
+
+            base.OnModelCreating(modelBuilder); //identity migration hata çözümü
         }
 
 
