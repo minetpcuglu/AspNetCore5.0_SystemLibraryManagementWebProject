@@ -12,7 +12,6 @@ using System.Threading.Tasks;
 
 namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 {
-    [AllowAnonymous]
     public class LoginController : Controller
     {
         [HttpGet]

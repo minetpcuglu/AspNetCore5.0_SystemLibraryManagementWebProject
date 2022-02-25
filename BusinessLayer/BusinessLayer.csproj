@@ -5,6 +5,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.3.0" />
     <PackageReference Include="AutoMapper" Version="11.0.1" />
     <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
     <PackageReference Include="FluentValidation" Version="10.3.5" />
@@ -14,10 +15,6 @@
   <ItemGroup>
     <ProjectReference Include="..\DataAccessLayer\DataAccessLayer.csproj" />
     <ProjectReference Include="..\EntityLayer\EntityLayer.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="AutoMapper\" />
   </ItemGroup>
 
 </Project>

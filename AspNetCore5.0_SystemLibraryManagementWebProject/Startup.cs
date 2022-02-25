@@ -1,9 +1,14 @@
+using BusinessLayer.AutoMapper;
+using DataAccessLayer.Concrete.Context;
+using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -27,24 +32,41 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject
         public void ConfigureServices(IServiceCollection services)
         {
 
+            //#region context
+            //services.AddDbContext<DbContext>();
+            //services.AddIdentity<AppUser, AppRole>().AddEntityFrameworkStores<Context>();
+
+            //#endregion
+
+
             services.AddControllersWithViews();
 
             //proje seviyesinde Authorization iþlemi 
-            services.AddMvc(config =>
-            {
-                var policy = new AuthorizationPolicyBuilder()
-                    .RequireAuthenticatedUser()
-                    .Build();
-                config.Filters.Add(new AuthorizeFilter(policy));
-            });
+            //services.AddMvc(config =>
+            //{
+            //    var policy = new AuthorizationPolicyBuilder()
+            //        .RequireAuthenticatedUser()
+            //        .Build();
+            //    config.Filters.Add(new AuthorizeFilter(policy));
+            //});
 
             services.AddMvc();
-            services.AddAuthentication(
-                CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(x =>
-                {
-                    x.LoginPath = "/Login/Index/";
-                });
+
+            //#region IoC
+            //services.AddTransient<UserManager<AppUser>>();
+            //services.AddTransient<UserManager<AppRole>>();
+            //#endregion
+
+            #region Automapper
+            services.AddAutoMapper(typeof(UserMapping));
+            #endregion
+         
+            //services.AddAuthentication(
+            //    CookieAuthenticationDefaults.AuthenticationScheme)
+            //    .AddCookie(x =>
+            //    {
+            //        x.LoginPath = "/Login/Index/";
+            //    });
 
 
         }
@@ -88,7 +110,6 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Login}/{action=Index}/{id?}");
-
 
             });
         }
