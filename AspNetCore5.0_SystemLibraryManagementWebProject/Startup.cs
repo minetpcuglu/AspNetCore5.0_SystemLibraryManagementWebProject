@@ -1,4 +1,4 @@
-using BusinessLayer.AutoMapper;
+﻿using BusinessLayer.AutoMapper;
 using DataAccessLayer.Concrete.Context;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -38,10 +38,25 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject
 
             //#endregion
 
+            services.AddDbContext<Context>();
+            services.AddIdentity<AppUser, AppRole>(x =>
+            {
+                x.SignIn.RequireConfirmedAccount = false;
+                x.SignIn.RequireConfirmedEmail = false;
+                x.SignIn.RequireConfirmedPhoneNumber = false;
+                x.User.RequireUniqueEmail = false;
+                x.Password.RequiredLength = 3; // => password e girilen karakterin minimum 3 olmasýný saðladýk. Varsayýlan deðer 6 dýr.
+                x.Password.RequiredUniqueChars = 0;
+                x.Password.RequireLowercase = false; // =>özelliði; þifre içerisinde en az 1 adet küçük harf zorunluluðu olmasý özelliðini false yaptýk.
+                x.Password.RequireUppercase = false; // => özelliði; þifre içerisinde en az 1 adet büyük harf zorunluluðu olmasýný false yaptýk.
+                x.Password.RequireNonAlphanumeric = false; // =>  özelliði; þifre içerisinde en az 1 adet alfanümerik karakter zorunluluðu olmasý özelliði false.
+            }).AddEntityFrameworkStores<Context>();
+
+
 
             services.AddControllersWithViews();
 
-            //proje seviyesinde Authorization i�lemi 
+            //proje seviyesinde Authorization işlemi 
             //services.AddMvc(config =>
             //{
             //    var policy = new AuthorizationPolicyBuilder()
@@ -86,13 +101,13 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject
             }
 
 
-            //hata sayfas� kullan�m tan�m�
+            //hata sayfası kullanım tanımı
             app.UseStatusCodePagesWithReExecute("/ErrorPage/Error404", "?code{0}");
 
             app.UseHttpsRedirection();
             app.UseStaticFiles();
 
-            //Authentication i�lemi
+            //Authentication işlemi
             app.UseAuthentication();
 
             app.UseRouting();
