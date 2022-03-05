@@ -1,4 +1,5 @@
 ﻿using BusinessLayer.AutoMapper;
+using BusinessLayer.ValidationRules.CustomValidation;
 using DataAccessLayer.Concrete.Context;
 using EntityLayer.Concrete;
 using Microsoft.AspNetCore.Authentication.Cookies;
@@ -51,7 +52,9 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject
                 x.Password.RequireUppercase = false; // => özelliði; þifre içerisinde en az 1 adet büyük harf zorunluluðu olmasýný false yaptýk.
                 x.Password.RequireNonAlphanumeric = false; // =>  özelliði; þifre içerisinde en az 1 adet alfanümerik karakter zorunluluðu olmasý özelliði false.
                 x.Password.RequireDigit = false; // =>  özelliði; þifre içerisinde en az 1 adet rakam olması false.
-            }).AddEntityFrameworkStores<Context>();
+            }).AddPasswordValidator<CustomSignInPasswordValidation>()
+         .AddErrorDescriber<SignInCustomIdentityErrorDescriber>()
+         .AddEntityFrameworkStores<Context>();
 
 
 
@@ -76,7 +79,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject
             #region Automapper
             services.AddAutoMapper(typeof(UserMapping));
             #endregion
-         
+
             //services.AddAuthentication(
             //    CookieAuthenticationDefaults.AuthenticationScheme)
             //    .AddCookie(x =>
@@ -117,10 +120,10 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject
 
             app.UseEndpoints(endpoints =>
             {
-               endpoints.MapControllerRoute(
-               name: "areas",
-               pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
-                );
+                endpoints.MapControllerRoute(
+                name: "areas",
+                pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}"
+                 );
 
 
                 endpoints.MapControllerRoute(
