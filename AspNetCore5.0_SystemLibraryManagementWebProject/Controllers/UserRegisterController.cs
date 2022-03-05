@@ -42,12 +42,8 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject.Controllers
 
                 }
                 else
-                {
-                    foreach (var item in result.Errors)
-                    {
-                        ModelState.AddModelError("", item.Description);
-                    }
-                }
+                    result.Errors.ToList().ForEach(e => ModelState.AddModelError(e.Code, e.Description));
+
             }
             return View(model);
         }

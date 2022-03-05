@@ -50,6 +50,7 @@ namespace AspNetCore5._0_SystemLibraryManagementWebProject
                 x.Password.RequireLowercase = false; // =>özelliði; þifre içerisinde en az 1 adet küçük harf zorunluluðu olmasý özelliðini false yaptýk.
                 x.Password.RequireUppercase = false; // => özelliði; þifre içerisinde en az 1 adet büyük harf zorunluluðu olmasýný false yaptýk.
                 x.Password.RequireNonAlphanumeric = false; // =>  özelliði; þifre içerisinde en az 1 adet alfanümerik karakter zorunluluðu olmasý özelliði false.
+                x.Password.RequireDigit = false; // =>  özelliði; þifre içerisinde en az 1 adet rakam olması false.
             }).AddEntityFrameworkStores<Context>();
 
 
