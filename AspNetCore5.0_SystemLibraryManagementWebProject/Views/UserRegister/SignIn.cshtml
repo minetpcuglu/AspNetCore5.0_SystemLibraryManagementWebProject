@@ -3,45 +3,119 @@
     Layout = null;
 }
 
-<h3>Yazar Kayıt Ekleme Sayfası</h3>
-
-<hr />
-    <form asp-action="SignIn">
-        <table>
-            <tr>
-                <td colspan="3"><div asp-validation-summary="All"></div></td>
-            </tr>
-
-            <tr>
-                <td><label asp-for="UserName"></label></td>
-                <td><input asp-for="UserName" /></td>
-                <td><span asp-validation-for="UserName"></span></td>
-            </tr>
-            <tr>
-                <td><label asp-for="Mail"></label></td>
-                <td><input asp-for="Mail" /></td>
-                <td><span asp-validation-for="Mail"></span></td>
-            </tr>
-            <tr>
-                <td><label asp-for="NameSurname"></label></td>
-                <td><input asp-for="NameSurname" /></td>
-                <td><span asp-validation-for="NameSurname"></span></td>
-            </tr>
-            <tr>
-                <td><label asp-for="ConfirmPassword"></label></td>
-                <td><input asp-for="ConfirmPassword" /></td>
-                <td><span asp-validation-for="ConfirmPassword"></span></td>
-            </tr>
-            <tr>
-                <td><label asp-for="Password"></label></td>
-                <td><input asp-for="Password" /></td>
-                <td><span asp-validation-for="Password"></span></td>
-
-            </tr>
-            <tr>
-                <td colspan="3"><input type="submit" value="Üye Ol" /></td>
-            </tr>
 
 
-        </table>
-    </form>
+<!--A Design by W3layouts
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Öğrenci Üye Olma Paneli</title>
+    <!-- custom-theme -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="keywords" content="Course Register Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script type="application/x-javascript">
+        addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false);
+               function hideURLbar(){ window.scrollTo(0,1); } </script>
+    <!-- //custom-theme -->
+    <!-- css files -->
+    <link href="//fonts.googleapis.com/css?family=Poppins:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=devanagari,latin-ext" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800,800i&amp;subset=cyrillic,cyrillic-ext,greek,greek-ext,latin-ext,vietnamese" rel="stylesheet">
+    <link href="~/webregister/css/style.css" type="text/css" rel="stylesheet" media="all">
+    <!-- //css files -->
+
+    <link rel="stylesheet" href="~/webregister/css/font-awesome.css"> <!-- Font-Awesome-Icons-CSS -->
+
+</head>
+<!-- body starts -->
+<body>
+    <!-- section -->
+    <section class="register">
+        <div class="register-full">
+            <div class="register-left">
+                <div class="register">
+                    <div class="logo">
+                        <a href="#"><span class="fa fa-graduation-cap" aria-hidden="true"></span></a>
+                    </div>
+                    <h1>Öğrenci Kayıt Olma Ekranı</h1>
+                    <p>
+                        Kütüphanemize hoşgeldiniz,giriş yapmak için lütfen üye olun...
+                    </p>
+                    <div class="content3">
+                        <ul>
+                            <li><a class="" href="/Login/Index/"> Giriş Yap</a></li>
+                            <li><a class="read" href="/Showcase/Index/"> Anasayfaya Dön</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="register-right">
+                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                <div class="register-in">
+
+                    <h2><span class="fa fa-pencil"></span> Kayıt Ol</h2>
+                    <div class="register-form">
+                        <form asp-action="SignIn">
+                            <table>
+                                <tr>
+                                   
+                                    <td colspan="3"><div asp-validation-summary="All"></div></td>
+                                  
+                                </tr>
+
+                                <tr>
+                                    <td><label asp-for="UserName"></label></td>
+                                    <td><input asp-for="UserName" /></td>
+                                    <td><span asp-validation-for="UserName"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><label asp-for="Mail"></label></td>
+                                    <td><input asp-for="Mail" /></td>
+                                    <td><span asp-validation-for="Mail"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><label asp-for="NameSurname"></label></td>
+                                    <td><input asp-for="NameSurname" /></td>
+                                    <td><span asp-validation-for="NameSurname"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><label asp-for="Adress"></label></td>
+                                    <td><input asp-for="Adress" /></td>
+                                    <td><span asp-validation-for="Adress"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><label asp-for="ConfirmPassword"></label></td>
+                                    <td><input asp-for="ConfirmPassword" /></td>
+                                    <td><span asp-validation-for="ConfirmPassword"></span></td>
+                                </tr>
+                                <tr>
+                                    <td><label asp-for="Password"></label></td>
+                                    <td><input asp-for="Password" /></td>
+                                    <td><span asp-validation-for="Password"></span></td>
+
+                                </tr>
+                                <tr>
+                                    <td colspan="3"><input type="submit" value="Üye Ol" /></td>
+                                </tr>
+                            </table>
+                        </form>
+                    </div>
+                </div>
+                <div class="clear"> </div>
+            </div>
+            <div class="clear"> </div>
+        </div>
+        <!-- copyright -->
+        <p class="agile-copyright"> 09.01.2022 ©Mine Tocuoglu | Design by <a href="https://w3layouts.com/" target="_blank">W3layouts</a></p>
+        <!-- //copyright -->
+    </section>
+    <!-- //section -->
+</body>
+<!-- //body ends -->
+</html>

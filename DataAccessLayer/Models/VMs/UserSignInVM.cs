@@ -16,6 +16,7 @@ namespace DataAccessLayer.Models.VMs
         [Display(Name = "Şifre")]
         [Required(ErrorMessage = "Şifre Giriniz")]
         public string Password { get; set; }
+        public string Adress { get; set; }
 
         [Display(Name = "Şifre")]
         [Compare("Password", ErrorMessage = "Şifre eşleşmesi gerçekleşmedi")] //şifre eşleştirmesi
