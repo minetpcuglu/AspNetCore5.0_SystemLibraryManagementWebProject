@@ -1,4 +1,5 @@
-﻿@{ 
+﻿@model LoginDTO
+@{ 
     Layout = null;
 }
 
@@ -40,7 +41,7 @@
                 <label>Kullanıcı Adı:</label>
                 <div class="group">
                     <i class="fas fa-user"></i>
-                    <input type="text" class="form-control" name="UserName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Kullanıcı Adı" required="">
+                    <input type="text" class="form-control" asp-for="@Model.UserName" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Kullanıcı Adı" required="">
 
                 </div>
             </div>
@@ -48,7 +49,7 @@
                 <label>Şifre:</label>
                 <div class="group">
                     <i class="fas fa-unlock"></i>
-                    <input type="password" class="form-control" name="Password" id="exampleInputPassword1" placeholder="Şifre" required="">
+                    <input type="password" class="form-control" asp-for=@Model.Password id="exampleInputPassword1" placeholder="Şifre" required="">
                 </div>
             </div>
             <div class="forgot">
